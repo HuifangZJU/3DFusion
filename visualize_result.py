@@ -11,8 +11,7 @@ from lib.dataset.coop_dataset import CooperativeDataset, DataLoader, Transform
 from lib.models.voxelnet import Voxelnet
 from lib.functions import load_helper
 from lib.functions.nms import nms
-from lib.evaluator import metrics
-
+from lib.evaluator.iou import iou
 
 def load_config(config_path):
     assert(os.path.exists(config_path))
@@ -140,13 +139,13 @@ def drawActors(reprs, fig, color, line_width=1):
     for r in reprs:
         b = getBBpts(r)
         drawBox(b,fig,color,line_width)
-def drawActorswithScores(reprs, fig, color, score, line_width=1):
+def drawActorswithScores(reprs, fig, color, score, iou, line_width=1):
 
     '''Given array of n actor repr, generate vertices and plot lines in 3D vis'''
-    for r,s in zip(reprs,score):
+    for r,s,u in zip(reprs,score,iou):
         b = getBBpts(r)
         e = np.random.randint(0,3,1)[0]
-        mlab.text3d(b[e,0],b[e,1],b[e,2],str(s),color=color,figure=fig,line_width=line_width,scale=0.3)
+        mlab.text3d(b[e,0],b[e,1],b[e,2],str(s)[:5]+'  '+str(u)[:5],color=color,figure=fig,line_width=line_width,scale=0.3)
         drawBox(b, fig, color, line_width)
 
 parser = argparse.ArgumentParser()
@@ -222,15 +221,29 @@ for i in range(0,1000):
         pts = points[0]
         dets = np.concatenate(dets)
         dets = nms(dets, 0.1, 0.01)
-        detections = getAnchRepr(dets)
-
+        if dets.size == 0:
+            continue
+        #get detection scores
         detection_scores = dets[:,-1]
-        groundtruth = getAnchRepr(gts[0])
+        #get ious
+        # Ignore score
+        dets = dets[:, :7]
+        # Calculates IoU of all pred and all gts
+        predR = np.repeat(dets,gts[0].shape[0],axis=0).reshape(-1,7)
+        gtR = np.repeat(gts,dets.shape[0],axis=0).reshape(-1,7)
+        predR = torch.from_numpy(predR).float()
+        gtR = torch.from_numpy(gtR).float()
+        ious = iou(predR, gtR, bv=True).reshape(dets.shape[0], gts[0].shape[0])  # Results in vector [n_pred, n_gt] of IOUs
+        # Get max IOU for each pred
+        mIOU, gIdx = torch.max(ious, dim=1)
+        mIOU = mIOU.numpy()
         # Seed for random colours
         color = tuple(np.random.rand(3).tolist())
         # Plot points
+        detections = getAnchRepr(dets)
+        groundtruth = getAnchRepr(gts[0])
         mlab.points3d(pts[:, 0], pts[:, 1], pts[:, 2], mode='point', color=color, figure=fig)
-        drawActorswithScores(detections, fig, color, detection_scores)
+        drawActorswithScores(detections, fig, color, detection_scores,mIOU)
     drawActors(groundtruth, fig, (1,0,0), line_width= 2)
     try:
         mlab.show()
@@ -247,18 +260,6 @@ for i in range(0,1000):
 
 
 
-    # print('Started early fusion predictions')
-    # test_dataset.selectedCameras = cameras
-    # detectionsEarly, gts = detectForCam(cfg, _input, model)
-    # print(len(detectionsEarly))
-    # print(detectionsEarly[0])
-    # print('Finished early fusion predictions')
-    #
-    # print('Started hybrid fusion predictions')
-    # test_dataset.selectedCameras = cameras
-    # test_dataset.R = cfg['shared']['hybrid_radius']
-    # detectionsHybrid, gts = detectForCam(cfg, _input, model)
-    # print('Finished hybrid fusion predictions')
 
 
 
