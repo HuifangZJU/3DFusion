@@ -1,2 +1,2 @@
 # 3DFusion
-Cooperation of collective 3D detection with Shaocheng
+Cooperation with Shaocheng on collective 3D detection project
