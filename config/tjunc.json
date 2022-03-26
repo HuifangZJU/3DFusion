@@ -1,7 +1,7 @@
 {
     "shared": {
-        "train_data": "assets/dataset/col3.hdf5",
-        "test_data": "assets/dataset/col4.hdf5",
+        "train_data": "/mnt/tank/datasets/infralidar/dataset/col3.hdf5",
+        "test_data": "/mnt/tank/datasets/infralidar/dataset/col4.hdf5",
         "area_extents": [0, 40, 0, 4, 0, 80],
         "reference_loc": [84, 0, 156],
         "hybrid_radius": 20,
@@ -31,7 +31,7 @@
         "use_ohem": false
     },
     "train": {
-      "save_dir": "assets/saved_models",
+      "save_dir": "/mnt/tank/shaocheng/3Dfusion/saved_models_kl_limits",
       "epochs": 30,
       "step_epochs": 10,
       "lr": 0.01,
@@ -70,7 +70,7 @@
         "pre_nms_top_n": 2000,
         "post_nms_top_n": 300,
         "roi_min_size": 0,
-        "score_threshold": 0.1
+        "score_threshold": 0.7
     },
     "test_predict_bbox_cfg": {
         "nms_iou_thresh": 0.5,

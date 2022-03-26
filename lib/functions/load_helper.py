@@ -40,7 +40,7 @@ def restore_from(model, optimizer, ckpt_path):
     device = torch.cuda.current_device()
     ckpt = torch.load(ckpt_path, map_location = lambda storage, loc: storage.cuda(device))
     epoch = ckpt['epoch']
-    best_recall = ckpt['best_recall']
+    #best_recall = ckpt['best_recall']
     ckpt_model_dict = ckpt['state_dict']
     check_keys(model, ckpt_model_dict)
     model.load_state_dict(ckpt_model_dict, strict=False)
@@ -53,7 +53,7 @@ def restore_from(model, optimizer, ckpt_path):
                 if isinstance(v, torch.Tensor):
                     state[k] = v.to(device)
 
-    return model, optimizer, epoch, best_recall
+    return model, optimizer, epoch
 
 def load_checkpoint(model, ckpt_path):
     logger.info('load checkpoint from {}'.format(ckpt_path))

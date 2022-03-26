@@ -19,7 +19,11 @@ class NaiveRpnHead(nn.Module):
         self.conv_cls = nn.Conv2d(
             512, num_anchors * num_classes, kernel_size=1, stride=1)
         self.conv_loc = nn.Conv2d(
+            512, num_anchors * 7, kernel_size=1, stride=1)   # LUO: 7 means what?
+        #TODO: GENERATE VARIATION
+        self.conv_variation = nn.Conv2d(
             512, num_anchors * 7, kernel_size=1, stride=1)
+        self.regu_variation = nn.Sigmoid()
 
     def forward(self, x):
         '''
@@ -27,13 +31,15 @@ class NaiveRpnHead(nn.Module):
             x: [B, inplanes, h, w], input feature
         Return:
             pred_cls: [B, num_anchors, h, w]
-            pred_loc: [B, num_anchors*4, h, w]
+            pred_loc: [B, num_anchors*7, h, w]
         '''
         x = self.conv3x3(x)
         x = self.relu3x3(x)
         pred_cls = self.conv_cls(x)
         pred_loc = self.conv_loc(x)
-        return pred_cls, pred_loc
+        pred_loc_variation = self.conv_variation(x)
+        pred_loc_variation = self.regu_variation(pred_loc_variation)
+        return pred_cls, pred_loc, pred_loc_variation   # LUO: what is the format of them?
 
 class RPN(nn.Module):
     def __init__(self, num_classes, num_anchors):
@@ -94,5 +100,6 @@ class RPN(nn.Module):
         logger.debug('deconv2 shape: {}'.format(deconv2.size()))
         logger.debug('deconv3 shape: {}'.format(deconv3.size()))
         out = torch.cat((deconv1, deconv2, deconv3), 1) ###################
-        rpn_pred_cls, rpn_pred_loc = self.rpn_head(out)
-        return rpn_pred_cls, rpn_pred_loc
+        rpn_pred_cls, rpn_pred_loc, rpn_pred_loc_variation = self.rpn_head(out)
+
+        return rpn_pred_cls, rpn_pred_loc, rpn_pred_loc_variation

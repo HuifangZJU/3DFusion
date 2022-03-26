@@ -118,7 +118,7 @@ def main(args):
         #Get predictions and gt
         dets, gts = detectForCam(cfg, test_loader, model)
         detectionsLate.append(dets)
-        print(f'Finished computing late-fusion detections for cam {cam}')
+        print('Finished computing late-fusion detections for cam {cam}')
 
 
     print('Started early fusion predictions')
@@ -128,6 +128,8 @@ def main(args):
 
     print('Started hybrid fusion predictions')
     test_dataset.selectedCameras = cameras
+    print(test_dataset.R)
+    test = input()
     test_dataset.R = cfg['shared']['hybrid_radius']
     detectionsHybrid, gts = detectForCam(cfg, test_loader, model)
     print('Finished hybrid fusion predictions')
@@ -173,9 +175,9 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', dest='config', required=True,
+    parser.add_argument('--config', default='config/tjunc.json', required=False,
                         help='path to config file')
-    parser.add_argument('--checkpoint', type=str, required=True ,
+    parser.add_argument('--checkpoint', default='assets/saved_models/checkpoint_TJunc.pth', type=str, required=False,
                         help='path to model checkpoint')
     parser.add_argument('-b', '--batch_size', default=4, type=int,
                         help='mini-batch size (default: 4)')

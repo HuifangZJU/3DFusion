@@ -14,7 +14,8 @@ def init_log(name, log_dir, level = logging.INFO):
     logger.setLevel(level)
     ch = logging.StreamHandler()
     ch.setLevel(level)
-    format_str = '%(asctime)s-%(levelname)s-%(filename)s#%(lineno)d:%(message)s'
+    #format_str = '%(asctime)s-%(levelname)s-%(filename)s#%(lineno)d:%(message)s'
+    format_str = '%(message)s'
     formatter = logging.Formatter(format_str)
     ch.setFormatter(formatter)
     logger.addHandler(ch)
@@ -23,7 +24,8 @@ def init_log(name, log_dir, level = logging.INFO):
     log_path = os.path.join(log_dir, 'log.log')
     f_handler = logging.FileHandler(log_path)
     f_handler.setLevel(level)
-    f_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(filename)s[:%(lineno)d] - %(message)s"))
+    #f_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(filename)s[:%(lineno)d] - %(message)s"))
+    f_handler.setFormatter(logging.Formatter("%(message)s"))
     logger.addHandler(f_handler)
 
 # init_log('global')
@@ -36,7 +38,9 @@ def print_speed(i, i_time, n):
     remaining_day = math.floor(remaining_time / 86400)
     remaining_hour = math.floor(remaining_time / 3600 - remaining_day * 24)
     remaining_min = math.floor(remaining_time / 60 - remaining_day * 1440 - remaining_hour * 60)
-    logger.info('Progress: %d / %d [%d%%], Speed: %.3f s/iter, ETA %d:%02d:%02d (D:H:M)\n' % (i, n, i/n*100, average_time, remaining_day, remaining_hour, remaining_min))
+    #logger.info('Progress: %d / %d [%d%%], Speed: %.3f s/iter, ETA %d:%02d:%02d (D:H:M)\n' % (i, n, i/n*100, average_time, remaining_day, remaining_hour, remaining_min))
+    logger.info('Progress: [%d%%], ETA %d:%02d:%02d\n' % (
+    i / n * 100, remaining_day, remaining_hour, remaining_min))
 
 
 def main():

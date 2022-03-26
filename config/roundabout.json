@@ -1,7 +1,7 @@
 {
     "shared": {
-        "train_data": "assets/dataset/col5.hdf5",
-        "test_data": "assets/dataset/col6.hdf5",
+        "train_data": "/mnt/tank/datasets/infralidar/dataset/col5.hdf5",
+        "test_data": "/mnt/tank/datasets/infralidar/dataset/col6.hdf5",
         "area_extents": [-48, 48, 0, 4, -48, 48],
         "reference_loc": [0, 0, 0],
         "hybrid_radius": 12,

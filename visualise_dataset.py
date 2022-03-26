@@ -9,7 +9,7 @@ from scipy.interpolate import RectBivariateSpline
 parser = argparse.ArgumentParser(description="Visualise recorded data frames")
 parser.add_argument("-p", dest="pointcloud", action="store_true", help="Visualise point-cloud" )
 parser.add_argument("-l", dest="lidar", action="store_true", help="Visualise point-cloud as lidar" )
-parser.add_argument("file", help="Storage file")
+parser.add_argument("--file", default="/mnt/tank/datasets/infralidar/dataset/col3.hdf5", required=False, help="Storage file")
 args = parser.parse_args()
 
 class Transform():
@@ -210,6 +210,7 @@ for cam in cameras_:
         cameras.append(Camera(intrinsic, extrinsic))
 
 
+
 #Show slices
 slices = f['slices']
 dslices = f['dslices']
@@ -233,7 +234,6 @@ while (sliceNum < slices.shape[0]):
                 pts = cam.genPCL_lidar(frame)
             else:
                 pts = cam.genPCL(frame)
-
             #Transform pts to absolute coordinate system
             pts = np.matrix(pts)
             pts = cam.toCamera(pts, inverse=True)

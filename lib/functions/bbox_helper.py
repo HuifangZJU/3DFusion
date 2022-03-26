@@ -115,6 +115,45 @@ def compute_loc_targets_3d(raw_bboxes, gt_bboxes):
     trgt_theta = gt_bboxes[:, 6] - raw_bboxes[:, 6]
     return np.vstack([trgt_ctr_x, trgt_ctr_y, trgt_ctr_z, trgt_l, trgt_w, trgt_h, trgt_theta]).transpose()
 
+def compute_loc_targets_3d_limits(raw_bboxes, gt_bboxes):
+    '''
+    :argument
+        raw_bboxes, gt_bboxes:[N, k] first dim must be equal
+        raw_bboxes in the format N * [x1, y1, z1, x2, y2, z2, ry]
+        gt_bboxes in the format N * [x1, y1, z1, x2, y2, z2, ry]
+    :returns
+        loc_targets:[N, 7]
+    '''
+    assert raw_bboxes.shape[-1]==7 and gt_bboxes.shape[-1]==7;
+    return gt_bboxes - raw_bboxes
+
+def compute_loc_limits_targets_3d(raw_bboxes, gt_bboxes):
+    '''
+    :argument
+        raw_bboxes, gt_bboxes:[N, k] first dim must be equal
+        raw_bboxes in the format N * [x_max, y_max, z_max, x_min, y_min, z_min, ry]
+        gt_bboxes in the format N * [x_max, y_max, z_max, x_min, y_min, z_min, ry]
+    :returns
+        loc_targets:[N, 7]
+    '''
+    assert raw_bboxes.shape[-1]==7 and gt_bboxes.shape[-1]==7;
+
+    l_a = raw_bboxes[:, 3]
+    w_a = raw_bboxes[:, 4]
+    h_a = raw_bboxes[:, 5]
+    l_g = gt_bboxes[:, 3]
+    w_g = gt_bboxes[:, 4]
+    h_g = gt_bboxes[:, 5]
+    d_a = np.sqrt(l_a*l_a + w_a*w_a)
+    trgt_ctr_x = (gt_bboxes[:, 0] - raw_bboxes[:, 0]) / d_a
+    trgt_ctr_y = (gt_bboxes[:, 1] - raw_bboxes[:, 1]) / h_a
+    trgt_ctr_z = (gt_bboxes[:, 2] - raw_bboxes[:, 2]) / d_a
+    trgt_l = np.log(l_g / l_a)
+    trgt_w = np.log(w_g / w_a)
+    trgt_h = np.log(h_g / h_a)
+    trgt_theta = gt_bboxes[:, 6] - raw_bboxes[:, 6]
+    return np.vstack([trgt_ctr_x, trgt_ctr_y, trgt_ctr_z, trgt_l, trgt_w, trgt_h, trgt_theta]).transpose()
+
 def compute_loc_bboxes(raw_bboxes, deltas):
     '''
     :argument
@@ -154,6 +193,18 @@ def compute_loc_bboxes_3d(raw_bboxes, deltas):
         dt_h = np.exp(deltas[:, 5]) * h_a
         dt_theta = deltas[:, 6] + raw_bboxes[:, 6]
         dt = np.vstack([dt_cx, dt_cy, dt_cz, dt_l, dt_w, dt_h, dt_theta]).transpose()
+        return dt
+
+def compute_loc_bboxes_3d_limits(raw_bboxes, deltas):
+    '''
+        :argument
+            raw_bboxes, delta:[N, k] first dim must be equal
+        :returns
+            bboxes:[N, 7]
+        '''
+    with warnings.catch_warnings(record=True) as w:
+        warnings.simplefilter("error")
+        dt = raw_bboxes + deltas
         return dt
 
 def clip_bbox(bbox, img_size):

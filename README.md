@@ -61,6 +61,7 @@ Details of each collection:
 
 The pose of the cameras in each scenario is indicated by the green lines the top-down views below. Note that each camera has a unique ID.
 The blue rectacles indicate the detection area extents for each scenario.
+
 ![pose of cameras in tjunction scenario](assets/images/cams_t.png)
 ![pose of cameras in roundabout scenario](assets/images/cams_r.png)
 

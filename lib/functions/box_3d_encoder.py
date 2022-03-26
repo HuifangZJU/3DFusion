@@ -4,7 +4,6 @@ This module converts data to and from the 'box_3d' format
 """
 import numpy as np
 
-
 def box_3d_to_anchor(boxes_3d, ortho_rotate=False):
     """ Converts a box_3d [x, y, z, l, w, h, ry]
     into anchor form [x, y, z, dim_x, dim_y, dim_z]
@@ -25,6 +24,68 @@ def box_3d_to_anchor(boxes_3d, ortho_rotate=False):
 
     boxes_3d = np.asarray(boxes_3d).reshape(-1, 7)
 
+    # fc.check_box_3d_format(boxes_3d)
+
+    num_anchors = len(boxes_3d)
+    anchors = np.zeros((num_anchors, 6))
+
+    # Set x, y, z
+    anchors[:, [0, 1, 2]] = boxes_3d[:, [0, 1, 2]]
+
+    # Dimensions along x, y, z
+    box_l = boxes_3d[:, [3]]
+    box_w = boxes_3d[:, [4]]
+    box_h = boxes_3d[:, [5]]
+    box_ry = boxes_3d[:, [6]]
+
+    # Rotate to nearest multiple of 90 degrees
+    if ortho_rotate:
+        half_pi = np.pi / 2
+        box_ry = np.round(box_ry / half_pi) * half_pi
+
+    cos_ry = np.abs(np.cos(box_ry))
+    sin_ry = np.abs(np.sin(box_ry))
+
+    # dim_x, dim_y, dim_z
+    anchors[:, [3]] = box_l * cos_ry + box_w * sin_ry
+    anchors[:, [4]] = box_h
+    anchors[:, [5]] = box_w * cos_ry + box_l * sin_ry
+
+    return anchors
+
+
+def box_limits_3d_to_anchor(boxes_limits, ortho_rotate=False):
+    """ Converts a boxes_limits [x_max,y_max,z_max,x_min,y_min,z_min,ry]
+    into a common 3d boxes_3d [x, y, z, l, w, h, ry]
+    ,then into anchor form [x, y, z, dim_x, dim_y, dim_z]
+
+    Anchors in box_3d format should have an ry of 0 or 90 degrees.
+    l and w will be matched to dim_x or dim_z depending on the rotation,
+    while h will always correspond to dim_y
+
+    Args:
+        boxes_3d: N x 7 ndarray of box_3d
+        ortho_rotate: optional, if True the box is rotated to the
+            nearest 90 degree angle, or else the box is projected
+            onto the x and z axes
+
+    Returns:
+        N x 6 ndarray of anchors in 'anchor' form
+    """
+
+    xyz = boxes_limits[:,:3] + boxes_limits[:,3:6]
+    xyz = 0.5 * xyz
+    delta = boxes_limits[:,:3] - boxes_limits[:,3:6]
+    yaw = boxes_limits[:,6]
+    cy = np.cos(yaw)
+    sy = np.sin(yaw)
+
+    h = delta[:,1]
+    w = delta[:,0]*sy + delta[:,2]*cy
+    l = delta[:,0]*cy - delta[:,2]*sy
+    boxes_3d = np.concatenate((xyz, l.reshape((-1,1)),w.reshape((-1,1)),h.reshape((-1,1)),
+                               yaw.reshape((-1,1))), axis=1)
+    boxes_3d = np.asarray(boxes_3d).reshape(-1, 7)
     # fc.check_box_3d_format(boxes_3d)
 
     num_anchors = len(boxes_3d)

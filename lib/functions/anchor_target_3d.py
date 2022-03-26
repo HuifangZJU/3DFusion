@@ -52,9 +52,12 @@ def compute_anchor_targets(feature_size, anchors_overplane, cfg, ground_truth_bb
     if G != 0:
         rpn_iou_type = cfg['rpn_iou_type']
         if rpn_iou_type == '2d':
-            anchors = box_3d_encoder.box_3d_to_anchor(anchors_overplane)
+            # anchors = box_3d_encoder.box_3d_to_anchor(anchors_overplane)
+            anchors = box_3d_encoder.box_limits_3d_to_anchor(anchors_overplane)
             ground_truth_bboxes = ground_truth_bboxes.reshape(B * G, -1)
-            gt_anchors = box_3d_encoder.box_3d_to_anchor(ground_truth_bboxes, ortho_rotate=True)
+            #convert groundtruth points to anchor-format gt
+            # gt_anchors = box_3d_encoder.box_3d_to_anchor(ground_truth_bboxes, ortho_rotate=True)
+            gt_anchors = box_3d_encoder.box_limits_3d_to_anchor(ground_truth_bboxes, ortho_rotate=True)
 
             # Convert anchors to 2d iou format
             anchors_for_2d_iou, _ = np.asarray(anchor_projector.project_to_bev(
@@ -70,40 +73,6 @@ def compute_anchor_targets(feature_size, anchors_overplane, cfg, ground_truth_bb
             overlaps = np.stack([bbox_helper.bbox_iou_overlaps(anchors_for_2d_iou,
                                                                gt_boxes_for_2d_iou[ix]) for ix in range(B)], axis=0)
             logger.debug('overlaps shape:{}'.format(overlaps.shape))
-
-        elif rpn_iou_type == '3d':
-            ground_truth_bboxes = ground_truth_bboxes.reshape(B*G, -1)
-            # Convert anchors to 3d iou format for calculation
-            anchors_for_3d_iou = box_3d_encoder.box_3d_to_3d_iou_format(
-                anchors_overplane)
-
-            gt_boxes_for_3d_iou = box_3d_encoder.box_3d_to_3d_iou_format(ground_truth_bboxes)
-            overlaps = np.zeros((B, anchors_overplane.shape[0], G))
-            for b_ix in range(B):
-                for i, gt_box in enumerate(gt_boxes_for_3d_iou[b_ix*G:(b_ix+1)*G]):
-                    if np.any(gt_box > 0):
-                        iou = evaluation.three_d_iou(gt_box, anchors_for_3d_iou)
-                    else:
-                        iou = np.zeros(anchors_overplane.shape[0])
-                    overlaps[b_ix, :, i] = iou
-
-            logger.debug('overlaps shape:{}'.format(overlaps.shape))
-
-        elif rpn_iou_type == '2.5d':
-            ground_truth_bboxes = ground_truth_bboxes.reshape(B * G, -1)
-            # Convert anchors to 3d iou format for calculation
-            anchors_for_3d_iou = box_3d_encoder.box_3d_to_3d_iou_format(
-                anchors_overplane)
-
-            gt_boxes_for_3d_iou = box_3d_encoder.box_3d_to_3d_iou_format(ground_truth_bboxes)
-            overlaps = np.zeros((B, anchors_overplane.shape[0], G))
-            for b_ix in range(B):
-                for i, gt_box in enumerate(gt_boxes_for_3d_iou[b_ix * G:(b_ix + 1) * G]):
-                    if np.any(gt_box > 0):
-                        iou = evaluation.two_half_d_iou(gt_box, anchors_for_3d_iou)
-                    else:
-                        iou = np.zeros(anchors_overplane.shape[0])
-                    overlaps[b_ix, :, i] = iou
 
         else:
             raise ValueError('Invalid rpn_iou_type {}', rpn_iou_type)
@@ -141,7 +110,7 @@ def compute_anchor_targets(feature_size, anchors_overplane, cfg, ground_truth_bb
     num_pos_sampling = int(cfg['positive_percent'] * cfg['rpn_batch_size'] * batch_size)
     pos_b_ix, pos_ka_ix = np.where(labels > 0)
     num_positives = len(pos_b_ix)
-    print("positive :", num_positives)
+    #print("positive :", num_positives)
     if num_positives > num_pos_sampling:
         remove_ix = np.random.choice(num_positives, size = num_positives - num_pos_sampling, replace = False)
         labels[pos_b_ix[remove_ix], pos_ka_ix[remove_ix]] = -1
@@ -161,8 +130,8 @@ def compute_anchor_targets(feature_size, anchors_overplane, cfg, ground_truth_bb
 
         pos_target_ix = argmax_overlaps[pos_b_ix, pos_ka_ix]
         pos_target_gt = ground_truth_bboxes[pos_b_ix, pos_target_ix]
-        pos_loc_targets = bbox_helper.compute_loc_targets_3d(pos_anchors, pos_target_gt)
 
+        pos_loc_targets = bbox_helper.compute_loc_targets_3d_limits(pos_anchors, pos_target_gt)
         loc_targets[pos_b_ix, pos_ka_ix, :] = pos_loc_targets
         # loc_weights = np.zeros([B, K*A, 4])
         loc_masks[pos_b_ix, pos_ka_ix, :] = 1.

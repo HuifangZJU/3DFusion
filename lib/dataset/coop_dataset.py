@@ -112,6 +112,57 @@ class Camera:
         pts = np.hstack([i.reshape(-1,1) for i in (Xc,Yc,Zc)])
         return pts
 
+def getBBpts(repr):
+    '''Given a representation get 8 BB edge points in world reference. Out shape [8,3]'''
+
+    x,y,z = repr[0],repr[1],repr[2]
+    pitch,roll,yaw = repr[3],repr[4],repr[5]
+    trActor = Transform(x,y,z,yaw,pitch,roll)
+
+    #BB Extensions (half length for each dimension)
+    ex, ey, ez = repr[6],repr[7],repr[8]
+
+    #Get 8 coordinates
+    bbox_pts = np.array([
+    [  ex,   ey,   ez],
+    [- ex,   ey,   ez],
+    [- ex, - ey,   ez],
+    [  ex, - ey,   ez],
+    [  ex,   ey, - ez],
+    [- ex,   ey, - ez],
+    [- ex, - ey, - ez],
+    [  ex, - ey, - ez]
+    ])
+
+    #Transform the bbox points from actor ref frame to global reference
+    bbox_pts = trActor.transform_points(bbox_pts)
+    return bbox_pts
+
+def get2points(boxes):
+        xyz = boxes[:,:3]
+        l_g = boxes[:, 3]
+        w_g = boxes[:, 4]
+        h_g = boxes[:, 5]
+        yaw = boxes[:, 6]
+
+        ey = h_g / 2
+        ex = l_g / 2
+        ez = w_g / 2
+
+        cy = np.cos(yaw)
+        sy = np.sin(yaw)
+
+        extentions = torch.zeros(xyz.shape)
+        extentions[:, 0] = sy * ez + cy * ex
+        extentions[:, 1] = ey
+        extentions[:, 2] = cy * ez - sy * ex
+
+        points_all_p = xyz + extentions
+        points_all_n = xyz - extentions
+        yaw = yaw.view(-1,1)
+        newboxes = torch.cat([points_all_p, points_all_n, yaw], dim=1)
+        return newboxes
+
 class CooperativeDataset(torch.utils.data.Dataset):
     def __init__(self, path, ref, extents, voxSize, maxPtsVox, augment=False, selectCameras=None, vext=None):
         '''Creates a Dataset object. The object locations and 3d point clouds are relative to the *ref* given. Objects outside the x,y,z extent ranges ((xmin,xmax),(ymin,ymax),(zmin,zmax)) are deleted'''
@@ -137,13 +188,13 @@ class CooperativeDataset(torch.utils.data.Dataset):
 
         #Get cameras 
         self.cameras = []
+
         for cam in cameras:
             intrinsic = np.array(data.get(f'cameras/{cam}/intrinsic'))
             extrinsic = np.array(data.get(f'cameras/{cam}/extrinsic'))
             if cam[0] == 'd':
                 self.cameras.append(Camera(intrinsic, extrinsic))
         data.close()
-
         #Select cameras
         self.selectedCameras = selectCameras
 
@@ -207,11 +258,14 @@ class CooperativeDataset(torch.utils.data.Dataset):
 
         #Get the representation to the network format (x,y,z,w,l,h,yaw)
         xyz=boxes[:,:3]
+
         wlh=2*boxes[:,6:9]
         yaw=boxes[:,5].view(-1,1)*np.pi/180
         boxes = torch.cat([xyz,wlh,yaw], dim=1)
-
         return boxes
+
+    # def get2points(self, boxes):
+
 
     def getPts(self, pcl, gtbox):
         '''Given a point-cloud and gt-box, get the idx of points within the gt box'''
@@ -328,19 +382,22 @@ class CooperativeDataset(torch.utils.data.Dataset):
         #Generate pcl
         pts = self.getPCL(imgs)
 
-        #Get boxes
+        #Get boxes in xyzwlh form
         boxes = self.getBoxes(boxes)
+        #Get boxes in two points form
+
+
 
         #Augment 
         if self.augment:
             pts, boxes = self.augmentate(pts, boxes)
             #  pts, boxes = self.augmentate_ang(pts, boxes)
-
         #Certify pts and boxes are within the extent of detector
         idx = (pts[:,0]>self.ext[0,0])*(pts[:,0]<self.ext[0,1])*(pts[:,1]>self.ext[1,0])*(pts[:,1]<self.ext[1,1])*(pts[:,2]>self.ext[2,0])*(pts[:,2]<self.ext[2,1])
         pts = pts[idx]
         idx = (boxes[:,0]>self.ext[0,0])*(boxes[:,0]<self.ext[0,1])*(boxes[:,2]>self.ext[2,0])*(boxes[:,2]<self.ext[2,1])
         boxes = boxes[idx]
+
 
         #If boxes is empty, fill it all with zeros (prevent error in Dataloader)
         if boxes.shape[0] == 0:
@@ -349,7 +406,9 @@ class CooperativeDataset(torch.utils.data.Dataset):
         #Generate voxelized version of pcl
         voxGrid = VoxelGrid()
         voxGrid.voxelize(pts.numpy(), self.voxSize, extents=self.vext, num_T=self.maxPtsVox)
-       
+        # get angular points of (ex,ey,ez) and (-ex,ey,ez), yaw is defined with the positve direction of z
+        boxes = get2points(boxes)
+
         return [boxes, voxGrid.points, voxGrid.unique_indices, voxGrid.num_pts_in_voxel, voxGrid.leaf_layout, voxGrid.voxel_indices, voxGrid.padded_voxel_points, voxGrid.num_divisions]
 
 class DataLoader(torch.utils.data.DataLoader):
@@ -361,6 +420,7 @@ class DataLoader(torch.utils.data.DataLoader):
 
         batch_size = len(batch)
         zip_batch = list(zip(*batch))
+        # transfer input data to ground truth
         ground_truth_bboxes_3d = zip_batch[0]
         s_points = zip_batch[1]
         unique_indices = zip_batch[2]

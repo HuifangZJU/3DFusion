@@ -1,0 +1,2093 @@
+2021-08-22 16:14:17,201 - INFO - train.py[:87] - Set random seed to 10
+2021-08-22 16:14:17,285 - INFO - train.py[:90] - Save loss curve to assets/saved_models/tensorboard
+2021-08-22 16:31:19,500 - INFO - train.py[:87] - Set random seed to 10
+2021-08-22 16:31:19,501 - INFO - train.py[:90] - Save loss curve to assets/saved_models/tensorboard
+2021-08-22 16:31:19,507 - INFO - train.py[:69] - build dataloader done
+2021-08-22 16:31:19,573 - INFO - train.py[:95] - Voxelnet(
+  (feature_learnig): feature_learning_network(
+    (vfe1): VFE(
+      (fcn1): FCN(
+        (conv1): Conv2d(6, 16, kernel_size=(1, 1), stride=(1, 1))
+        (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+      )
+    )
+    (fcn1): FCN(
+      (conv1): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (conv3d): Conv_Middle_layers(
+    (conv1): Conv3d(
+      (conv1): Conv3d(128, 64, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2): Conv3d(
+      (conv1): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3): Conv3d(
+      (conv1): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (_rpn): RPN(
+    (conv1_1): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_2): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_3): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_4): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_1): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_2): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_3): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_4): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_5): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_1): Conv2d(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_2): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_3): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_4): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_5): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (deconv1): ConvTranspose2d(256, 256, kernel_size=(4, 4), stride=(4, 4))
+    (deconv2): ConvTranspose2d(128, 256, kernel_size=(2, 2), stride=(2, 2))
+    (deconv3): ConvTranspose2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (rpn_head): NaiveRpnHead(
+      (conv3x3): Conv2d(768, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (relu3x3): ReLU(inplace)
+      (conv_cls): Conv2d(512, 4, kernel_size=(1, 1), stride=(1, 1))
+      (conv_loc): Conv2d(512, 14, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+)
+2021-08-22 16:39:24,203 - INFO - train.py[:87] - Set random seed to 10
+2021-08-22 16:39:24,203 - INFO - train.py[:90] - Save loss curve to assets/saved_models/tensorboard
+2021-08-22 16:39:24,210 - INFO - train.py[:69] - build dataloader done
+2021-08-22 16:39:24,276 - INFO - train.py[:95] - Voxelnet(
+  (feature_learnig): feature_learning_network(
+    (vfe1): VFE(
+      (fcn1): FCN(
+        (conv1): Conv2d(6, 16, kernel_size=(1, 1), stride=(1, 1))
+        (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+      )
+    )
+    (fcn1): FCN(
+      (conv1): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (conv3d): Conv_Middle_layers(
+    (conv1): Conv3d(
+      (conv1): Conv3d(128, 64, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2): Conv3d(
+      (conv1): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3): Conv3d(
+      (conv1): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (_rpn): RPN(
+    (conv1_1): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_2): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_3): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_4): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_1): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_2): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_3): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_4): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_5): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_1): Conv2d(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_2): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_3): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_4): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_5): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (deconv1): ConvTranspose2d(256, 256, kernel_size=(4, 4), stride=(4, 4))
+    (deconv2): ConvTranspose2d(128, 256, kernel_size=(2, 2), stride=(2, 2))
+    (deconv3): ConvTranspose2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (rpn_head): NaiveRpnHead(
+      (conv3x3): Conv2d(768, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (relu3x3): ReLU(inplace)
+      (conv_cls): Conv2d(512, 4, kernel_size=(1, 1), stride=(1, 1))
+      (conv_loc): Conv2d(512, 14, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+)
+2021-08-22 16:50:16,367 - INFO - train.py[:88] - Set random seed to 10
+2021-08-22 16:50:16,368 - INFO - train.py[:91] - Save loss curve to assets/saved_models/tensorboard
+2021-08-22 16:50:16,375 - INFO - train.py[:70] - build dataloader done
+2021-08-22 16:50:16,449 - INFO - train.py[:96] - Voxelnet(
+  (feature_learnig): feature_learning_network(
+    (vfe1): VFE(
+      (fcn1): FCN(
+        (conv1): Conv2d(6, 16, kernel_size=(1, 1), stride=(1, 1))
+        (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+      )
+    )
+    (fcn1): FCN(
+      (conv1): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (conv3d): Conv_Middle_layers(
+    (conv1): Conv3d(
+      (conv1): Conv3d(128, 64, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2): Conv3d(
+      (conv1): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3): Conv3d(
+      (conv1): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (_rpn): RPN(
+    (conv1_1): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_2): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_3): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_4): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_1): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_2): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_3): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_4): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_5): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_1): Conv2d(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_2): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_3): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_4): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_5): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (deconv1): ConvTranspose2d(256, 256, kernel_size=(4, 4), stride=(4, 4))
+    (deconv2): ConvTranspose2d(128, 256, kernel_size=(2, 2), stride=(2, 2))
+    (deconv3): ConvTranspose2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (rpn_head): NaiveRpnHead(
+      (conv3x3): Conv2d(768, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (relu3x3): ReLU(inplace)
+      (conv_cls): Conv2d(512, 4, kernel_size=(1, 1), stride=(1, 1))
+      (conv_loc): Conv2d(512, 14, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+)
+2021-08-22 16:50:21,370 - INFO - train.py[:178] - Epoch: [1][0/4000] LR:0.010000 ForwardTime: 1.392 Loss: 1.98624 (rpn_cls: 0.68786 rpn_loc: 1.29838 img:[] rpn_acc: 0.62891)
+2021-08-22 16:50:21,371 - INFO - log_helper.py[:39] - Progress: 1 / 120000 [0%], Speed: 3.772 s/iter, ETA 5:05:43 (D:H:M)
+
+2021-08-22 16:50:21,793 - INFO - train.py[:178] - Epoch: [1][1/4000] LR:0.010000 ForwardTime: 0.120 Loss: 2.12628 (rpn_cls: 0.67921 rpn_loc: 1.44707 img:[] rpn_acc: 0.78516)
+2021-08-22 16:50:21,793 - INFO - log_helper.py[:39] - Progress: 2 / 120000 [0%], Speed: 0.419 s/iter, ETA 0:13:57 (D:H:M)
+
+2021-08-22 16:50:22,179 - INFO - train.py[:178] - Epoch: [1][2/4000] LR:0.010000 ForwardTime: 0.111 Loss: 2.05759 (rpn_cls: 0.66432 rpn_loc: 1.39327 img:[] rpn_acc: 0.90625)
+2021-08-22 16:50:22,179 - INFO - log_helper.py[:39] - Progress: 3 / 120000 [0%], Speed: 0.386 s/iter, ETA 0:12:52 (D:H:M)
+
+2021-08-22 16:50:22,691 - INFO - train.py[:178] - Epoch: [1][3/4000] LR:0.010000 ForwardTime: 0.111 Loss: 2.35512 (rpn_cls: 0.64945 rpn_loc: 1.70567 img:[] rpn_acc: 0.91406)
+2021-08-22 16:50:22,691 - INFO - log_helper.py[:39] - Progress: 4 / 120000 [0%], Speed: 0.717 s/iter, ETA 0:23:53 (D:H:M)
+
+2021-08-22 16:50:23,134 - INFO - train.py[:178] - Epoch: [1][4/4000] LR:0.010000 ForwardTime: 0.115 Loss: 1.33547 (rpn_cls: 0.63073 rpn_loc: 0.70474 img:[] rpn_acc: 0.96094)
+2021-08-22 16:50:23,135 - INFO - log_helper.py[:39] - Progress: 5 / 120000 [0%], Speed: 0.249 s/iter, ETA 0:08:17 (D:H:M)
+
+2021-08-22 16:50:23,541 - INFO - train.py[:178] - Epoch: [1][5/4000] LR:0.010000 ForwardTime: 0.114 Loss: 2.01293 (rpn_cls: 0.62348 rpn_loc: 1.38944 img:[] rpn_acc: 0.90234)
+2021-08-22 16:50:23,541 - INFO - log_helper.py[:39] - Progress: 6 / 120000 [0%], Speed: 0.386 s/iter, ETA 0:12:52 (D:H:M)
+
+2021-08-22 16:50:23,953 - INFO - train.py[:178] - Epoch: [1][6/4000] LR:0.010000 ForwardTime: 0.138 Loss: 1.79436 (rpn_cls: 0.59808 rpn_loc: 1.19628 img:[] rpn_acc: 0.94531)
+2021-08-22 16:50:23,953 - INFO - log_helper.py[:39] - Progress: 7 / 120000 [0%], Speed: 0.420 s/iter, ETA 0:14:00 (D:H:M)
+
+2021-08-22 16:50:24,362 - INFO - train.py[:178] - Epoch: [1][7/4000] LR:0.010000 ForwardTime: 0.119 Loss: 1.05864 (rpn_cls: 0.56543 rpn_loc: 0.49321 img:[] rpn_acc: 0.95703)
+2021-08-22 16:50:24,363 - INFO - log_helper.py[:39] - Progress: 8 / 120000 [0%], Speed: 0.399 s/iter, ETA 0:13:17 (D:H:M)
+
+2021-08-22 16:50:24,793 - INFO - train.py[:178] - Epoch: [1][8/4000] LR:0.010000 ForwardTime: 0.141 Loss: 2.42153 (rpn_cls: 0.56228 rpn_loc: 1.85925 img:[] rpn_acc: 0.91406)
+2021-08-22 16:50:24,793 - INFO - log_helper.py[:39] - Progress: 9 / 120000 [0%], Speed: 0.431 s/iter, ETA 0:14:21 (D:H:M)
+
+2021-08-22 16:50:25,190 - INFO - train.py[:178] - Epoch: [1][9/4000] LR:0.010000 ForwardTime: 0.113 Loss: 1.70818 (rpn_cls: 0.52300 rpn_loc: 1.18518 img:[] rpn_acc: 0.92578)
+2021-08-22 16:50:25,191 - INFO - log_helper.py[:39] - Progress: 10 / 120000 [0%], Speed: 0.403 s/iter, ETA 0:13:26 (D:H:M)
+
+2021-08-22 16:50:25,597 - INFO - train.py[:178] - Epoch: [1][10/4000] LR:0.010000 ForwardTime: 0.113 Loss: 2.18495 (rpn_cls: 0.49949 rpn_loc: 1.68546 img:[] rpn_acc: 0.91797)
+2021-08-22 16:50:25,597 - INFO - log_helper.py[:39] - Progress: 11 / 120000 [0%], Speed: 0.409 s/iter, ETA 0:13:37 (D:H:M)
+
+2021-08-22 16:50:26,001 - INFO - train.py[:178] - Epoch: [1][11/4000] LR:0.010000 ForwardTime: 0.125 Loss: 1.24345 (rpn_cls: 0.44860 rpn_loc: 0.79485 img:[] rpn_acc: 0.92578)
+2021-08-22 16:50:26,002 - INFO - log_helper.py[:39] - Progress: 12 / 120000 [0%], Speed: 0.402 s/iter, ETA 0:13:23 (D:H:M)
+
+2021-08-22 16:50:26,420 - INFO - train.py[:178] - Epoch: [1][12/4000] LR:0.010000 ForwardTime: 0.127 Loss: 3.03468 (rpn_cls: 0.40577 rpn_loc: 2.62891 img:[] rpn_acc: 0.95312)
+2021-08-22 16:50:26,420 - INFO - log_helper.py[:39] - Progress: 13 / 120000 [0%], Speed: 0.409 s/iter, ETA 0:13:38 (D:H:M)
+
+2021-08-22 16:50:26,948 - INFO - train.py[:178] - Epoch: [1][13/4000] LR:0.010000 ForwardTime: 0.135 Loss: 1.81883 (rpn_cls: 0.39563 rpn_loc: 1.42319 img:[] rpn_acc: 0.93359)
+2021-08-22 16:50:26,948 - INFO - log_helper.py[:39] - Progress: 14 / 120000 [0%], Speed: 0.540 s/iter, ETA 0:18:00 (D:H:M)
+
+2021-08-22 16:50:27,505 - INFO - train.py[:178] - Epoch: [1][14/4000] LR:0.010000 ForwardTime: 0.147 Loss: 2.83522 (rpn_cls: 0.38208 rpn_loc: 2.45314 img:[] rpn_acc: 0.91797)
+2021-08-22 16:50:27,506 - INFO - log_helper.py[:39] - Progress: 15 / 120000 [0%], Speed: 0.559 s/iter, ETA 0:18:37 (D:H:M)
+
+2021-08-22 16:50:27,906 - INFO - train.py[:178] - Epoch: [1][15/4000] LR:0.010000 ForwardTime: 0.118 Loss: 1.04629 (rpn_cls: 0.34368 rpn_loc: 0.70261 img:[] rpn_acc: 0.92578)
+2021-08-22 16:50:27,907 - INFO - log_helper.py[:39] - Progress: 16 / 120000 [0%], Speed: 0.397 s/iter, ETA 0:13:13 (D:H:M)
+
+2021-08-22 16:50:28,497 - INFO - train.py[:178] - Epoch: [1][16/4000] LR:0.010000 ForwardTime: 0.141 Loss: 0.75752 (rpn_cls: 0.24805 rpn_loc: 0.50947 img:[] rpn_acc: 0.96875)
+2021-08-22 16:50:28,497 - INFO - log_helper.py[:39] - Progress: 17 / 120000 [0%], Speed: 0.589 s/iter, ETA 0:19:38 (D:H:M)
+
+2021-08-22 16:50:29,017 - INFO - train.py[:178] - Epoch: [1][17/4000] LR:0.010000 ForwardTime: 0.153 Loss: 1.76978 (rpn_cls: 0.25161 rpn_loc: 1.51817 img:[] rpn_acc: 0.95312)
+2021-08-22 16:50:29,017 - INFO - log_helper.py[:39] - Progress: 18 / 120000 [0%], Speed: 0.521 s/iter, ETA 0:17:22 (D:H:M)
+
+2021-08-22 16:50:29,429 - INFO - train.py[:178] - Epoch: [1][18/4000] LR:0.010000 ForwardTime: 0.112 Loss: 1.78999 (rpn_cls: 0.21474 rpn_loc: 1.57524 img:[] rpn_acc: 0.96094)
+2021-08-22 16:50:29,429 - INFO - log_helper.py[:39] - Progress: 19 / 120000 [0%], Speed: 0.406 s/iter, ETA 0:13:31 (D:H:M)
+
+2021-08-22 16:50:29,936 - INFO - train.py[:178] - Epoch: [1][19/4000] LR:0.010000 ForwardTime: 0.130 Loss: 1.74010 (rpn_cls: 0.24140 rpn_loc: 1.49870 img:[] rpn_acc: 0.92969)
+2021-08-22 16:50:29,937 - INFO - log_helper.py[:39] - Progress: 20 / 120000 [0%], Speed: 0.509 s/iter, ETA 0:16:58 (D:H:M)
+
+2021-08-22 16:50:30,497 - INFO - train.py[:178] - Epoch: [1][20/4000] LR:0.010000 ForwardTime: 0.162 Loss: 1.37000 (rpn_cls: 0.21898 rpn_loc: 1.15103 img:[] rpn_acc: 0.93359)
+2021-08-22 16:50:30,498 - INFO - log_helper.py[:39] - Progress: 21 / 120000 [0%], Speed: 0.564 s/iter, ETA 0:18:48 (D:H:M)
+
+2021-08-22 16:50:30,897 - INFO - train.py[:178] - Epoch: [1][21/4000] LR:0.010000 ForwardTime: 0.115 Loss: 2.10146 (rpn_cls: 0.23082 rpn_loc: 1.87064 img:[] rpn_acc: 0.92188)
+2021-08-22 16:50:30,897 - INFO - log_helper.py[:39] - Progress: 22 / 120000 [0%], Speed: 0.401 s/iter, ETA 0:13:20 (D:H:M)
+
+2021-08-22 16:50:31,431 - INFO - train.py[:178] - Epoch: [1][22/4000] LR:0.010000 ForwardTime: 0.124 Loss: 1.23149 (rpn_cls: 0.24338 rpn_loc: 0.98811 img:[] rpn_acc: 0.91406)
+2021-08-22 16:50:31,431 - INFO - log_helper.py[:39] - Progress: 23 / 120000 [0%], Speed: 0.524 s/iter, ETA 0:17:28 (D:H:M)
+
+2021-08-22 16:50:32,023 - INFO - train.py[:178] - Epoch: [1][23/4000] LR:0.010000 ForwardTime: 0.158 Loss: 1.33148 (rpn_cls: 0.23816 rpn_loc: 1.09332 img:[] rpn_acc: 0.89844)
+2021-08-22 16:50:32,024 - INFO - log_helper.py[:39] - Progress: 24 / 120000 [0%], Speed: 0.604 s/iter, ETA 0:20:08 (D:H:M)
+
+2021-08-22 16:50:32,436 - INFO - train.py[:178] - Epoch: [1][24/4000] LR:0.010000 ForwardTime: 0.113 Loss: 1.02452 (rpn_cls: 0.18057 rpn_loc: 0.84395 img:[] rpn_acc: 0.93359)
+2021-08-22 16:50:32,436 - INFO - log_helper.py[:39] - Progress: 25 / 120000 [0%], Speed: 0.407 s/iter, ETA 0:13:33 (D:H:M)
+
+2021-08-22 16:50:32,925 - INFO - train.py[:178] - Epoch: [1][25/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.93563 (rpn_cls: 0.24105 rpn_loc: 1.69458 img:[] rpn_acc: 0.89844)
+2021-08-22 16:50:32,926 - INFO - log_helper.py[:39] - Progress: 26 / 120000 [0%], Speed: 0.499 s/iter, ETA 0:16:37 (D:H:M)
+
+2021-08-22 16:50:33,488 - INFO - train.py[:178] - Epoch: [1][26/4000] LR:0.010000 ForwardTime: 0.145 Loss: 0.93174 (rpn_cls: 0.13994 rpn_loc: 0.79180 img:[] rpn_acc: 0.94922)
+2021-08-22 16:50:33,488 - INFO - log_helper.py[:39] - Progress: 27 / 120000 [0%], Speed: 0.555 s/iter, ETA 0:18:29 (D:H:M)
+
+2021-08-22 16:50:34,115 - INFO - train.py[:178] - Epoch: [1][27/4000] LR:0.010000 ForwardTime: 0.113 Loss: 1.66700 (rpn_cls: 0.19463 rpn_loc: 1.47236 img:[] rpn_acc: 0.90625)
+2021-08-22 16:50:34,117 - INFO - log_helper.py[:39] - Progress: 28 / 120000 [0%], Speed: 0.628 s/iter, ETA 0:20:55 (D:H:M)
+
+2021-08-22 16:50:34,517 - INFO - train.py[:178] - Epoch: [1][28/4000] LR:0.010000 ForwardTime: 0.116 Loss: 0.43865 (rpn_cls: 0.15006 rpn_loc: 0.28860 img:[] rpn_acc: 0.93750)
+2021-08-22 16:50:34,517 - INFO - log_helper.py[:39] - Progress: 29 / 120000 [0%], Speed: 0.401 s/iter, ETA 0:13:21 (D:H:M)
+
+2021-08-22 16:50:34,941 - INFO - train.py[:178] - Epoch: [1][29/4000] LR:0.010000 ForwardTime: 0.119 Loss: 1.59757 (rpn_cls: 0.16837 rpn_loc: 1.42921 img:[] rpn_acc: 0.92969)
+2021-08-22 16:50:34,941 - INFO - log_helper.py[:39] - Progress: 30 / 120000 [0%], Speed: 0.415 s/iter, ETA 0:13:50 (D:H:M)
+
+2021-08-22 16:50:35,623 - INFO - train.py[:178] - Epoch: [1][30/4000] LR:0.010000 ForwardTime: 0.112 Loss: 3.57347 (rpn_cls: 0.09637 rpn_loc: 3.47710 img:[] rpn_acc: 0.97266)
+2021-08-22 16:50:35,623 - INFO - log_helper.py[:39] - Progress: 31 / 120000 [0%], Speed: 0.693 s/iter, ETA 0:23:05 (D:H:M)
+
+2021-08-22 16:50:36,034 - INFO - train.py[:178] - Epoch: [1][31/4000] LR:0.010000 ForwardTime: 0.115 Loss: 2.07294 (rpn_cls: 0.13346 rpn_loc: 1.93947 img:[] rpn_acc: 0.94531)
+2021-08-22 16:50:36,034 - INFO - log_helper.py[:39] - Progress: 32 / 120000 [0%], Speed: 0.407 s/iter, ETA 0:13:34 (D:H:M)
+
+2021-08-22 16:50:36,440 - INFO - train.py[:178] - Epoch: [1][32/4000] LR:0.010000 ForwardTime: 0.123 Loss: 2.48596 (rpn_cls: 0.10668 rpn_loc: 2.37928 img:[] rpn_acc: 0.95703)
+2021-08-22 16:50:36,440 - INFO - log_helper.py[:39] - Progress: 33 / 120000 [0%], Speed: 0.409 s/iter, ETA 0:13:37 (D:H:M)
+
+2021-08-22 16:50:36,882 - INFO - train.py[:178] - Epoch: [1][33/4000] LR:0.010000 ForwardTime: 0.146 Loss: 1.56006 (rpn_cls: 0.18280 rpn_loc: 1.37725 img:[] rpn_acc: 0.89453)
+2021-08-22 16:50:36,883 - INFO - log_helper.py[:39] - Progress: 34 / 120000 [0%], Speed: 0.441 s/iter, ETA 0:14:41 (D:H:M)
+
+2021-08-22 16:50:37,587 - INFO - train.py[:178] - Epoch: [1][34/4000] LR:0.010000 ForwardTime: 0.139 Loss: 1.49136 (rpn_cls: 0.14140 rpn_loc: 1.34997 img:[] rpn_acc: 0.91797)
+2021-08-22 16:50:37,588 - INFO - log_helper.py[:39] - Progress: 35 / 120000 [0%], Speed: 0.711 s/iter, ETA 0:23:40 (D:H:M)
+
+2021-08-22 16:50:38,098 - INFO - train.py[:178] - Epoch: [1][35/4000] LR:0.010000 ForwardTime: 0.157 Loss: 2.31721 (rpn_cls: 0.14380 rpn_loc: 2.17341 img:[] rpn_acc: 0.91016)
+2021-08-22 16:50:38,098 - INFO - log_helper.py[:39] - Progress: 36 / 120000 [0%], Speed: 0.509 s/iter, ETA 0:16:58 (D:H:M)
+
+2021-08-22 16:50:38,510 - INFO - train.py[:178] - Epoch: [1][36/4000] LR:0.010000 ForwardTime: 0.125 Loss: 0.38219 (rpn_cls: 0.12398 rpn_loc: 0.25821 img:[] rpn_acc: 0.91797)
+2021-08-22 16:50:38,510 - INFO - log_helper.py[:39] - Progress: 37 / 120000 [0%], Speed: 0.406 s/iter, ETA 0:13:32 (D:H:M)
+
+2021-08-22 16:50:39,154 - INFO - train.py[:178] - Epoch: [1][37/4000] LR:0.010000 ForwardTime: 0.151 Loss: 1.04907 (rpn_cls: 0.09270 rpn_loc: 0.95637 img:[] rpn_acc: 0.94141)
+2021-08-22 16:50:39,154 - INFO - log_helper.py[:39] - Progress: 38 / 120000 [0%], Speed: 0.651 s/iter, ETA 0:21:41 (D:H:M)
+
+2021-08-22 16:50:39,613 - INFO - train.py[:178] - Epoch: [1][38/4000] LR:0.010000 ForwardTime: 0.157 Loss: 1.63950 (rpn_cls: 0.08929 rpn_loc: 1.55021 img:[] rpn_acc: 0.94141)
+2021-08-22 16:50:39,613 - INFO - log_helper.py[:39] - Progress: 39 / 120000 [0%], Speed: 0.457 s/iter, ETA 0:15:13 (D:H:M)
+
+2021-08-22 16:50:40,043 - INFO - train.py[:178] - Epoch: [1][39/4000] LR:0.010000 ForwardTime: 0.142 Loss: 1.04796 (rpn_cls: 0.12808 rpn_loc: 0.91988 img:[] rpn_acc: 0.90234)
+2021-08-22 16:50:40,043 - INFO - log_helper.py[:39] - Progress: 40 / 120000 [0%], Speed: 0.422 s/iter, ETA 0:14:03 (D:H:M)
+
+2021-08-22 16:50:40,660 - INFO - train.py[:178] - Epoch: [1][40/4000] LR:0.010000 ForwardTime: 0.130 Loss: 2.25356 (rpn_cls: 0.09469 rpn_loc: 2.15887 img:[] rpn_acc: 0.93359)
+2021-08-22 16:50:40,660 - INFO - log_helper.py[:39] - Progress: 41 / 120000 [0%], Speed: 0.625 s/iter, ETA 0:20:50 (D:H:M)
+
+2021-08-22 16:50:41,109 - INFO - train.py[:178] - Epoch: [1][41/4000] LR:0.010000 ForwardTime: 0.154 Loss: 0.46073 (rpn_cls: 0.09111 rpn_loc: 0.36961 img:[] rpn_acc: 0.93359)
+2021-08-22 16:50:41,110 - INFO - log_helper.py[:39] - Progress: 42 / 120000 [0%], Speed: 0.447 s/iter, ETA 0:14:53 (D:H:M)
+
+2021-08-22 16:50:41,536 - INFO - train.py[:178] - Epoch: [1][42/4000] LR:0.010000 ForwardTime: 0.141 Loss: 1.67751 (rpn_cls: 0.10125 rpn_loc: 1.57626 img:[] rpn_acc: 0.91797)
+2021-08-22 16:50:41,537 - INFO - log_helper.py[:39] - Progress: 43 / 120000 [0%], Speed: 0.422 s/iter, ETA 0:14:04 (D:H:M)
+
+2021-08-22 16:50:42,159 - INFO - train.py[:178] - Epoch: [1][43/4000] LR:0.010000 ForwardTime: 0.144 Loss: 0.55176 (rpn_cls: 0.06801 rpn_loc: 0.48376 img:[] rpn_acc: 0.95312)
+2021-08-22 16:50:42,159 - INFO - log_helper.py[:39] - Progress: 44 / 120000 [0%], Speed: 0.629 s/iter, ETA 0:20:57 (D:H:M)
+
+2021-08-22 16:50:42,617 - INFO - train.py[:178] - Epoch: [1][44/4000] LR:0.010000 ForwardTime: 0.129 Loss: 1.92437 (rpn_cls: 0.05457 rpn_loc: 1.86979 img:[] rpn_acc: 0.96094)
+2021-08-22 16:50:42,618 - INFO - log_helper.py[:39] - Progress: 45 / 120000 [0%], Speed: 0.457 s/iter, ETA 0:15:13 (D:H:M)
+
+2021-08-22 16:50:43,033 - INFO - train.py[:178] - Epoch: [1][45/4000] LR:0.010000 ForwardTime: 0.130 Loss: 0.28520 (rpn_cls: 0.05048 rpn_loc: 0.23471 img:[] rpn_acc: 0.96484)
+2021-08-22 16:50:43,033 - INFO - log_helper.py[:39] - Progress: 46 / 120000 [0%], Speed: 0.415 s/iter, ETA 0:13:49 (D:H:M)
+
+2021-08-22 16:50:43,661 - INFO - train.py[:178] - Epoch: [1][46/4000] LR:0.010000 ForwardTime: 0.123 Loss: 1.53010 (rpn_cls: 0.06913 rpn_loc: 1.46097 img:[] rpn_acc: 0.94922)
+2021-08-22 16:50:43,661 - INFO - log_helper.py[:39] - Progress: 47 / 120000 [0%], Speed: 0.627 s/iter, ETA 0:20:53 (D:H:M)
+
+2021-08-22 16:50:44,078 - INFO - train.py[:178] - Epoch: [1][47/4000] LR:0.010000 ForwardTime: 0.120 Loss: 0.38068 (rpn_cls: 0.04931 rpn_loc: 0.33137 img:[] rpn_acc: 0.96484)
+2021-08-22 16:50:44,079 - INFO - log_helper.py[:39] - Progress: 48 / 120000 [0%], Speed: 0.414 s/iter, ETA 0:13:47 (D:H:M)
+
+2021-08-22 16:50:44,489 - INFO - train.py[:178] - Epoch: [1][48/4000] LR:0.010000 ForwardTime: 0.124 Loss: 0.47996 (rpn_cls: 0.08883 rpn_loc: 0.39112 img:[] rpn_acc: 0.92969)
+2021-08-22 16:50:44,489 - INFO - log_helper.py[:39] - Progress: 49 / 120000 [0%], Speed: 0.414 s/iter, ETA 0:13:47 (D:H:M)
+
+2021-08-22 16:50:45,165 - INFO - train.py[:178] - Epoch: [1][49/4000] LR:0.010000 ForwardTime: 0.140 Loss: 2.42585 (rpn_cls: 0.06085 rpn_loc: 2.36500 img:[] rpn_acc: 0.95312)
+2021-08-22 16:50:45,166 - INFO - log_helper.py[:39] - Progress: 50 / 120000 [0%], Speed: 0.681 s/iter, ETA 0:22:41 (D:H:M)
+
+2021-08-22 16:50:45,598 - INFO - train.py[:178] - Epoch: [1][50/4000] LR:0.010000 ForwardTime: 0.147 Loss: 1.79788 (rpn_cls: 0.09794 rpn_loc: 1.69994 img:[] rpn_acc: 0.91797)
+2021-08-22 16:50:45,598 - INFO - log_helper.py[:39] - Progress: 51 / 120000 [0%], Speed: 0.431 s/iter, ETA 0:14:21 (D:H:M)
+
+2021-08-22 16:50:46,000 - INFO - train.py[:178] - Epoch: [1][51/4000] LR:0.010000 ForwardTime: 0.114 Loss: 1.73745 (rpn_cls: 0.07969 rpn_loc: 1.65775 img:[] rpn_acc: 0.93359)
+2021-08-22 16:50:46,000 - INFO - log_helper.py[:39] - Progress: 52 / 120000 [0%], Speed: 0.398 s/iter, ETA 0:13:15 (D:H:M)
+
+2021-08-22 16:50:46,689 - INFO - train.py[:178] - Epoch: [1][52/4000] LR:0.010000 ForwardTime: 0.146 Loss: 1.48928 (rpn_cls: 0.10683 rpn_loc: 1.38244 img:[] rpn_acc: 0.91016)
+2021-08-22 16:50:46,689 - INFO - log_helper.py[:39] - Progress: 53 / 120000 [0%], Speed: 0.691 s/iter, ETA 0:23:02 (D:H:M)
+
+2021-08-22 16:50:47,115 - INFO - train.py[:178] - Epoch: [1][53/4000] LR:0.010000 ForwardTime: 0.143 Loss: 1.50651 (rpn_cls: 0.09540 rpn_loc: 1.41111 img:[] rpn_acc: 0.91406)
+2021-08-22 16:50:47,116 - INFO - log_helper.py[:39] - Progress: 54 / 120000 [0%], Speed: 0.426 s/iter, ETA 0:14:11 (D:H:M)
+
+2021-08-22 16:50:47,524 - INFO - train.py[:178] - Epoch: [1][54/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.42937 (rpn_cls: 0.08693 rpn_loc: 1.34244 img:[] rpn_acc: 0.92188)
+2021-08-22 16:50:47,525 - INFO - log_helper.py[:39] - Progress: 55 / 120000 [0%], Speed: 0.406 s/iter, ETA 0:13:30 (D:H:M)
+
+2021-08-22 16:50:48,298 - INFO - train.py[:178] - Epoch: [1][55/4000] LR:0.010000 ForwardTime: 0.170 Loss: 1.81608 (rpn_cls: 0.08173 rpn_loc: 1.73435 img:[] rpn_acc: 0.93359)
+2021-08-22 16:50:48,298 - INFO - log_helper.py[:39] - Progress: 56 / 120000 [0%], Speed: 0.777 s/iter, ETA 1:01:54 (D:H:M)
+
+2021-08-22 16:50:48,700 - INFO - train.py[:178] - Epoch: [1][56/4000] LR:0.010000 ForwardTime: 0.114 Loss: 1.14661 (rpn_cls: 0.09754 rpn_loc: 1.04907 img:[] rpn_acc: 0.91406)
+2021-08-22 16:50:48,701 - INFO - log_helper.py[:39] - Progress: 57 / 120000 [0%], Speed: 0.398 s/iter, ETA 0:13:15 (D:H:M)
+
+2021-08-22 16:50:49,106 - INFO - train.py[:178] - Epoch: [1][57/4000] LR:0.010000 ForwardTime: 0.118 Loss: 1.83157 (rpn_cls: 0.07517 rpn_loc: 1.75639 img:[] rpn_acc: 0.93750)
+2021-08-22 16:50:49,107 - INFO - log_helper.py[:39] - Progress: 58 / 120000 [0%], Speed: 0.410 s/iter, ETA 0:13:40 (D:H:M)
+
+2021-08-22 16:50:49,837 - INFO - train.py[:178] - Epoch: [1][58/4000] LR:0.010000 ForwardTime: 0.181 Loss: 1.40466 (rpn_cls: 0.10556 rpn_loc: 1.29910 img:[] rpn_acc: 0.91406)
+2021-08-22 16:50:49,838 - INFO - log_helper.py[:39] - Progress: 59 / 120000 [0%], Speed: 0.726 s/iter, ETA 1:00:10 (D:H:M)
+
+2021-08-22 16:50:50,481 - INFO - train.py[:178] - Epoch: [1][59/4000] LR:0.010000 ForwardTime: 0.126 Loss: 0.68721 (rpn_cls: 0.05487 rpn_loc: 0.63234 img:[] rpn_acc: 0.94922)
+2021-08-22 16:50:50,481 - INFO - log_helper.py[:39] - Progress: 60 / 120000 [0%], Speed: 0.644 s/iter, ETA 0:21:28 (D:H:M)
+
+2021-08-22 16:50:50,886 - INFO - train.py[:178] - Epoch: [1][60/4000] LR:0.010000 ForwardTime: 0.114 Loss: 0.79276 (rpn_cls: 0.06336 rpn_loc: 0.72940 img:[] rpn_acc: 0.94531)
+2021-08-22 16:50:50,886 - INFO - log_helper.py[:39] - Progress: 61 / 120000 [0%], Speed: 0.407 s/iter, ETA 0:13:33 (D:H:M)
+
+2021-08-22 16:50:51,322 - INFO - train.py[:178] - Epoch: [1][61/4000] LR:0.010000 ForwardTime: 0.140 Loss: 1.81544 (rpn_cls: 0.05198 rpn_loc: 1.76346 img:[] rpn_acc: 0.95312)
+2021-08-22 16:50:51,323 - INFO - log_helper.py[:39] - Progress: 62 / 120000 [0%], Speed: 0.437 s/iter, ETA 0:14:34 (D:H:M)
+
+2021-08-22 16:50:51,799 - INFO - train.py[:178] - Epoch: [1][62/4000] LR:0.010000 ForwardTime: 0.184 Loss: 1.29749 (rpn_cls: 0.06839 rpn_loc: 1.22910 img:[] rpn_acc: 0.94531)
+2021-08-22 16:50:51,799 - INFO - log_helper.py[:39] - Progress: 63 / 120000 [0%], Speed: 0.486 s/iter, ETA 0:16:10 (D:H:M)
+
+2021-08-22 16:50:52,207 - INFO - train.py[:178] - Epoch: [1][63/4000] LR:0.010000 ForwardTime: 0.112 Loss: 1.23425 (rpn_cls: 0.06756 rpn_loc: 1.16669 img:[] rpn_acc: 0.94141)
+2021-08-22 16:50:52,207 - INFO - log_helper.py[:39] - Progress: 64 / 120000 [0%], Speed: 0.398 s/iter, ETA 0:13:16 (D:H:M)
+
+2021-08-22 16:50:52,886 - INFO - train.py[:178] - Epoch: [1][64/4000] LR:0.010000 ForwardTime: 0.138 Loss: 0.44347 (rpn_cls: 0.07966 rpn_loc: 0.36381 img:[] rpn_acc: 0.92578)
+2021-08-22 16:50:52,887 - INFO - log_helper.py[:39] - Progress: 65 / 120000 [0%], Speed: 0.678 s/iter, ETA 0:22:35 (D:H:M)
+
+2021-08-22 16:50:53,321 - INFO - train.py[:178] - Epoch: [1][65/4000] LR:0.010000 ForwardTime: 0.145 Loss: 1.35397 (rpn_cls: 0.06880 rpn_loc: 1.28517 img:[] rpn_acc: 0.93750)
+2021-08-22 16:50:53,322 - INFO - log_helper.py[:39] - Progress: 66 / 120000 [0%], Speed: 0.431 s/iter, ETA 0:14:20 (D:H:M)
+
+2021-08-22 16:50:53,907 - INFO - train.py[:178] - Epoch: [1][66/4000] LR:0.010000 ForwardTime: 0.115 Loss: 1.44864 (rpn_cls: 0.13534 rpn_loc: 1.31330 img:[] rpn_acc: 0.88281)
+2021-08-22 16:50:53,907 - INFO - log_helper.py[:39] - Progress: 67 / 120000 [0%], Speed: 0.593 s/iter, ETA 0:19:45 (D:H:M)
+
+2021-08-22 16:50:54,443 - INFO - train.py[:178] - Epoch: [1][67/4000] LR:0.010000 ForwardTime: 0.131 Loss: 2.40125 (rpn_cls: 0.05420 rpn_loc: 2.34706 img:[] rpn_acc: 0.95312)
+2021-08-22 16:50:54,444 - INFO - log_helper.py[:39] - Progress: 68 / 120000 [0%], Speed: 0.534 s/iter, ETA 0:17:46 (D:H:M)
+
+2021-08-22 16:50:54,862 - INFO - train.py[:178] - Epoch: [1][68/4000] LR:0.010000 ForwardTime: 0.134 Loss: 0.95001 (rpn_cls: 0.08677 rpn_loc: 0.86324 img:[] rpn_acc: 0.91406)
+2021-08-22 16:50:54,863 - INFO - log_helper.py[:39] - Progress: 69 / 120000 [0%], Speed: 0.421 s/iter, ETA 0:14:00 (D:H:M)
+
+2021-08-22 16:50:55,267 - INFO - train.py[:178] - Epoch: [1][69/4000] LR:0.010000 ForwardTime: 0.115 Loss: 1.52860 (rpn_cls: 0.09187 rpn_loc: 1.43673 img:[] rpn_acc: 0.90625)
+2021-08-22 16:50:55,267 - INFO - log_helper.py[:39] - Progress: 70 / 120000 [0%], Speed: 0.402 s/iter, ETA 0:13:22 (D:H:M)
+
+2021-08-22 16:50:55,978 - INFO - train.py[:178] - Epoch: [1][70/4000] LR:0.010000 ForwardTime: 0.142 Loss: 1.25620 (rpn_cls: 0.05669 rpn_loc: 1.19951 img:[] rpn_acc: 0.94531)
+2021-08-22 16:50:55,978 - INFO - log_helper.py[:39] - Progress: 71 / 120000 [0%], Speed: 0.716 s/iter, ETA 0:23:50 (D:H:M)
+
+2021-08-22 16:50:56,421 - INFO - train.py[:178] - Epoch: [1][71/4000] LR:0.010000 ForwardTime: 0.147 Loss: 0.42250 (rpn_cls: 0.08578 rpn_loc: 0.33673 img:[] rpn_acc: 0.92188)
+2021-08-22 16:50:56,422 - INFO - log_helper.py[:39] - Progress: 72 / 120000 [0%], Speed: 0.441 s/iter, ETA 0:14:42 (D:H:M)
+
+2021-08-22 16:50:56,996 - INFO - train.py[:178] - Epoch: [1][72/4000] LR:0.010000 ForwardTime: 0.117 Loss: 0.95483 (rpn_cls: 0.12879 rpn_loc: 0.82604 img:[] rpn_acc: 0.87500)
+2021-08-22 16:50:56,996 - INFO - log_helper.py[:39] - Progress: 73 / 120000 [0%], Speed: 0.574 s/iter, ETA 0:19:08 (D:H:M)
+
+2021-08-22 16:50:57,596 - INFO - train.py[:178] - Epoch: [1][73/4000] LR:0.010000 ForwardTime: 0.177 Loss: 1.62363 (rpn_cls: 0.10518 rpn_loc: 1.51845 img:[] rpn_acc: 0.89062)
+2021-08-22 16:50:57,596 - INFO - log_helper.py[:39] - Progress: 74 / 120000 [0%], Speed: 0.599 s/iter, ETA 0:19:58 (D:H:M)
+
+2021-08-22 16:50:57,997 - INFO - train.py[:178] - Epoch: [1][74/4000] LR:0.010000 ForwardTime: 0.113 Loss: 2.13019 (rpn_cls: 0.07205 rpn_loc: 2.05815 img:[] rpn_acc: 0.93359)
+2021-08-22 16:50:57,997 - INFO - log_helper.py[:39] - Progress: 75 / 120000 [0%], Speed: 0.400 s/iter, ETA 0:13:18 (D:H:M)
+
+2021-08-22 16:50:58,533 - INFO - train.py[:178] - Epoch: [1][75/4000] LR:0.010000 ForwardTime: 0.114 Loss: 0.35700 (rpn_cls: 0.07961 rpn_loc: 0.27739 img:[] rpn_acc: 0.92969)
+2021-08-22 16:50:58,533 - INFO - log_helper.py[:39] - Progress: 76 / 120000 [0%], Speed: 0.539 s/iter, ETA 0:17:56 (D:H:M)
+
+2021-08-22 16:50:59,041 - INFO - train.py[:178] - Epoch: [1][76/4000] LR:0.010000 ForwardTime: 0.121 Loss: 2.22238 (rpn_cls: 0.09611 rpn_loc: 2.12627 img:[] rpn_acc: 0.91016)
+2021-08-22 16:50:59,041 - INFO - log_helper.py[:39] - Progress: 77 / 120000 [0%], Speed: 0.501 s/iter, ETA 0:16:40 (D:H:M)
+
+2021-08-22 16:50:59,443 - INFO - train.py[:178] - Epoch: [1][77/4000] LR:0.010000 ForwardTime: 0.114 Loss: 0.86876 (rpn_cls: 0.07130 rpn_loc: 0.79746 img:[] rpn_acc: 0.92188)
+2021-08-22 16:50:59,443 - INFO - log_helper.py[:39] - Progress: 78 / 120000 [0%], Speed: 0.413 s/iter, ETA 0:13:45 (D:H:M)
+
+2021-08-22 16:51:00,082 - INFO - train.py[:178] - Epoch: [1][78/4000] LR:0.010000 ForwardTime: 0.112 Loss: 1.51299 (rpn_cls: 0.02780 rpn_loc: 1.48519 img:[] rpn_acc: 0.97656)
+2021-08-22 16:51:00,082 - INFO - log_helper.py[:39] - Progress: 79 / 120000 [0%], Speed: 0.635 s/iter, ETA 0:21:09 (D:H:M)
+
+2021-08-22 16:51:00,530 - INFO - train.py[:178] - Epoch: [1][79/4000] LR:0.010000 ForwardTime: 0.155 Loss: 1.58695 (rpn_cls: 0.05711 rpn_loc: 1.52983 img:[] rpn_acc: 0.94922)
+2021-08-22 16:51:00,530 - INFO - log_helper.py[:39] - Progress: 80 / 120000 [0%], Speed: 0.452 s/iter, ETA 0:15:02 (D:H:M)
+
+2021-08-22 16:51:01,042 - INFO - train.py[:178] - Epoch: [1][80/4000] LR:0.010000 ForwardTime: 0.114 Loss: 0.39174 (rpn_cls: 0.04235 rpn_loc: 0.34940 img:[] rpn_acc: 0.96094)
+2021-08-22 16:51:01,043 - INFO - log_helper.py[:39] - Progress: 81 / 120000 [0%], Speed: 0.503 s/iter, ETA 0:16:45 (D:H:M)
+
+2021-08-22 16:51:01,450 - INFO - train.py[:178] - Epoch: [1][81/4000] LR:0.010000 ForwardTime: 0.114 Loss: 1.75974 (rpn_cls: 0.07235 rpn_loc: 1.68739 img:[] rpn_acc: 0.94141)
+2021-08-22 16:51:01,450 - INFO - log_helper.py[:39] - Progress: 82 / 120000 [0%], Speed: 0.410 s/iter, ETA 0:13:39 (D:H:M)
+
+2021-08-22 16:51:02,006 - INFO - train.py[:178] - Epoch: [1][82/4000] LR:0.010000 ForwardTime: 0.119 Loss: 1.65282 (rpn_cls: 0.13718 rpn_loc: 1.51564 img:[] rpn_acc: 0.87500)
+2021-08-22 16:51:02,006 - INFO - log_helper.py[:39] - Progress: 83 / 120000 [0%], Speed: 0.561 s/iter, ETA 0:18:40 (D:H:M)
+
+2021-08-22 16:51:02,419 - INFO - train.py[:178] - Epoch: [1][83/4000] LR:0.010000 ForwardTime: 0.128 Loss: 0.98342 (rpn_cls: 0.03590 rpn_loc: 0.94752 img:[] rpn_acc: 0.96875)
+2021-08-22 16:51:02,419 - INFO - log_helper.py[:39] - Progress: 84 / 120000 [0%], Speed: 0.413 s/iter, ETA 0:13:44 (D:H:M)
+
+2021-08-22 16:51:02,850 - INFO - train.py[:178] - Epoch: [1][84/4000] LR:0.010000 ForwardTime: 0.136 Loss: 0.38043 (rpn_cls: 0.05493 rpn_loc: 0.32551 img:[] rpn_acc: 0.93750)
+2021-08-22 16:51:02,851 - INFO - log_helper.py[:39] - Progress: 85 / 120000 [0%], Speed: 0.436 s/iter, ETA 0:14:30 (D:H:M)
+
+2021-08-22 16:51:03,527 - INFO - train.py[:178] - Epoch: [1][85/4000] LR:0.010000 ForwardTime: 0.134 Loss: 1.44594 (rpn_cls: 0.04443 rpn_loc: 1.40151 img:[] rpn_acc: 0.96094)
+2021-08-22 16:51:03,528 - INFO - log_helper.py[:39] - Progress: 86 / 120000 [0%], Speed: 0.673 s/iter, ETA 0:22:25 (D:H:M)
+
+2021-08-22 16:51:03,942 - INFO - train.py[:178] - Epoch: [1][86/4000] LR:0.010000 ForwardTime: 0.123 Loss: 2.36589 (rpn_cls: 0.09166 rpn_loc: 2.27423 img:[] rpn_acc: 0.91406)
+2021-08-22 16:51:03,942 - INFO - log_helper.py[:39] - Progress: 87 / 120000 [0%], Speed: 0.414 s/iter, ETA 0:13:46 (D:H:M)
+
+2021-08-22 16:51:04,425 - INFO - train.py[:178] - Epoch: [1][87/4000] LR:0.010000 ForwardTime: 0.166 Loss: 1.42708 (rpn_cls: 0.07907 rpn_loc: 1.34802 img:[] rpn_acc: 0.91797)
+2021-08-22 16:51:04,426 - INFO - log_helper.py[:39] - Progress: 88 / 120000 [0%], Speed: 0.482 s/iter, ETA 0:16:04 (D:H:M)
+
+2021-08-22 16:51:05,028 - INFO - train.py[:178] - Epoch: [1][88/4000] LR:0.010000 ForwardTime: 0.164 Loss: 0.65909 (rpn_cls: 0.03899 rpn_loc: 0.62010 img:[] rpn_acc: 0.96484)
+2021-08-22 16:51:05,028 - INFO - log_helper.py[:39] - Progress: 89 / 120000 [0%], Speed: 0.604 s/iter, ETA 0:20:06 (D:H:M)
+
+2021-08-22 16:51:05,452 - INFO - train.py[:178] - Epoch: [1][89/4000] LR:0.010000 ForwardTime: 0.137 Loss: 2.17059 (rpn_cls: 0.06295 rpn_loc: 2.10764 img:[] rpn_acc: 0.93750)
+2021-08-22 16:51:05,453 - INFO - log_helper.py[:39] - Progress: 90 / 120000 [0%], Speed: 0.421 s/iter, ETA 0:14:01 (D:H:M)
+
+2021-08-22 16:51:05,911 - INFO - train.py[:178] - Epoch: [1][90/4000] LR:0.010000 ForwardTime: 0.124 Loss: 2.05204 (rpn_cls: 0.10833 rpn_loc: 1.94371 img:[] rpn_acc: 0.90625)
+2021-08-22 16:51:05,911 - INFO - log_helper.py[:39] - Progress: 91 / 120000 [0%], Speed: 0.460 s/iter, ETA 0:15:19 (D:H:M)
+
+2021-08-22 16:51:06,631 - INFO - train.py[:178] - Epoch: [1][91/4000] LR:0.010000 ForwardTime: 0.153 Loss: 1.35559 (rpn_cls: 0.06856 rpn_loc: 1.28703 img:[] rpn_acc: 0.93750)
+2021-08-22 16:51:06,632 - INFO - log_helper.py[:39] - Progress: 92 / 120000 [0%], Speed: 0.717 s/iter, ETA 0:23:53 (D:H:M)
+
+2021-08-22 16:51:07,043 - INFO - train.py[:178] - Epoch: [1][92/4000] LR:0.010000 ForwardTime: 0.117 Loss: 0.42406 (rpn_cls: 0.05504 rpn_loc: 0.36902 img:[] rpn_acc: 0.94922)
+2021-08-22 16:51:07,044 - INFO - log_helper.py[:39] - Progress: 93 / 120000 [0%], Speed: 0.417 s/iter, ETA 0:13:53 (D:H:M)
+
+2021-08-22 16:51:07,488 - INFO - train.py[:178] - Epoch: [1][93/4000] LR:0.010000 ForwardTime: 0.161 Loss: 1.63213 (rpn_cls: 0.12376 rpn_loc: 1.50837 img:[] rpn_acc: 0.89062)
+2021-08-22 16:51:07,488 - INFO - log_helper.py[:39] - Progress: 94 / 120000 [0%], Speed: 0.444 s/iter, ETA 0:14:48 (D:H:M)
+
+2021-08-22 16:51:08,108 - INFO - train.py[:178] - Epoch: [1][94/4000] LR:0.010000 ForwardTime: 0.140 Loss: 1.10588 (rpn_cls: 0.07490 rpn_loc: 1.03098 img:[] rpn_acc: 0.93359)
+2021-08-22 16:51:08,108 - INFO - log_helper.py[:39] - Progress: 95 / 120000 [0%], Speed: 0.614 s/iter, ETA 0:20:26 (D:H:M)
+
+2021-08-22 16:51:08,656 - INFO - train.py[:178] - Epoch: [1][95/4000] LR:0.010000 ForwardTime: 0.266 Loss: 1.66812 (rpn_cls: 0.07907 rpn_loc: 1.58905 img:[] rpn_acc: 0.92969)
+2021-08-22 16:51:08,656 - INFO - log_helper.py[:39] - Progress: 96 / 120000 [0%], Speed: 0.561 s/iter, ETA 0:18:41 (D:H:M)
+
+2021-08-22 16:51:09,061 - INFO - train.py[:178] - Epoch: [1][96/4000] LR:0.010000 ForwardTime: 0.113 Loss: 1.54433 (rpn_cls: 0.10939 rpn_loc: 1.43494 img:[] rpn_acc: 0.88672)
+2021-08-22 16:51:09,061 - INFO - log_helper.py[:39] - Progress: 97 / 120000 [0%], Speed: 0.393 s/iter, ETA 0:13:04 (D:H:M)
+
+2021-08-22 16:51:09,579 - INFO - train.py[:178] - Epoch: [1][97/4000] LR:0.010000 ForwardTime: 0.135 Loss: 1.31022 (rpn_cls: 0.05489 rpn_loc: 1.25534 img:[] rpn_acc: 0.94531)
+2021-08-22 16:51:09,580 - INFO - log_helper.py[:39] - Progress: 98 / 120000 [0%], Speed: 0.518 s/iter, ETA 0:17:15 (D:H:M)
+
+2021-08-22 16:51:10,003 - INFO - train.py[:178] - Epoch: [1][98/4000] LR:0.010000 ForwardTime: 0.132 Loss: 2.06115 (rpn_cls: 0.10621 rpn_loc: 1.95494 img:[] rpn_acc: 0.89062)
+2021-08-22 16:51:10,003 - INFO - log_helper.py[:39] - Progress: 99 / 120000 [0%], Speed: 0.419 s/iter, ETA 0:13:58 (D:H:M)
+
+2021-08-22 16:51:10,402 - INFO - train.py[:178] - Epoch: [1][99/4000] LR:0.010000 ForwardTime: 0.112 Loss: 1.87352 (rpn_cls: 0.08925 rpn_loc: 1.78426 img:[] rpn_acc: 0.91406)
+2021-08-22 16:51:10,402 - INFO - log_helper.py[:39] - Progress: 100 / 120000 [0%], Speed: 0.405 s/iter, ETA 0:13:30 (D:H:M)
+
+2021-08-22 16:51:11,062 - INFO - train.py[:178] - Epoch: [1][100/4000] LR:0.010000 ForwardTime: 0.159 Loss: 0.95982 (rpn_cls: 0.05497 rpn_loc: 0.90485 img:[] rpn_acc: 0.94531)
+2021-08-22 16:51:11,062 - INFO - log_helper.py[:39] - Progress: 101 / 120000 [0%], Speed: 0.663 s/iter, ETA 0:22:04 (D:H:M)
+
+2021-08-22 16:51:11,517 - INFO - train.py[:178] - Epoch: [1][101/4000] LR:0.010000 ForwardTime: 0.170 Loss: 1.86324 (rpn_cls: 0.10024 rpn_loc: 1.76299 img:[] rpn_acc: 0.89453)
+2021-08-22 16:51:11,517 - INFO - log_helper.py[:39] - Progress: 102 / 120000 [0%], Speed: 0.453 s/iter, ETA 0:15:05 (D:H:M)
+
+2021-08-22 16:51:11,952 - INFO - train.py[:178] - Epoch: [1][102/4000] LR:0.010000 ForwardTime: 0.146 Loss: 0.53266 (rpn_cls: 0.06047 rpn_loc: 0.47219 img:[] rpn_acc: 0.93359)
+2021-08-22 16:51:11,953 - INFO - log_helper.py[:39] - Progress: 103 / 120000 [0%], Speed: 0.431 s/iter, ETA 0:14:22 (D:H:M)
+
+2021-08-22 16:51:12,574 - INFO - train.py[:178] - Epoch: [1][103/4000] LR:0.010000 ForwardTime: 0.123 Loss: 2.45949 (rpn_cls: 0.06269 rpn_loc: 2.39680 img:[] rpn_acc: 0.94141)
+2021-08-22 16:51:12,574 - INFO - log_helper.py[:39] - Progress: 104 / 120000 [0%], Speed: 0.627 s/iter, ETA 0:20:52 (D:H:M)
+
+2021-08-22 16:51:13,047 - INFO - train.py[:178] - Epoch: [1][104/4000] LR:0.010000 ForwardTime: 0.162 Loss: 0.35532 (rpn_cls: 0.09202 rpn_loc: 0.26330 img:[] rpn_acc: 0.89844)
+2021-08-22 16:51:13,047 - INFO - log_helper.py[:39] - Progress: 105 / 120000 [0%], Speed: 0.470 s/iter, ETA 0:15:38 (D:H:M)
+
+2021-08-22 16:51:13,473 - INFO - train.py[:178] - Epoch: [1][105/4000] LR:0.010000 ForwardTime: 0.127 Loss: 2.49559 (rpn_cls: 0.03957 rpn_loc: 2.45602 img:[] rpn_acc: 0.96094)
+2021-08-22 16:51:13,474 - INFO - log_helper.py[:39] - Progress: 106 / 120000 [0%], Speed: 0.417 s/iter, ETA 0:13:52 (D:H:M)
+
+2021-08-22 16:51:14,059 - INFO - train.py[:178] - Epoch: [1][106/4000] LR:0.010000 ForwardTime: 0.133 Loss: 0.24151 (rpn_cls: 0.06286 rpn_loc: 0.17865 img:[] rpn_acc: 0.92969)
+2021-08-22 16:51:14,059 - INFO - log_helper.py[:39] - Progress: 107 / 120000 [0%], Speed: 0.599 s/iter, ETA 0:19:56 (D:H:M)
+
+2021-08-22 16:51:14,571 - INFO - train.py[:178] - Epoch: [1][107/4000] LR:0.010000 ForwardTime: 0.148 Loss: 2.02378 (rpn_cls: 0.06901 rpn_loc: 1.95477 img:[] rpn_acc: 0.93359)
+2021-08-22 16:51:14,571 - INFO - log_helper.py[:39] - Progress: 108 / 120000 [0%], Speed: 0.505 s/iter, ETA 0:16:48 (D:H:M)
+
+2021-08-22 16:51:14,975 - INFO - train.py[:178] - Epoch: [1][108/4000] LR:0.010000 ForwardTime: 0.118 Loss: 1.19520 (rpn_cls: 0.04670 rpn_loc: 1.14850 img:[] rpn_acc: 0.94922)
+2021-08-22 16:51:14,976 - INFO - log_helper.py[:39] - Progress: 109 / 120000 [0%], Speed: 0.407 s/iter, ETA 0:13:33 (D:H:M)
+
+2021-08-22 16:51:15,574 - INFO - train.py[:178] - Epoch: [1][109/4000] LR:0.010000 ForwardTime: 0.128 Loss: 1.64820 (rpn_cls: 0.07154 rpn_loc: 1.57666 img:[] rpn_acc: 0.93359)
+2021-08-22 16:51:15,575 - INFO - log_helper.py[:39] - Progress: 110 / 120000 [0%], Speed: 0.603 s/iter, ETA 0:20:04 (D:H:M)
+
+2021-08-22 16:51:16,066 - INFO - train.py[:178] - Epoch: [1][110/4000] LR:0.010000 ForwardTime: 0.168 Loss: 0.40984 (rpn_cls: 0.06105 rpn_loc: 0.34878 img:[] rpn_acc: 0.94141)
+2021-08-22 16:51:16,067 - INFO - log_helper.py[:39] - Progress: 111 / 120000 [0%], Speed: 0.491 s/iter, ETA 0:16:20 (D:H:M)
+
+2021-08-22 16:51:16,482 - INFO - train.py[:178] - Epoch: [1][111/4000] LR:0.010000 ForwardTime: 0.124 Loss: 0.98137 (rpn_cls: 0.10273 rpn_loc: 0.87864 img:[] rpn_acc: 0.88281)
+2021-08-22 16:51:16,482 - INFO - log_helper.py[:39] - Progress: 112 / 120000 [0%], Speed: 0.414 s/iter, ETA 0:13:46 (D:H:M)
+
+2021-08-22 16:51:17,069 - INFO - train.py[:178] - Epoch: [1][112/4000] LR:0.010000 ForwardTime: 0.122 Loss: 1.02787 (rpn_cls: 0.03835 rpn_loc: 0.98952 img:[] rpn_acc: 0.96094)
+2021-08-22 16:51:17,069 - INFO - log_helper.py[:39] - Progress: 113 / 120000 [0%], Speed: 0.590 s/iter, ETA 0:19:39 (D:H:M)
+
+2021-08-22 16:51:17,697 - INFO - train.py[:178] - Epoch: [1][113/4000] LR:0.010000 ForwardTime: 0.136 Loss: 0.38484 (rpn_cls: 0.08466 rpn_loc: 0.30018 img:[] rpn_acc: 0.90625)
+2021-08-22 16:51:17,697 - INFO - log_helper.py[:39] - Progress: 114 / 120000 [0%], Speed: 0.630 s/iter, ETA 0:20:58 (D:H:M)
+
+2021-08-22 16:51:18,233 - INFO - train.py[:178] - Epoch: [1][114/4000] LR:0.010000 ForwardTime: 0.112 Loss: 1.80907 (rpn_cls: 0.10636 rpn_loc: 1.70271 img:[] rpn_acc: 0.88672)
+2021-08-22 16:51:18,233 - INFO - log_helper.py[:39] - Progress: 115 / 120000 [0%], Speed: 0.533 s/iter, ETA 0:17:44 (D:H:M)
+
+2021-08-22 16:51:18,641 - INFO - train.py[:178] - Epoch: [1][115/4000] LR:0.010000 ForwardTime: 0.119 Loss: 1.99382 (rpn_cls: 0.06227 rpn_loc: 1.93156 img:[] rpn_acc: 0.93750)
+2021-08-22 16:51:18,641 - INFO - log_helper.py[:39] - Progress: 116 / 120000 [0%], Speed: 0.404 s/iter, ETA 0:13:27 (D:H:M)
+
+2021-08-22 16:51:19,199 - INFO - train.py[:178] - Epoch: [1][116/4000] LR:0.010000 ForwardTime: 0.164 Loss: 1.74780 (rpn_cls: 0.06331 rpn_loc: 1.68449 img:[] rpn_acc: 0.92578)
+2021-08-22 16:51:19,199 - INFO - log_helper.py[:39] - Progress: 117 / 120000 [0%], Speed: 0.558 s/iter, ETA 0:18:35 (D:H:M)
+
+2021-08-22 16:51:19,676 - INFO - train.py[:178] - Epoch: [1][117/4000] LR:0.010000 ForwardTime: 0.114 Loss: 0.17732 (rpn_cls: 0.03197 rpn_loc: 0.14535 img:[] rpn_acc: 0.96875)
+2021-08-22 16:51:19,676 - INFO - log_helper.py[:39] - Progress: 118 / 120000 [0%], Speed: 0.481 s/iter, ETA 0:16:01 (D:H:M)
+
+2021-08-22 16:51:20,079 - INFO - train.py[:178] - Epoch: [1][118/4000] LR:0.010000 ForwardTime: 0.118 Loss: 1.74926 (rpn_cls: 0.09616 rpn_loc: 1.65310 img:[] rpn_acc: 0.89453)
+2021-08-22 16:51:20,079 - INFO - log_helper.py[:39] - Progress: 119 / 120000 [0%], Speed: 0.403 s/iter, ETA 0:13:24 (D:H:M)
+
+2021-08-22 16:51:20,625 - INFO - train.py[:178] - Epoch: [1][119/4000] LR:0.010000 ForwardTime: 0.161 Loss: 2.53055 (rpn_cls: 0.06090 rpn_loc: 2.46964 img:[] rpn_acc: 0.92969)
+2021-08-22 16:51:20,625 - INFO - log_helper.py[:39] - Progress: 120 / 120000 [0%], Speed: 0.548 s/iter, ETA 0:18:15 (D:H:M)
+
+2021-08-22 16:51:21,198 - INFO - train.py[:178] - Epoch: [1][120/4000] LR:0.010000 ForwardTime: 0.119 Loss: 0.34133 (rpn_cls: 0.04725 rpn_loc: 0.29408 img:[] rpn_acc: 0.96094)
+2021-08-22 16:51:21,199 - INFO - log_helper.py[:39] - Progress: 121 / 120000 [0%], Speed: 0.569 s/iter, ETA 0:18:57 (D:H:M)
+
+2021-08-22 16:51:21,600 - INFO - train.py[:178] - Epoch: [1][121/4000] LR:0.010000 ForwardTime: 0.115 Loss: 0.77789 (rpn_cls: 0.06755 rpn_loc: 0.71034 img:[] rpn_acc: 0.92578)
+2021-08-22 16:51:21,600 - INFO - log_helper.py[:39] - Progress: 122 / 120000 [0%], Speed: 0.402 s/iter, ETA 0:13:22 (D:H:M)
+
+2021-08-22 16:51:22,072 - INFO - train.py[:178] - Epoch: [1][122/4000] LR:0.010000 ForwardTime: 0.117 Loss: 1.80836 (rpn_cls: 0.02133 rpn_loc: 1.78703 img:[] rpn_acc: 0.97656)
+2021-08-22 16:51:22,072 - INFO - log_helper.py[:39] - Progress: 123 / 120000 [0%], Speed: 0.472 s/iter, ETA 0:15:43 (D:H:M)
+
+2021-08-22 16:51:22,677 - INFO - train.py[:178] - Epoch: [1][123/4000] LR:0.010000 ForwardTime: 0.114 Loss: 0.34772 (rpn_cls: 0.05744 rpn_loc: 0.29028 img:[] rpn_acc: 0.93359)
+2021-08-22 16:51:22,677 - INFO - log_helper.py[:39] - Progress: 124 / 120000 [0%], Speed: 0.609 s/iter, ETA 0:20:16 (D:H:M)
+
+2021-08-22 16:51:23,078 - INFO - train.py[:178] - Epoch: [1][124/4000] LR:0.010000 ForwardTime: 0.113 Loss: 0.65413 (rpn_cls: 0.06937 rpn_loc: 0.58475 img:[] rpn_acc: 0.91406)
+2021-08-22 16:51:23,079 - INFO - log_helper.py[:39] - Progress: 125 / 120000 [0%], Speed: 0.398 s/iter, ETA 0:13:15 (D:H:M)
+
+2021-08-22 16:51:23,511 - INFO - train.py[:178] - Epoch: [1][125/4000] LR:0.010000 ForwardTime: 0.127 Loss: 0.92215 (rpn_cls: 0.04375 rpn_loc: 0.87840 img:[] rpn_acc: 0.94531)
+2021-08-22 16:51:23,511 - INFO - log_helper.py[:39] - Progress: 126 / 120000 [0%], Speed: 0.435 s/iter, ETA 0:14:29 (D:H:M)
+
+2021-08-22 16:51:23,913 - INFO - train.py[:178] - Epoch: [1][126/4000] LR:0.010000 ForwardTime: 0.115 Loss: 2.21580 (rpn_cls: 0.05472 rpn_loc: 2.16108 img:[] rpn_acc: 0.94531)
+2021-08-22 16:51:23,913 - INFO - log_helper.py[:39] - Progress: 127 / 120000 [0%], Speed: 0.400 s/iter, ETA 0:13:18 (D:H:M)
+
+2021-08-22 16:51:24,529 - INFO - train.py[:178] - Epoch: [1][127/4000] LR:0.010000 ForwardTime: 0.145 Loss: 2.68521 (rpn_cls: 0.03191 rpn_loc: 2.65330 img:[] rpn_acc: 0.97266)
+2021-08-22 16:51:24,530 - INFO - log_helper.py[:39] - Progress: 128 / 120000 [0%], Speed: 0.612 s/iter, ETA 0:20:23 (D:H:M)
+
+2021-08-22 16:51:25,044 - INFO - train.py[:178] - Epoch: [1][128/4000] LR:0.010000 ForwardTime: 0.146 Loss: 0.41726 (rpn_cls: 0.07961 rpn_loc: 0.33765 img:[] rpn_acc: 0.90234)
+2021-08-22 16:51:25,045 - INFO - log_helper.py[:39] - Progress: 129 / 120000 [0%], Speed: 0.523 s/iter, ETA 0:17:24 (D:H:M)
+
+2021-08-22 16:51:25,480 - INFO - train.py[:178] - Epoch: [1][129/4000] LR:0.010000 ForwardTime: 0.141 Loss: 2.29636 (rpn_cls: 0.06489 rpn_loc: 2.23147 img:[] rpn_acc: 0.93359)
+2021-08-22 16:51:25,480 - INFO - log_helper.py[:39] - Progress: 130 / 120000 [0%], Speed: 0.423 s/iter, ETA 0:14:04 (D:H:M)
+
+2021-08-22 16:51:26,102 - INFO - train.py[:178] - Epoch: [1][130/4000] LR:0.010000 ForwardTime: 0.147 Loss: 1.82088 (rpn_cls: 0.10896 rpn_loc: 1.71192 img:[] rpn_acc: 0.92188)
+2021-08-22 16:51:26,103 - INFO - log_helper.py[:39] - Progress: 131 / 120000 [0%], Speed: 0.633 s/iter, ETA 0:21:03 (D:H:M)
+
+2021-08-22 16:51:26,598 - INFO - train.py[:178] - Epoch: [1][131/4000] LR:0.010000 ForwardTime: 0.159 Loss: 0.35699 (rpn_cls: 0.06851 rpn_loc: 0.28847 img:[] rpn_acc: 0.93359)
+2021-08-22 16:51:26,599 - INFO - log_helper.py[:39] - Progress: 132 / 120000 [0%], Speed: 0.497 s/iter, ETA 0:16:33 (D:H:M)
+
+2021-08-22 16:51:27,095 - INFO - train.py[:178] - Epoch: [1][132/4000] LR:0.010000 ForwardTime: 0.154 Loss: 1.08271 (rpn_cls: 0.05250 rpn_loc: 1.03021 img:[] rpn_acc: 0.96875)
+2021-08-22 16:51:27,095 - INFO - log_helper.py[:39] - Progress: 133 / 120000 [0%], Speed: 0.495 s/iter, ETA 0:16:28 (D:H:M)
+
+2021-08-22 16:51:27,632 - INFO - train.py[:178] - Epoch: [1][133/4000] LR:0.010000 ForwardTime: 0.142 Loss: 0.42978 (rpn_cls: 0.05496 rpn_loc: 0.37482 img:[] rpn_acc: 0.95312)
+2021-08-22 16:51:27,632 - INFO - log_helper.py[:39] - Progress: 134 / 120000 [0%], Speed: 0.537 s/iter, ETA 0:17:52 (D:H:M)
+
+2021-08-22 16:51:28,103 - INFO - train.py[:178] - Epoch: [1][134/4000] LR:0.010000 ForwardTime: 0.144 Loss: 1.28060 (rpn_cls: 0.06026 rpn_loc: 1.22034 img:[] rpn_acc: 0.95312)
+2021-08-22 16:51:28,104 - INFO - log_helper.py[:39] - Progress: 135 / 120000 [0%], Speed: 0.465 s/iter, ETA 0:15:29 (D:H:M)
+
+2021-08-22 16:51:28,574 - INFO - train.py[:178] - Epoch: [1][135/4000] LR:0.010000 ForwardTime: 0.162 Loss: 1.25405 (rpn_cls: 0.05190 rpn_loc: 1.20216 img:[] rpn_acc: 0.95312)
+2021-08-22 16:51:28,574 - INFO - log_helper.py[:39] - Progress: 136 / 120000 [0%], Speed: 0.479 s/iter, ETA 0:15:56 (D:H:M)
+
+2021-08-22 16:51:29,147 - INFO - train.py[:178] - Epoch: [1][136/4000] LR:0.010000 ForwardTime: 0.155 Loss: 1.77579 (rpn_cls: 0.08651 rpn_loc: 1.68928 img:[] rpn_acc: 0.94141)
+2021-08-22 16:51:29,147 - INFO - log_helper.py[:39] - Progress: 137 / 120000 [0%], Speed: 0.573 s/iter, ETA 0:19:04 (D:H:M)
+
+2021-08-22 16:51:29,554 - INFO - train.py[:178] - Epoch: [1][137/4000] LR:0.010000 ForwardTime: 0.120 Loss: 0.64586 (rpn_cls: 0.10186 rpn_loc: 0.54400 img:[] rpn_acc: 0.90625)
+2021-08-22 16:51:29,554 - INFO - log_helper.py[:39] - Progress: 138 / 120000 [0%], Speed: 0.405 s/iter, ETA 0:13:28 (D:H:M)
+
+2021-08-22 16:51:30,079 - INFO - train.py[:178] - Epoch: [1][138/4000] LR:0.010000 ForwardTime: 0.147 Loss: 1.64421 (rpn_cls: 0.06118 rpn_loc: 1.58303 img:[] rpn_acc: 0.94141)
+2021-08-22 16:51:30,079 - INFO - log_helper.py[:39] - Progress: 139 / 120000 [0%], Speed: 0.521 s/iter, ETA 0:17:21 (D:H:M)
+
+2021-08-22 16:51:30,639 - INFO - train.py[:178] - Epoch: [1][139/4000] LR:0.010000 ForwardTime: 0.155 Loss: 0.98390 (rpn_cls: 0.06345 rpn_loc: 0.92045 img:[] rpn_acc: 0.97656)
+2021-08-22 16:51:30,639 - INFO - log_helper.py[:39] - Progress: 140 / 120000 [0%], Speed: 0.558 s/iter, ETA 0:18:34 (D:H:M)
+
+2021-08-22 16:51:31,100 - INFO - train.py[:178] - Epoch: [1][140/4000] LR:0.010000 ForwardTime: 0.154 Loss: 0.27112 (rpn_cls: 0.04860 rpn_loc: 0.22252 img:[] rpn_acc: 0.97656)
+2021-08-22 16:51:31,100 - INFO - log_helper.py[:39] - Progress: 141 / 120000 [0%], Speed: 0.470 s/iter, ETA 0:15:39 (D:H:M)
+
+2021-08-22 16:51:31,695 - INFO - train.py[:178] - Epoch: [1][141/4000] LR:0.010000 ForwardTime: 0.192 Loss: 0.94547 (rpn_cls: 0.08719 rpn_loc: 0.85827 img:[] rpn_acc: 0.95312)
+2021-08-22 16:51:31,696 - INFO - log_helper.py[:39] - Progress: 142 / 120000 [0%], Speed: 0.594 s/iter, ETA 0:19:46 (D:H:M)
+
+2021-08-22 16:51:32,245 - INFO - train.py[:178] - Epoch: [1][142/4000] LR:0.010000 ForwardTime: 0.128 Loss: 1.20752 (rpn_cls: 0.06136 rpn_loc: 1.14616 img:[] rpn_acc: 0.97656)
+2021-08-22 16:51:32,245 - INFO - log_helper.py[:39] - Progress: 143 / 120000 [0%], Speed: 0.540 s/iter, ETA 0:17:59 (D:H:M)
+
+2021-08-22 16:51:32,684 - INFO - train.py[:178] - Epoch: [1][143/4000] LR:0.010000 ForwardTime: 0.155 Loss: 1.55117 (rpn_cls: 0.09628 rpn_loc: 1.45488 img:[] rpn_acc: 0.94141)
+2021-08-22 16:51:32,685 - INFO - log_helper.py[:39] - Progress: 144 / 120000 [0%], Speed: 0.450 s/iter, ETA 0:14:59 (D:H:M)
+
+2021-08-22 16:51:33,218 - INFO - train.py[:178] - Epoch: [1][144/4000] LR:0.010000 ForwardTime: 0.165 Loss: 1.00400 (rpn_cls: 0.03491 rpn_loc: 0.96909 img:[] rpn_acc: 0.99219)
+2021-08-22 16:51:33,218 - INFO - log_helper.py[:39] - Progress: 145 / 120000 [0%], Speed: 0.531 s/iter, ETA 0:17:41 (D:H:M)
+
+2021-08-22 16:51:33,766 - INFO - train.py[:178] - Epoch: [1][145/4000] LR:0.010000 ForwardTime: 0.152 Loss: 1.60746 (rpn_cls: 0.04226 rpn_loc: 1.56521 img:[] rpn_acc: 0.98828)
+2021-08-22 16:51:33,766 - INFO - log_helper.py[:39] - Progress: 146 / 120000 [0%], Speed: 0.547 s/iter, ETA 0:18:11 (D:H:M)
+
+2021-08-22 16:51:34,215 - INFO - train.py[:178] - Epoch: [1][146/4000] LR:0.010000 ForwardTime: 0.155 Loss: 2.18897 (rpn_cls: 0.08430 rpn_loc: 2.10467 img:[] rpn_acc: 0.95312)
+2021-08-22 16:51:34,215 - INFO - log_helper.py[:39] - Progress: 147 / 120000 [0%], Speed: 0.444 s/iter, ETA 0:14:46 (D:H:M)
+
+2021-08-22 16:51:34,684 - INFO - train.py[:178] - Epoch: [1][147/4000] LR:0.010000 ForwardTime: 0.125 Loss: 1.33783 (rpn_cls: 0.04966 rpn_loc: 1.28817 img:[] rpn_acc: 0.98047)
+2021-08-22 16:51:34,685 - INFO - log_helper.py[:39] - Progress: 148 / 120000 [0%], Speed: 0.477 s/iter, ETA 0:15:53 (D:H:M)
+
+2021-08-22 16:51:35,294 - INFO - train.py[:178] - Epoch: [1][148/4000] LR:0.010000 ForwardTime: 0.150 Loss: 0.89668 (rpn_cls: 0.05747 rpn_loc: 0.83921 img:[] rpn_acc: 0.98047)
+2021-08-22 16:51:35,294 - INFO - log_helper.py[:39] - Progress: 149 / 120000 [0%], Speed: 0.607 s/iter, ETA 0:20:12 (D:H:M)
+
+2021-08-22 16:51:35,783 - INFO - train.py[:178] - Epoch: [1][149/4000] LR:0.010000 ForwardTime: 0.148 Loss: 1.94296 (rpn_cls: 0.08758 rpn_loc: 1.85538 img:[] rpn_acc: 0.96484)
+2021-08-22 16:51:35,784 - INFO - log_helper.py[:39] - Progress: 150 / 120000 [0%], Speed: 0.491 s/iter, ETA 0:16:20 (D:H:M)
+
+2021-08-22 16:51:36,417 - INFO - train.py[:178] - Epoch: [1][150/4000] LR:0.010000 ForwardTime: 0.153 Loss: 0.35309 (rpn_cls: 0.04081 rpn_loc: 0.31228 img:[] rpn_acc: 1.00000)
+2021-08-22 16:51:36,417 - INFO - log_helper.py[:39] - Progress: 151 / 120000 [0%], Speed: 0.633 s/iter, ETA 0:21:04 (D:H:M)
+
+2021-08-22 16:51:36,965 - INFO - train.py[:178] - Epoch: [1][151/4000] LR:0.010000 ForwardTime: 0.134 Loss: 0.65736 (rpn_cls: 0.05480 rpn_loc: 0.60256 img:[] rpn_acc: 0.98047)
+2021-08-22 16:51:36,965 - INFO - log_helper.py[:39] - Progress: 152 / 120000 [0%], Speed: 0.544 s/iter, ETA 0:18:07 (D:H:M)
+
+2021-08-22 16:51:37,405 - INFO - train.py[:178] - Epoch: [1][152/4000] LR:0.010000 ForwardTime: 0.130 Loss: 1.57462 (rpn_cls: 0.03910 rpn_loc: 1.53553 img:[] rpn_acc: 0.97656)
+2021-08-22 16:51:37,405 - INFO - log_helper.py[:39] - Progress: 153 / 120000 [0%], Speed: 0.439 s/iter, ETA 0:14:37 (D:H:M)
+
+2021-08-22 16:51:38,272 - INFO - train.py[:178] - Epoch: [1][153/4000] LR:0.010000 ForwardTime: 0.177 Loss: 0.97786 (rpn_cls: 0.06274 rpn_loc: 0.91512 img:[] rpn_acc: 0.98047)
+2021-08-22 16:51:38,273 - INFO - log_helper.py[:39] - Progress: 154 / 120000 [0%], Speed: 0.867 s/iter, ETA 1:04:50 (D:H:M)
+
+2021-08-22 16:51:38,871 - INFO - train.py[:178] - Epoch: [1][154/4000] LR:0.010000 ForwardTime: 0.159 Loss: 1.48354 (rpn_cls: 0.12170 rpn_loc: 1.36184 img:[] rpn_acc: 0.94922)
+2021-08-22 16:51:38,871 - INFO - log_helper.py[:39] - Progress: 155 / 120000 [0%], Speed: 0.599 s/iter, ETA 0:19:55 (D:H:M)
+
+2021-08-22 16:51:39,276 - INFO - train.py[:178] - Epoch: [1][155/4000] LR:0.010000 ForwardTime: 0.116 Loss: 1.43284 (rpn_cls: 0.05859 rpn_loc: 1.37425 img:[] rpn_acc: 0.97266)
+2021-08-22 16:51:39,276 - INFO - log_helper.py[:39] - Progress: 156 / 120000 [0%], Speed: 0.410 s/iter, ETA 0:13:39 (D:H:M)
+
+2021-08-22 16:51:39,780 - INFO - train.py[:178] - Epoch: [1][156/4000] LR:0.010000 ForwardTime: 0.154 Loss: 1.06739 (rpn_cls: 0.07154 rpn_loc: 0.99585 img:[] rpn_acc: 0.96875)
+2021-08-22 16:51:39,781 - INFO - log_helper.py[:39] - Progress: 157 / 120000 [0%], Speed: 0.504 s/iter, ETA 0:16:47 (D:H:M)
+
+2021-08-22 16:51:40,407 - INFO - train.py[:178] - Epoch: [1][157/4000] LR:0.010000 ForwardTime: 0.169 Loss: 0.32664 (rpn_cls: 0.04934 rpn_loc: 0.27730 img:[] rpn_acc: 0.99609)
+2021-08-22 16:51:40,407 - INFO - log_helper.py[:39] - Progress: 158 / 120000 [0%], Speed: 0.622 s/iter, ETA 0:20:42 (D:H:M)
+
+2021-08-22 16:51:40,812 - INFO - train.py[:178] - Epoch: [1][158/4000] LR:0.010000 ForwardTime: 0.114 Loss: 1.50380 (rpn_cls: 0.07125 rpn_loc: 1.43255 img:[] rpn_acc: 0.94531)
+2021-08-22 16:51:40,812 - INFO - log_helper.py[:39] - Progress: 159 / 120000 [0%], Speed: 0.405 s/iter, ETA 0:13:29 (D:H:M)
+
+2021-08-22 16:51:41,360 - INFO - train.py[:178] - Epoch: [1][159/4000] LR:0.010000 ForwardTime: 0.139 Loss: 2.04120 (rpn_cls: 0.04735 rpn_loc: 1.99385 img:[] rpn_acc: 0.97656)
+2021-08-22 16:51:41,361 - INFO - log_helper.py[:39] - Progress: 160 / 120000 [0%], Speed: 0.544 s/iter, ETA 0:18:06 (D:H:M)
+
+2021-08-22 16:51:42,020 - INFO - train.py[:178] - Epoch: [1][160/4000] LR:0.010000 ForwardTime: 0.133 Loss: 2.26200 (rpn_cls: 0.06132 rpn_loc: 2.20068 img:[] rpn_acc: 0.97266)
+2021-08-22 16:51:42,021 - INFO - log_helper.py[:39] - Progress: 161 / 120000 [0%], Speed: 0.667 s/iter, ETA 0:22:12 (D:H:M)
+
+2021-08-22 16:51:42,488 - INFO - train.py[:178] - Epoch: [1][161/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.50343 (rpn_cls: 0.04815 rpn_loc: 1.45528 img:[] rpn_acc: 0.96875)
+2021-08-22 16:51:42,489 - INFO - log_helper.py[:39] - Progress: 162 / 120000 [0%], Speed: 0.463 s/iter, ETA 0:15:25 (D:H:M)
+
+2021-08-22 16:51:42,912 - INFO - train.py[:178] - Epoch: [1][162/4000] LR:0.010000 ForwardTime: 0.128 Loss: 1.69691 (rpn_cls: 0.05089 rpn_loc: 1.64602 img:[] rpn_acc: 0.97266)
+2021-08-22 16:51:42,913 - INFO - log_helper.py[:39] - Progress: 163 / 120000 [0%], Speed: 0.422 s/iter, ETA 0:14:02 (D:H:M)
+
+2021-08-22 16:51:43,598 - INFO - train.py[:178] - Epoch: [1][163/4000] LR:0.010000 ForwardTime: 0.136 Loss: 0.99099 (rpn_cls: 0.05801 rpn_loc: 0.93298 img:[] rpn_acc: 0.99609)
+2021-08-22 16:51:43,599 - INFO - log_helper.py[:39] - Progress: 164 / 120000 [0%], Speed: 0.694 s/iter, ETA 0:23:06 (D:H:M)
+
+2021-08-22 16:51:44,003 - INFO - train.py[:178] - Epoch: [1][164/4000] LR:0.010000 ForwardTime: 0.116 Loss: 1.14844 (rpn_cls: 0.08382 rpn_loc: 1.06461 img:[] rpn_acc: 0.96094)
+2021-08-22 16:51:44,003 - INFO - log_helper.py[:39] - Progress: 165 / 120000 [0%], Speed: 0.405 s/iter, ETA 0:13:28 (D:H:M)
+
+2021-08-22 16:51:44,421 - INFO - train.py[:178] - Epoch: [1][165/4000] LR:0.010000 ForwardTime: 0.114 Loss: 1.76853 (rpn_cls: 0.04543 rpn_loc: 1.72310 img:[] rpn_acc: 0.98828)
+2021-08-22 16:51:44,422 - INFO - log_helper.py[:39] - Progress: 166 / 120000 [0%], Speed: 0.407 s/iter, ETA 0:13:33 (D:H:M)
+
+2021-08-22 16:51:44,847 - INFO - train.py[:178] - Epoch: [1][166/4000] LR:0.010000 ForwardTime: 0.125 Loss: 1.66131 (rpn_cls: 0.02900 rpn_loc: 1.63232 img:[] rpn_acc: 0.99609)
+2021-08-22 16:51:44,847 - INFO - log_helper.py[:39] - Progress: 167 / 120000 [0%], Speed: 0.425 s/iter, ETA 0:14:09 (D:H:M)
+
+2021-08-22 16:51:45,519 - INFO - train.py[:178] - Epoch: [1][167/4000] LR:0.010000 ForwardTime: 0.114 Loss: 1.43060 (rpn_cls: 0.05936 rpn_loc: 1.37125 img:[] rpn_acc: 0.97656)
+2021-08-22 16:51:45,520 - INFO - log_helper.py[:39] - Progress: 168 / 120000 [0%], Speed: 0.671 s/iter, ETA 0:22:20 (D:H:M)
+
+2021-08-22 16:51:45,932 - INFO - train.py[:178] - Epoch: [1][168/4000] LR:0.010000 ForwardTime: 0.120 Loss: 1.34449 (rpn_cls: 0.07683 rpn_loc: 1.26767 img:[] rpn_acc: 0.96875)
+2021-08-22 16:51:45,932 - INFO - log_helper.py[:39] - Progress: 169 / 120000 [0%], Speed: 0.420 s/iter, ETA 0:13:58 (D:H:M)
+
+2021-08-22 16:51:46,339 - INFO - train.py[:178] - Epoch: [1][169/4000] LR:0.010000 ForwardTime: 0.114 Loss: 2.98361 (rpn_cls: 0.05300 rpn_loc: 2.93061 img:[] rpn_acc: 0.95703)
+2021-08-22 16:51:46,339 - INFO - log_helper.py[:39] - Progress: 170 / 120000 [0%], Speed: 0.407 s/iter, ETA 0:13:33 (D:H:M)
+
+2021-08-22 16:51:46,754 - INFO - train.py[:178] - Epoch: [1][170/4000] LR:0.010000 ForwardTime: 0.123 Loss: 2.39043 (rpn_cls: 0.04701 rpn_loc: 2.34342 img:[] rpn_acc: 0.96875)
+2021-08-22 16:51:46,754 - INFO - log_helper.py[:39] - Progress: 171 / 120000 [0%], Speed: 0.417 s/iter, ETA 0:13:52 (D:H:M)
+
+2021-08-22 16:51:47,436 - INFO - train.py[:178] - Epoch: [1][171/4000] LR:0.010000 ForwardTime: 0.158 Loss: 2.05864 (rpn_cls: 0.02573 rpn_loc: 2.03291 img:[] rpn_acc: 0.98438)
+2021-08-22 16:51:47,437 - INFO - log_helper.py[:39] - Progress: 172 / 120000 [0%], Speed: 0.679 s/iter, ETA 0:22:36 (D:H:M)
+
+2021-08-22 16:51:47,861 - INFO - train.py[:178] - Epoch: [1][172/4000] LR:0.010000 ForwardTime: 0.129 Loss: 1.42919 (rpn_cls: 0.05974 rpn_loc: 1.36945 img:[] rpn_acc: 0.94922)
+2021-08-22 16:51:47,861 - INFO - log_helper.py[:39] - Progress: 173 / 120000 [0%], Speed: 0.423 s/iter, ETA 0:14:04 (D:H:M)
+
+2021-08-22 16:51:48,275 - INFO - train.py[:178] - Epoch: [1][173/4000] LR:0.010000 ForwardTime: 0.115 Loss: 1.36788 (rpn_cls: 0.06452 rpn_loc: 1.30336 img:[] rpn_acc: 0.96875)
+2021-08-22 16:51:48,275 - INFO - log_helper.py[:39] - Progress: 174 / 120000 [0%], Speed: 0.417 s/iter, ETA 0:13:53 (D:H:M)
+
+2021-08-22 16:51:48,933 - INFO - train.py[:178] - Epoch: [1][174/4000] LR:0.010000 ForwardTime: 0.126 Loss: 1.85193 (rpn_cls: 0.10351 rpn_loc: 1.74842 img:[] rpn_acc: 0.96094)
+2021-08-22 16:51:48,934 - INFO - log_helper.py[:39] - Progress: 175 / 120000 [0%], Speed: 0.661 s/iter, ETA 0:22:00 (D:H:M)
+
+2021-08-22 16:51:49,350 - INFO - train.py[:178] - Epoch: [1][175/4000] LR:0.010000 ForwardTime: 0.126 Loss: 0.62306 (rpn_cls: 0.04715 rpn_loc: 0.57591 img:[] rpn_acc: 0.99219)
+2021-08-22 16:51:49,350 - INFO - log_helper.py[:39] - Progress: 176 / 120000 [0%], Speed: 0.418 s/iter, ETA 0:13:55 (D:H:M)
+
+2021-08-22 16:51:49,755 - INFO - train.py[:178] - Epoch: [1][176/4000] LR:0.010000 ForwardTime: 0.122 Loss: 1.96672 (rpn_cls: 0.05860 rpn_loc: 1.90811 img:[] rpn_acc: 0.96094)
+2021-08-22 16:51:49,755 - INFO - log_helper.py[:39] - Progress: 177 / 120000 [0%], Speed: 0.410 s/iter, ETA 0:13:39 (D:H:M)
+
+2021-08-22 16:51:50,421 - INFO - train.py[:178] - Epoch: [1][177/4000] LR:0.010000 ForwardTime: 0.120 Loss: 0.36536 (rpn_cls: 0.06393 rpn_loc: 0.30143 img:[] rpn_acc: 0.96484)
+2021-08-22 16:51:50,422 - INFO - log_helper.py[:39] - Progress: 178 / 120000 [0%], Speed: 0.649 s/iter, ETA 0:21:35 (D:H:M)
+
+2021-08-22 16:51:50,842 - INFO - train.py[:178] - Epoch: [1][178/4000] LR:0.010000 ForwardTime: 0.113 Loss: 0.59601 (rpn_cls: 0.06335 rpn_loc: 0.53266 img:[] rpn_acc: 0.98438)
+2021-08-22 16:51:50,842 - INFO - log_helper.py[:39] - Progress: 179 / 120000 [0%], Speed: 0.423 s/iter, ETA 0:14:04 (D:H:M)
+
+2021-08-22 16:51:51,314 - INFO - train.py[:178] - Epoch: [1][179/4000] LR:0.010000 ForwardTime: 0.154 Loss: 1.91123 (rpn_cls: 0.06082 rpn_loc: 1.85040 img:[] rpn_acc: 0.99609)
+2021-08-22 16:51:51,314 - INFO - log_helper.py[:39] - Progress: 180 / 120000 [0%], Speed: 0.461 s/iter, ETA 0:15:20 (D:H:M)
+
+2021-08-22 16:51:51,969 - INFO - train.py[:178] - Epoch: [1][180/4000] LR:0.010000 ForwardTime: 0.131 Loss: 0.30764 (rpn_cls: 0.03812 rpn_loc: 0.26951 img:[] rpn_acc: 0.97656)
+2021-08-22 16:51:51,970 - INFO - log_helper.py[:39] - Progress: 181 / 120000 [0%], Speed: 0.672 s/iter, ETA 0:22:21 (D:H:M)
+
+2021-08-22 16:51:52,379 - INFO - train.py[:178] - Epoch: [1][181/4000] LR:0.010000 ForwardTime: 0.121 Loss: 2.29860 (rpn_cls: 0.04304 rpn_loc: 2.25556 img:[] rpn_acc: 0.97656)
+2021-08-22 16:51:52,379 - INFO - log_helper.py[:39] - Progress: 182 / 120000 [0%], Speed: 0.414 s/iter, ETA 0:13:47 (D:H:M)
+
+2021-08-22 16:51:52,924 - INFO - train.py[:178] - Epoch: [1][182/4000] LR:0.010000 ForwardTime: 0.151 Loss: 1.46271 (rpn_cls: 0.10153 rpn_loc: 1.36119 img:[] rpn_acc: 0.94922)
+2021-08-22 16:51:52,924 - INFO - log_helper.py[:39] - Progress: 183 / 120000 [0%], Speed: 0.532 s/iter, ETA 0:17:41 (D:H:M)
+
+2021-08-22 16:51:53,474 - INFO - train.py[:178] - Epoch: [1][183/4000] LR:0.010000 ForwardTime: 0.141 Loss: 1.79680 (rpn_cls: 0.05451 rpn_loc: 1.74229 img:[] rpn_acc: 0.98828)
+2021-08-22 16:51:53,474 - INFO - log_helper.py[:39] - Progress: 184 / 120000 [0%], Speed: 0.547 s/iter, ETA 0:18:11 (D:H:M)
+
+2021-08-22 16:51:53,893 - INFO - train.py[:178] - Epoch: [1][184/4000] LR:0.010000 ForwardTime: 0.128 Loss: 1.94468 (rpn_cls: 0.02647 rpn_loc: 1.91821 img:[] rpn_acc: 1.00000)
+2021-08-22 16:51:53,893 - INFO - log_helper.py[:39] - Progress: 185 / 120000 [0%], Speed: 0.433 s/iter, ETA 0:14:24 (D:H:M)
+
+2021-08-22 16:51:54,429 - INFO - train.py[:178] - Epoch: [1][185/4000] LR:0.010000 ForwardTime: 0.184 Loss: 0.30071 (rpn_cls: 0.01654 rpn_loc: 0.28417 img:[] rpn_acc: 0.99609)
+2021-08-22 16:51:54,429 - INFO - log_helper.py[:39] - Progress: 186 / 120000 [0%], Speed: 0.532 s/iter, ETA 0:17:42 (D:H:M)
+
+2021-08-22 16:51:54,912 - INFO - train.py[:178] - Epoch: [1][186/4000] LR:0.010000 ForwardTime: 0.127 Loss: 1.39366 (rpn_cls: 0.09348 rpn_loc: 1.30018 img:[] rpn_acc: 0.95703)
+2021-08-22 16:51:54,913 - INFO - log_helper.py[:39] - Progress: 187 / 120000 [0%], Speed: 0.487 s/iter, ETA 0:16:12 (D:H:M)
+
+2021-08-22 16:51:55,361 - INFO - train.py[:178] - Epoch: [1][187/4000] LR:0.010000 ForwardTime: 0.151 Loss: 1.23325 (rpn_cls: 0.05786 rpn_loc: 1.17539 img:[] rpn_acc: 0.96094)
+2021-08-22 16:51:55,361 - INFO - log_helper.py[:39] - Progress: 188 / 120000 [0%], Speed: 0.451 s/iter, ETA 0:15:00 (D:H:M)
+
+2021-08-22 16:51:55,953 - INFO - train.py[:178] - Epoch: [1][188/4000] LR:0.010000 ForwardTime: 0.160 Loss: 1.00116 (rpn_cls: 0.07620 rpn_loc: 0.92497 img:[] rpn_acc: 0.96094)
+2021-08-22 16:51:55,954 - INFO - log_helper.py[:39] - Progress: 189 / 120000 [0%], Speed: 0.588 s/iter, ETA 0:19:34 (D:H:M)
+
+2021-08-22 16:51:56,493 - INFO - train.py[:178] - Epoch: [1][189/4000] LR:0.010000 ForwardTime: 0.148 Loss: 1.77721 (rpn_cls: 0.07919 rpn_loc: 1.69802 img:[] rpn_acc: 0.97266)
+2021-08-22 16:51:56,494 - INFO - log_helper.py[:39] - Progress: 190 / 120000 [0%], Speed: 0.547 s/iter, ETA 0:18:11 (D:H:M)
+
+2021-08-22 16:51:56,912 - INFO - train.py[:178] - Epoch: [1][190/4000] LR:0.010000 ForwardTime: 0.126 Loss: 1.40682 (rpn_cls: 0.07546 rpn_loc: 1.33136 img:[] rpn_acc: 0.97266)
+2021-08-22 16:51:56,912 - INFO - log_helper.py[:39] - Progress: 191 / 120000 [0%], Speed: 0.413 s/iter, ETA 0:13:44 (D:H:M)
+
+2021-08-22 16:51:57,451 - INFO - train.py[:178] - Epoch: [1][191/4000] LR:0.010000 ForwardTime: 0.128 Loss: 0.63589 (rpn_cls: 0.03422 rpn_loc: 0.60167 img:[] rpn_acc: 0.99609)
+2021-08-22 16:51:57,451 - INFO - log_helper.py[:39] - Progress: 192 / 120000 [0%], Speed: 0.523 s/iter, ETA 0:17:24 (D:H:M)
+
+2021-08-22 16:51:58,022 - INFO - train.py[:178] - Epoch: [1][192/4000] LR:0.010000 ForwardTime: 0.138 Loss: 1.84138 (rpn_cls: 0.07955 rpn_loc: 1.76183 img:[] rpn_acc: 0.95703)
+2021-08-22 16:51:58,023 - INFO - log_helper.py[:39] - Progress: 193 / 120000 [0%], Speed: 0.556 s/iter, ETA 0:18:31 (D:H:M)
+
+2021-08-22 16:51:58,481 - INFO - train.py[:178] - Epoch: [1][193/4000] LR:0.010000 ForwardTime: 0.136 Loss: 0.24554 (rpn_cls: 0.01532 rpn_loc: 0.23022 img:[] rpn_acc: 1.00000)
+2021-08-22 16:51:58,481 - INFO - log_helper.py[:39] - Progress: 194 / 120000 [0%], Speed: 0.458 s/iter, ETA 0:15:14 (D:H:M)
+
+2021-08-22 16:51:58,966 - INFO - train.py[:178] - Epoch: [1][194/4000] LR:0.010000 ForwardTime: 0.136 Loss: 1.81805 (rpn_cls: 0.05544 rpn_loc: 1.76261 img:[] rpn_acc: 0.97266)
+2021-08-22 16:51:58,967 - INFO - log_helper.py[:39] - Progress: 195 / 120000 [0%], Speed: 0.487 s/iter, ETA 0:16:11 (D:H:M)
+
+2021-08-22 16:51:59,478 - INFO - train.py[:178] - Epoch: [1][195/4000] LR:0.010000 ForwardTime: 0.132 Loss: 0.93719 (rpn_cls: 0.05045 rpn_loc: 0.88675 img:[] rpn_acc: 0.98047)
+2021-08-22 16:51:59,479 - INFO - log_helper.py[:39] - Progress: 196 / 120000 [0%], Speed: 0.522 s/iter, ETA 0:17:22 (D:H:M)
+
+2021-08-22 16:51:59,937 - INFO - train.py[:178] - Epoch: [1][196/4000] LR:0.010000 ForwardTime: 0.148 Loss: 1.75638 (rpn_cls: 0.10826 rpn_loc: 1.64812 img:[] rpn_acc: 0.96484)
+2021-08-22 16:51:59,937 - INFO - log_helper.py[:39] - Progress: 197 / 120000 [0%], Speed: 0.477 s/iter, ETA 0:15:52 (D:H:M)
+
+2021-08-22 16:52:00,436 - INFO - train.py[:178] - Epoch: [1][197/4000] LR:0.010000 ForwardTime: 0.153 Loss: 1.41312 (rpn_cls: 0.08784 rpn_loc: 1.32529 img:[] rpn_acc: 0.96094)
+2021-08-22 16:52:00,437 - INFO - log_helper.py[:39] - Progress: 198 / 120000 [0%], Speed: 0.497 s/iter, ETA 0:16:33 (D:H:M)
+
+2021-08-22 16:52:00,896 - INFO - train.py[:178] - Epoch: [1][198/4000] LR:0.010000 ForwardTime: 0.122 Loss: 1.11116 (rpn_cls: 0.03989 rpn_loc: 1.07127 img:[] rpn_acc: 0.97266)
+2021-08-22 16:52:00,897 - INFO - log_helper.py[:39] - Progress: 199 / 120000 [0%], Speed: 0.456 s/iter, ETA 0:15:09 (D:H:M)
+
+2021-08-22 16:52:01,496 - INFO - train.py[:178] - Epoch: [1][199/4000] LR:0.010000 ForwardTime: 0.165 Loss: 1.19327 (rpn_cls: 0.06853 rpn_loc: 1.12474 img:[] rpn_acc: 0.95703)
+2021-08-22 16:52:01,496 - INFO - log_helper.py[:39] - Progress: 200 / 120000 [0%], Speed: 0.579 s/iter, ETA 0:19:16 (D:H:M)
+
+2021-08-22 16:52:01,991 - INFO - train.py[:178] - Epoch: [1][200/4000] LR:0.010000 ForwardTime: 0.171 Loss: 2.06856 (rpn_cls: 0.03028 rpn_loc: 2.03828 img:[] rpn_acc: 0.99609)
+2021-08-22 16:52:01,992 - INFO - log_helper.py[:39] - Progress: 201 / 120000 [0%], Speed: 0.528 s/iter, ETA 0:17:33 (D:H:M)
+
+2021-08-22 16:52:02,479 - INFO - train.py[:178] - Epoch: [1][201/4000] LR:0.010000 ForwardTime: 0.167 Loss: 1.92232 (rpn_cls: 0.05980 rpn_loc: 1.86252 img:[] rpn_acc: 0.96094)
+2021-08-22 16:52:02,479 - INFO - log_helper.py[:39] - Progress: 202 / 120000 [0%], Speed: 0.472 s/iter, ETA 0:15:41 (D:H:M)
+
+2021-08-22 16:52:03,063 - INFO - train.py[:178] - Epoch: [1][202/4000] LR:0.010000 ForwardTime: 0.169 Loss: 0.95244 (rpn_cls: 0.06474 rpn_loc: 0.88770 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:03,063 - INFO - log_helper.py[:39] - Progress: 203 / 120000 [0%], Speed: 0.598 s/iter, ETA 0:19:54 (D:H:M)
+
+2021-08-22 16:52:03,661 - INFO - train.py[:178] - Epoch: [1][203/4000] LR:0.010000 ForwardTime: 0.176 Loss: 0.37730 (rpn_cls: 0.05302 rpn_loc: 0.32428 img:[] rpn_acc: 0.97656)
+2021-08-22 16:52:03,662 - INFO - log_helper.py[:39] - Progress: 204 / 120000 [0%], Speed: 0.597 s/iter, ETA 0:19:52 (D:H:M)
+
+2021-08-22 16:52:04,088 - INFO - train.py[:178] - Epoch: [1][204/4000] LR:0.010000 ForwardTime: 0.129 Loss: 1.42451 (rpn_cls: 0.05934 rpn_loc: 1.36517 img:[] rpn_acc: 0.98438)
+2021-08-22 16:52:04,089 - INFO - log_helper.py[:39] - Progress: 205 / 120000 [0%], Speed: 0.419 s/iter, ETA 0:13:57 (D:H:M)
+
+2021-08-22 16:52:04,575 - INFO - train.py[:178] - Epoch: [1][205/4000] LR:0.010000 ForwardTime: 0.123 Loss: 1.56650 (rpn_cls: 0.04181 rpn_loc: 1.52469 img:[] rpn_acc: 0.97266)
+2021-08-22 16:52:04,575 - INFO - log_helper.py[:39] - Progress: 206 / 120000 [0%], Speed: 0.491 s/iter, ETA 0:16:20 (D:H:M)
+
+2021-08-22 16:52:05,259 - INFO - train.py[:178] - Epoch: [1][206/4000] LR:0.010000 ForwardTime: 0.201 Loss: 0.97463 (rpn_cls: 0.04996 rpn_loc: 0.92468 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:05,259 - INFO - log_helper.py[:39] - Progress: 207 / 120000 [0%], Speed: 0.658 s/iter, ETA 0:21:52 (D:H:M)
+
+2021-08-22 16:52:05,949 - INFO - train.py[:178] - Epoch: [1][207/4000] LR:0.010000 ForwardTime: 0.126 Loss: 2.37764 (rpn_cls: 0.05791 rpn_loc: 2.31973 img:[] rpn_acc: 0.95703)
+2021-08-22 16:52:05,950 - INFO - log_helper.py[:39] - Progress: 208 / 120000 [0%], Speed: 0.690 s/iter, ETA 0:22:58 (D:H:M)
+
+2021-08-22 16:52:06,510 - INFO - train.py[:178] - Epoch: [1][208/4000] LR:0.010000 ForwardTime: 0.128 Loss: 1.09312 (rpn_cls: 0.05651 rpn_loc: 1.03661 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:06,511 - INFO - log_helper.py[:39] - Progress: 209 / 120000 [0%], Speed: 0.585 s/iter, ETA 0:19:28 (D:H:M)
+
+2021-08-22 16:52:07,090 - INFO - train.py[:178] - Epoch: [1][209/4000] LR:0.010000 ForwardTime: 0.131 Loss: 1.50760 (rpn_cls: 0.14770 rpn_loc: 1.35990 img:[] rpn_acc: 0.94531)
+2021-08-22 16:52:07,090 - INFO - log_helper.py[:39] - Progress: 210 / 120000 [0%], Speed: 0.582 s/iter, ETA 0:19:21 (D:H:M)
+
+2021-08-22 16:52:07,514 - INFO - train.py[:178] - Epoch: [1][210/4000] LR:0.010000 ForwardTime: 0.114 Loss: 1.74233 (rpn_cls: 0.08347 rpn_loc: 1.65886 img:[] rpn_acc: 0.95703)
+2021-08-22 16:52:07,515 - INFO - log_helper.py[:39] - Progress: 211 / 120000 [0%], Speed: 0.410 s/iter, ETA 0:13:39 (D:H:M)
+
+2021-08-22 16:52:08,077 - INFO - train.py[:178] - Epoch: [1][211/4000] LR:0.010000 ForwardTime: 0.124 Loss: 3.37734 (rpn_cls: 0.02339 rpn_loc: 3.35395 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:08,077 - INFO - log_helper.py[:39] - Progress: 212 / 120000 [0%], Speed: 0.563 s/iter, ETA 0:18:43 (D:H:M)
+
+2021-08-22 16:52:08,635 - INFO - train.py[:178] - Epoch: [1][212/4000] LR:0.010000 ForwardTime: 0.149 Loss: 1.07059 (rpn_cls: 0.04472 rpn_loc: 1.02587 img:[] rpn_acc: 0.99609)
+2021-08-22 16:52:08,635 - INFO - log_helper.py[:39] - Progress: 213 / 120000 [0%], Speed: 0.553 s/iter, ETA 0:18:24 (D:H:M)
+
+2021-08-22 16:52:09,050 - INFO - train.py[:178] - Epoch: [1][213/4000] LR:0.010000 ForwardTime: 0.126 Loss: 1.48759 (rpn_cls: 0.06723 rpn_loc: 1.42037 img:[] rpn_acc: 0.94922)
+2021-08-22 16:52:09,051 - INFO - log_helper.py[:39] - Progress: 214 / 120000 [0%], Speed: 0.444 s/iter, ETA 0:14:45 (D:H:M)
+
+2021-08-22 16:52:09,619 - INFO - train.py[:178] - Epoch: [1][214/4000] LR:0.010000 ForwardTime: 0.137 Loss: 2.10053 (rpn_cls: 0.05820 rpn_loc: 2.04234 img:[] rpn_acc: 0.96875)
+2021-08-22 16:52:09,619 - INFO - log_helper.py[:39] - Progress: 215 / 120000 [0%], Speed: 0.533 s/iter, ETA 0:17:43 (D:H:M)
+
+2021-08-22 16:52:10,148 - INFO - train.py[:178] - Epoch: [1][215/4000] LR:0.010000 ForwardTime: 0.199 Loss: 1.57120 (rpn_cls: 0.07961 rpn_loc: 1.49159 img:[] rpn_acc: 0.96875)
+2021-08-22 16:52:10,148 - INFO - log_helper.py[:39] - Progress: 216 / 120000 [0%], Speed: 0.554 s/iter, ETA 0:18:25 (D:H:M)
+
+2021-08-22 16:52:10,572 - INFO - train.py[:178] - Epoch: [1][216/4000] LR:0.010000 ForwardTime: 0.126 Loss: 1.16462 (rpn_cls: 0.08862 rpn_loc: 1.07600 img:[] rpn_acc: 0.98438)
+2021-08-22 16:52:10,572 - INFO - log_helper.py[:39] - Progress: 217 / 120000 [0%], Speed: 0.429 s/iter, ETA 0:14:15 (D:H:M)
+
+2021-08-22 16:52:11,153 - INFO - train.py[:178] - Epoch: [1][217/4000] LR:0.010000 ForwardTime: 0.127 Loss: 1.65246 (rpn_cls: 0.12150 rpn_loc: 1.53096 img:[] rpn_acc: 0.98828)
+2021-08-22 16:52:11,154 - INFO - log_helper.py[:39] - Progress: 218 / 120000 [0%], Speed: 0.561 s/iter, ETA 0:18:39 (D:H:M)
+
+2021-08-22 16:52:11,739 - INFO - train.py[:178] - Epoch: [1][218/4000] LR:0.010000 ForwardTime: 0.170 Loss: 1.25300 (rpn_cls: 0.09793 rpn_loc: 1.15507 img:[] rpn_acc: 0.96484)
+2021-08-22 16:52:11,740 - INFO - log_helper.py[:39] - Progress: 219 / 120000 [0%], Speed: 0.574 s/iter, ETA 0:19:06 (D:H:M)
+
+2021-08-22 16:52:12,185 - INFO - train.py[:178] - Epoch: [1][219/4000] LR:0.010000 ForwardTime: 0.125 Loss: 1.57258 (rpn_cls: 0.08353 rpn_loc: 1.48905 img:[] rpn_acc: 0.95703)
+2021-08-22 16:52:12,186 - INFO - log_helper.py[:39] - Progress: 220 / 120000 [0%], Speed: 0.453 s/iter, ETA 0:15:04 (D:H:M)
+
+2021-08-22 16:52:12,622 - INFO - train.py[:178] - Epoch: [1][220/4000] LR:0.010000 ForwardTime: 0.119 Loss: 0.56627 (rpn_cls: 0.06693 rpn_loc: 0.49934 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:12,622 - INFO - log_helper.py[:39] - Progress: 221 / 120000 [0%], Speed: 0.439 s/iter, ETA 0:14:36 (D:H:M)
+
+2021-08-22 16:52:13,295 - INFO - train.py[:178] - Epoch: [1][221/4000] LR:0.010000 ForwardTime: 0.155 Loss: 0.37645 (rpn_cls: 0.07317 rpn_loc: 0.30328 img:[] rpn_acc: 0.96094)
+2021-08-22 16:52:13,295 - INFO - log_helper.py[:39] - Progress: 222 / 120000 [0%], Speed: 0.666 s/iter, ETA 0:22:10 (D:H:M)
+
+2021-08-22 16:52:13,726 - INFO - train.py[:178] - Epoch: [1][222/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.44548 (rpn_cls: 0.12001 rpn_loc: 1.32547 img:[] rpn_acc: 0.94531)
+2021-08-22 16:52:13,726 - INFO - log_helper.py[:39] - Progress: 223 / 120000 [0%], Speed: 0.440 s/iter, ETA 0:14:39 (D:H:M)
+
+2021-08-22 16:52:14,224 - INFO - train.py[:178] - Epoch: [1][223/4000] LR:0.010000 ForwardTime: 0.114 Loss: 0.37769 (rpn_cls: 0.09181 rpn_loc: 0.28588 img:[] rpn_acc: 0.93750)
+2021-08-22 16:52:14,225 - INFO - log_helper.py[:39] - Progress: 224 / 120000 [0%], Speed: 0.507 s/iter, ETA 0:16:51 (D:H:M)
+
+2021-08-22 16:52:14,653 - INFO - train.py[:178] - Epoch: [1][224/4000] LR:0.010000 ForwardTime: 0.116 Loss: 0.31334 (rpn_cls: 0.04071 rpn_loc: 0.27263 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:14,654 - INFO - log_helper.py[:39] - Progress: 225 / 120000 [0%], Speed: 0.421 s/iter, ETA 0:14:01 (D:H:M)
+
+2021-08-22 16:52:15,082 - INFO - train.py[:178] - Epoch: [1][225/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.99917 (rpn_cls: 0.09224 rpn_loc: 1.90693 img:[] rpn_acc: 0.95312)
+2021-08-22 16:52:15,082 - INFO - log_helper.py[:39] - Progress: 226 / 120000 [0%], Speed: 0.432 s/iter, ETA 0:14:22 (D:H:M)
+
+2021-08-22 16:52:15,512 - INFO - train.py[:178] - Epoch: [1][226/4000] LR:0.010000 ForwardTime: 0.116 Loss: 0.28052 (rpn_cls: 0.05353 rpn_loc: 0.22700 img:[] rpn_acc: 0.99219)
+2021-08-22 16:52:15,513 - INFO - log_helper.py[:39] - Progress: 227 / 120000 [0%], Speed: 0.422 s/iter, ETA 0:14:02 (D:H:M)
+
+2021-08-22 16:52:16,171 - INFO - train.py[:178] - Epoch: [1][227/4000] LR:0.010000 ForwardTime: 0.208 Loss: 1.37954 (rpn_cls: 0.10935 rpn_loc: 1.27019 img:[] rpn_acc: 0.95703)
+2021-08-22 16:52:16,172 - INFO - log_helper.py[:39] - Progress: 228 / 120000 [0%], Speed: 0.676 s/iter, ETA 0:22:30 (D:H:M)
+
+2021-08-22 16:52:16,590 - INFO - train.py[:178] - Epoch: [1][228/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.68008 (rpn_cls: 0.11808 rpn_loc: 1.56200 img:[] rpn_acc: 0.92969)
+2021-08-22 16:52:16,591 - INFO - log_helper.py[:39] - Progress: 229 / 120000 [0%], Speed: 0.421 s/iter, ETA 0:14:00 (D:H:M)
+
+2021-08-22 16:52:17,003 - INFO - train.py[:178] - Epoch: [1][229/4000] LR:0.010000 ForwardTime: 0.114 Loss: 0.28975 (rpn_cls: 0.05864 rpn_loc: 0.23112 img:[] rpn_acc: 0.96875)
+2021-08-22 16:52:17,003 - INFO - log_helper.py[:39] - Progress: 230 / 120000 [0%], Speed: 0.411 s/iter, ETA 0:13:39 (D:H:M)
+
+2021-08-22 16:52:17,659 - INFO - train.py[:178] - Epoch: [1][230/4000] LR:0.010000 ForwardTime: 0.165 Loss: 0.74767 (rpn_cls: 0.06958 rpn_loc: 0.67809 img:[] rpn_acc: 0.96484)
+2021-08-22 16:52:17,659 - INFO - log_helper.py[:39] - Progress: 231 / 120000 [0%], Speed: 0.652 s/iter, ETA 0:21:40 (D:H:M)
+
+2021-08-22 16:52:18,070 - INFO - train.py[:178] - Epoch: [1][231/4000] LR:0.010000 ForwardTime: 0.114 Loss: 0.92307 (rpn_cls: 0.08949 rpn_loc: 0.83357 img:[] rpn_acc: 0.95312)
+2021-08-22 16:52:18,070 - INFO - log_helper.py[:39] - Progress: 232 / 120000 [0%], Speed: 0.418 s/iter, ETA 0:13:55 (D:H:M)
+
+2021-08-22 16:52:18,475 - INFO - train.py[:178] - Epoch: [1][232/4000] LR:0.010000 ForwardTime: 0.115 Loss: 1.07909 (rpn_cls: 0.04685 rpn_loc: 1.03224 img:[] rpn_acc: 0.98438)
+2021-08-22 16:52:18,476 - INFO - log_helper.py[:39] - Progress: 233 / 120000 [0%], Speed: 0.412 s/iter, ETA 0:13:41 (D:H:M)
+
+2021-08-22 16:52:19,113 - INFO - train.py[:178] - Epoch: [1][233/4000] LR:0.010000 ForwardTime: 0.139 Loss: 1.38004 (rpn_cls: 0.10227 rpn_loc: 1.27777 img:[] rpn_acc: 0.95312)
+2021-08-22 16:52:19,113 - INFO - log_helper.py[:39] - Progress: 234 / 120000 [0%], Speed: 0.631 s/iter, ETA 0:20:59 (D:H:M)
+
+2021-08-22 16:52:19,566 - INFO - train.py[:178] - Epoch: [1][234/4000] LR:0.010000 ForwardTime: 0.141 Loss: 2.37811 (rpn_cls: 0.10622 rpn_loc: 2.27189 img:[] rpn_acc: 0.94922)
+2021-08-22 16:52:19,567 - INFO - log_helper.py[:39] - Progress: 235 / 120000 [0%], Speed: 0.434 s/iter, ETA 0:14:27 (D:H:M)
+
+2021-08-22 16:52:20,006 - INFO - train.py[:178] - Epoch: [1][235/4000] LR:0.010000 ForwardTime: 0.127 Loss: 0.90963 (rpn_cls: 0.05893 rpn_loc: 0.85070 img:[] rpn_acc: 0.98828)
+2021-08-22 16:52:20,006 - INFO - log_helper.py[:39] - Progress: 236 / 120000 [0%], Speed: 0.439 s/iter, ETA 0:14:35 (D:H:M)
+
+2021-08-22 16:52:20,643 - INFO - train.py[:178] - Epoch: [1][236/4000] LR:0.010000 ForwardTime: 0.132 Loss: 0.37247 (rpn_cls: 0.04710 rpn_loc: 0.32537 img:[] rpn_acc: 0.98438)
+2021-08-22 16:52:20,644 - INFO - log_helper.py[:39] - Progress: 237 / 120000 [0%], Speed: 0.638 s/iter, ETA 0:21:14 (D:H:M)
+
+2021-08-22 16:52:21,086 - INFO - train.py[:178] - Epoch: [1][237/4000] LR:0.010000 ForwardTime: 0.142 Loss: 0.70463 (rpn_cls: 0.07300 rpn_loc: 0.63163 img:[] rpn_acc: 0.98438)
+2021-08-22 16:52:21,086 - INFO - log_helper.py[:39] - Progress: 238 / 120000 [0%], Speed: 0.453 s/iter, ETA 0:15:03 (D:H:M)
+
+2021-08-22 16:52:21,510 - INFO - train.py[:178] - Epoch: [1][238/4000] LR:0.010000 ForwardTime: 0.127 Loss: 1.71381 (rpn_cls: 0.07249 rpn_loc: 1.64132 img:[] rpn_acc: 0.96875)
+2021-08-22 16:52:21,511 - INFO - log_helper.py[:39] - Progress: 239 / 120000 [0%], Speed: 0.430 s/iter, ETA 0:14:17 (D:H:M)
+
+2021-08-22 16:52:22,127 - INFO - train.py[:178] - Epoch: [1][239/4000] LR:0.010000 ForwardTime: 0.139 Loss: 0.21151 (rpn_cls: 0.04126 rpn_loc: 0.17025 img:[] rpn_acc: 0.99609)
+2021-08-22 16:52:22,127 - INFO - log_helper.py[:39] - Progress: 240 / 120000 [0%], Speed: 0.593 s/iter, ETA 0:19:43 (D:H:M)
+
+2021-08-22 16:52:22,554 - INFO - train.py[:178] - Epoch: [1][240/4000] LR:0.010000 ForwardTime: 0.133 Loss: 1.32356 (rpn_cls: 0.07015 rpn_loc: 1.25341 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:22,554 - INFO - log_helper.py[:39] - Progress: 241 / 120000 [0%], Speed: 0.456 s/iter, ETA 0:15:09 (D:H:M)
+
+2021-08-22 16:52:22,967 - INFO - train.py[:178] - Epoch: [1][241/4000] LR:0.010000 ForwardTime: 0.126 Loss: 1.53120 (rpn_cls: 0.07419 rpn_loc: 1.45701 img:[] rpn_acc: 0.96094)
+2021-08-22 16:52:22,967 - INFO - log_helper.py[:39] - Progress: 242 / 120000 [0%], Speed: 0.415 s/iter, ETA 0:13:47 (D:H:M)
+
+2021-08-22 16:52:23,582 - INFO - train.py[:178] - Epoch: [1][242/4000] LR:0.010000 ForwardTime: 0.122 Loss: 1.05805 (rpn_cls: 0.08234 rpn_loc: 0.97572 img:[] rpn_acc: 0.97656)
+2021-08-22 16:52:23,583 - INFO - log_helper.py[:39] - Progress: 243 / 120000 [0%], Speed: 0.609 s/iter, ETA 0:20:15 (D:H:M)
+
+2021-08-22 16:52:24,058 - INFO - train.py[:178] - Epoch: [1][243/4000] LR:0.010000 ForwardTime: 0.139 Loss: 2.50448 (rpn_cls: 0.04337 rpn_loc: 2.46111 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:24,059 - INFO - log_helper.py[:39] - Progress: 244 / 120000 [0%], Speed: 0.469 s/iter, ETA 0:15:36 (D:H:M)
+
+2021-08-22 16:52:24,507 - INFO - train.py[:178] - Epoch: [1][244/4000] LR:0.010000 ForwardTime: 0.135 Loss: 2.25071 (rpn_cls: 0.04608 rpn_loc: 2.20463 img:[] rpn_acc: 0.97656)
+2021-08-22 16:52:24,508 - INFO - log_helper.py[:39] - Progress: 245 / 120000 [0%], Speed: 0.438 s/iter, ETA 0:14:33 (D:H:M)
+
+2021-08-22 16:52:25,111 - INFO - train.py[:178] - Epoch: [1][245/4000] LR:0.010000 ForwardTime: 0.137 Loss: 2.20313 (rpn_cls: 0.08136 rpn_loc: 2.12177 img:[] rpn_acc: 0.96094)
+2021-08-22 16:52:25,111 - INFO - log_helper.py[:39] - Progress: 246 / 120000 [0%], Speed: 0.597 s/iter, ETA 0:19:51 (D:H:M)
+
+2021-08-22 16:52:25,569 - INFO - train.py[:178] - Epoch: [1][246/4000] LR:0.010000 ForwardTime: 0.140 Loss: 1.72741 (rpn_cls: 0.03217 rpn_loc: 1.69524 img:[] rpn_acc: 0.98828)
+2021-08-22 16:52:25,569 - INFO - log_helper.py[:39] - Progress: 247 / 120000 [0%], Speed: 0.461 s/iter, ETA 0:15:20 (D:H:M)
+
+2021-08-22 16:52:26,023 - INFO - train.py[:178] - Epoch: [1][247/4000] LR:0.010000 ForwardTime: 0.133 Loss: 0.93016 (rpn_cls: 0.11440 rpn_loc: 0.81577 img:[] rpn_acc: 0.93359)
+2021-08-22 16:52:26,024 - INFO - log_helper.py[:39] - Progress: 248 / 120000 [0%], Speed: 0.451 s/iter, ETA 0:15:00 (D:H:M)
+
+2021-08-22 16:52:26,659 - INFO - train.py[:178] - Epoch: [1][248/4000] LR:0.010000 ForwardTime: 0.169 Loss: 1.55691 (rpn_cls: 0.06052 rpn_loc: 1.49639 img:[] rpn_acc: 0.97266)
+2021-08-22 16:52:26,660 - INFO - log_helper.py[:39] - Progress: 249 / 120000 [0%], Speed: 0.637 s/iter, ETA 0:21:10 (D:H:M)
+
+2021-08-22 16:52:27,099 - INFO - train.py[:178] - Epoch: [1][249/4000] LR:0.010000 ForwardTime: 0.136 Loss: 1.85031 (rpn_cls: 0.14991 rpn_loc: 1.70040 img:[] rpn_acc: 0.90234)
+2021-08-22 16:52:27,100 - INFO - log_helper.py[:39] - Progress: 250 / 120000 [0%], Speed: 0.465 s/iter, ETA 0:15:28 (D:H:M)
+
+2021-08-22 16:52:27,546 - INFO - train.py[:178] - Epoch: [1][250/4000] LR:0.010000 ForwardTime: 0.137 Loss: 1.35369 (rpn_cls: 0.13222 rpn_loc: 1.22147 img:[] rpn_acc: 0.94531)
+2021-08-22 16:52:27,546 - INFO - log_helper.py[:39] - Progress: 251 / 120000 [0%], Speed: 0.435 s/iter, ETA 0:14:27 (D:H:M)
+
+2021-08-22 16:52:28,201 - INFO - train.py[:178] - Epoch: [1][251/4000] LR:0.010000 ForwardTime: 0.144 Loss: 1.21163 (rpn_cls: 0.06822 rpn_loc: 1.14341 img:[] rpn_acc: 0.97266)
+2021-08-22 16:52:28,202 - INFO - log_helper.py[:39] - Progress: 252 / 120000 [0%], Speed: 0.643 s/iter, ETA 0:21:23 (D:H:M)
+
+2021-08-22 16:52:28,657 - INFO - train.py[:178] - Epoch: [1][252/4000] LR:0.010000 ForwardTime: 0.141 Loss: 0.80940 (rpn_cls: 0.06076 rpn_loc: 0.74864 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:28,658 - INFO - log_helper.py[:39] - Progress: 253 / 120000 [0%], Speed: 0.465 s/iter, ETA 0:15:27 (D:H:M)
+
+2021-08-22 16:52:29,093 - INFO - train.py[:178] - Epoch: [1][253/4000] LR:0.010000 ForwardTime: 0.125 Loss: 2.04152 (rpn_cls: 0.06219 rpn_loc: 1.97933 img:[] rpn_acc: 0.96875)
+2021-08-22 16:52:29,094 - INFO - log_helper.py[:39] - Progress: 254 / 120000 [0%], Speed: 0.438 s/iter, ETA 0:14:34 (D:H:M)
+
+2021-08-22 16:52:29,669 - INFO - train.py[:178] - Epoch: [1][254/4000] LR:0.010000 ForwardTime: 0.128 Loss: 1.78195 (rpn_cls: 0.08296 rpn_loc: 1.69899 img:[] rpn_acc: 0.96875)
+2021-08-22 16:52:29,669 - INFO - log_helper.py[:39] - Progress: 255 / 120000 [0%], Speed: 0.567 s/iter, ETA 0:18:52 (D:H:M)
+
+2021-08-22 16:52:30,113 - INFO - train.py[:178] - Epoch: [1][255/4000] LR:0.010000 ForwardTime: 0.127 Loss: 0.98673 (rpn_cls: 0.07526 rpn_loc: 0.91147 img:[] rpn_acc: 0.97266)
+2021-08-22 16:52:30,113 - INFO - log_helper.py[:39] - Progress: 256 / 120000 [0%], Speed: 0.444 s/iter, ETA 0:14:46 (D:H:M)
+
+2021-08-22 16:52:30,534 - INFO - train.py[:178] - Epoch: [1][256/4000] LR:0.010000 ForwardTime: 0.127 Loss: 0.98151 (rpn_cls: 0.06695 rpn_loc: 0.91456 img:[] rpn_acc: 0.97266)
+2021-08-22 16:52:30,534 - INFO - log_helper.py[:39] - Progress: 257 / 120000 [0%], Speed: 0.446 s/iter, ETA 0:14:49 (D:H:M)
+
+2021-08-22 16:52:31,189 - INFO - train.py[:178] - Epoch: [1][257/4000] LR:0.010000 ForwardTime: 0.180 Loss: 1.18428 (rpn_cls: 0.04732 rpn_loc: 1.13696 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:31,191 - INFO - log_helper.py[:39] - Progress: 258 / 120000 [0%], Speed: 0.649 s/iter, ETA 0:21:35 (D:H:M)
+
+2021-08-22 16:52:31,693 - INFO - train.py[:178] - Epoch: [1][258/4000] LR:0.010000 ForwardTime: 0.177 Loss: 2.03604 (rpn_cls: 0.08383 rpn_loc: 1.95221 img:[] rpn_acc: 0.94922)
+2021-08-22 16:52:31,694 - INFO - log_helper.py[:39] - Progress: 259 / 120000 [0%], Speed: 0.486 s/iter, ETA 0:16:09 (D:H:M)
+
+2021-08-22 16:52:32,138 - INFO - train.py[:178] - Epoch: [1][259/4000] LR:0.010000 ForwardTime: 0.133 Loss: 1.36995 (rpn_cls: 0.14338 rpn_loc: 1.22657 img:[] rpn_acc: 0.93359)
+2021-08-22 16:52:32,139 - INFO - log_helper.py[:39] - Progress: 260 / 120000 [0%], Speed: 0.450 s/iter, ETA 0:14:58 (D:H:M)
+
+2021-08-22 16:52:32,697 - INFO - train.py[:178] - Epoch: [1][260/4000] LR:0.010000 ForwardTime: 0.141 Loss: 0.39629 (rpn_cls: 0.05020 rpn_loc: 0.34608 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:32,697 - INFO - log_helper.py[:39] - Progress: 261 / 120000 [0%], Speed: 0.557 s/iter, ETA 0:18:32 (D:H:M)
+
+2021-08-22 16:52:33,211 - INFO - train.py[:178] - Epoch: [1][261/4000] LR:0.010000 ForwardTime: 0.151 Loss: 1.43430 (rpn_cls: 0.13214 rpn_loc: 1.30216 img:[] rpn_acc: 0.92969)
+2021-08-22 16:52:33,211 - INFO - log_helper.py[:39] - Progress: 262 / 120000 [0%], Speed: 0.506 s/iter, ETA 0:16:49 (D:H:M)
+
+2021-08-22 16:52:33,648 - INFO - train.py[:178] - Epoch: [1][262/4000] LR:0.010000 ForwardTime: 0.147 Loss: 1.05099 (rpn_cls: 0.10165 rpn_loc: 0.94934 img:[] rpn_acc: 0.93750)
+2021-08-22 16:52:33,648 - INFO - log_helper.py[:39] - Progress: 263 / 120000 [0%], Speed: 0.479 s/iter, ETA 0:15:56 (D:H:M)
+
+2021-08-22 16:52:34,234 - INFO - train.py[:178] - Epoch: [1][263/4000] LR:0.010000 ForwardTime: 0.157 Loss: 0.88684 (rpn_cls: 0.06301 rpn_loc: 0.82383 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:34,234 - INFO - log_helper.py[:39] - Progress: 264 / 120000 [0%], Speed: 0.545 s/iter, ETA 0:18:07 (D:H:M)
+
+2021-08-22 16:52:34,662 - INFO - train.py[:178] - Epoch: [1][264/4000] LR:0.010000 ForwardTime: 0.131 Loss: 2.15057 (rpn_cls: 0.05293 rpn_loc: 2.09764 img:[] rpn_acc: 0.96484)
+2021-08-22 16:52:34,662 - INFO - log_helper.py[:39] - Progress: 265 / 120000 [0%], Speed: 0.455 s/iter, ETA 0:15:07 (D:H:M)
+
+2021-08-22 16:52:35,142 - INFO - train.py[:178] - Epoch: [1][265/4000] LR:0.010000 ForwardTime: 0.121 Loss: 0.77182 (rpn_cls: 0.07456 rpn_loc: 0.69726 img:[] rpn_acc: 0.98438)
+2021-08-22 16:52:35,142 - INFO - log_helper.py[:39] - Progress: 266 / 120000 [0%], Speed: 0.482 s/iter, ETA 0:16:02 (D:H:M)
+
+2021-08-22 16:52:35,708 - INFO - train.py[:178] - Epoch: [1][266/4000] LR:0.010000 ForwardTime: 0.133 Loss: 0.85021 (rpn_cls: 0.07415 rpn_loc: 0.77606 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:35,708 - INFO - log_helper.py[:39] - Progress: 267 / 120000 [0%], Speed: 0.545 s/iter, ETA 0:18:08 (D:H:M)
+
+2021-08-22 16:52:36,198 - INFO - train.py[:178] - Epoch: [1][267/4000] LR:0.010000 ForwardTime: 0.161 Loss: 0.36234 (rpn_cls: 0.02919 rpn_loc: 0.33315 img:[] rpn_acc: 0.99219)
+2021-08-22 16:52:36,198 - INFO - log_helper.py[:39] - Progress: 268 / 120000 [0%], Speed: 0.502 s/iter, ETA 0:16:42 (D:H:M)
+
+2021-08-22 16:52:36,735 - INFO - train.py[:178] - Epoch: [1][268/4000] LR:0.010000 ForwardTime: 0.161 Loss: 0.51917 (rpn_cls: 0.04843 rpn_loc: 0.47073 img:[] rpn_acc: 1.00000)
+2021-08-22 16:52:36,735 - INFO - log_helper.py[:39] - Progress: 269 / 120000 [0%], Speed: 0.543 s/iter, ETA 0:18:03 (D:H:M)
+
+2021-08-22 16:52:37,301 - INFO - train.py[:178] - Epoch: [1][269/4000] LR:0.010000 ForwardTime: 0.163 Loss: 0.28747 (rpn_cls: 0.04341 rpn_loc: 0.24406 img:[] rpn_acc: 0.98438)
+2021-08-22 16:52:37,301 - INFO - log_helper.py[:39] - Progress: 270 / 120000 [0%], Speed: 0.539 s/iter, ETA 0:17:56 (D:H:M)
+
+2021-08-22 16:52:37,780 - INFO - train.py[:178] - Epoch: [1][270/4000] LR:0.010000 ForwardTime: 0.142 Loss: 1.18838 (rpn_cls: 0.08785 rpn_loc: 1.10053 img:[] rpn_acc: 0.96484)
+2021-08-22 16:52:37,781 - INFO - log_helper.py[:39] - Progress: 271 / 120000 [0%], Speed: 0.498 s/iter, ETA 0:16:33 (D:H:M)
+
+2021-08-22 16:52:38,416 - INFO - train.py[:178] - Epoch: [1][271/4000] LR:0.010000 ForwardTime: 0.164 Loss: 0.40900 (rpn_cls: 0.03782 rpn_loc: 0.37119 img:[] rpn_acc: 0.98828)
+2021-08-22 16:52:38,416 - INFO - log_helper.py[:39] - Progress: 272 / 120000 [0%], Speed: 0.619 s/iter, ETA 0:20:35 (D:H:M)
+
+2021-08-22 16:52:38,953 - INFO - train.py[:178] - Epoch: [1][272/4000] LR:0.010000 ForwardTime: 0.149 Loss: 0.72280 (rpn_cls: 0.06356 rpn_loc: 0.65924 img:[] rpn_acc: 0.98828)
+2021-08-22 16:52:38,953 - INFO - log_helper.py[:39] - Progress: 273 / 120000 [0%], Speed: 0.534 s/iter, ETA 0:17:44 (D:H:M)
+
+2021-08-22 16:52:39,387 - INFO - train.py[:178] - Epoch: [1][273/4000] LR:0.010000 ForwardTime: 0.134 Loss: 1.38511 (rpn_cls: 0.10922 rpn_loc: 1.27589 img:[] rpn_acc: 0.94141)
+2021-08-22 16:52:39,387 - INFO - log_helper.py[:39] - Progress: 274 / 120000 [0%], Speed: 0.457 s/iter, ETA 0:15:11 (D:H:M)
+
+2021-08-22 16:52:40,000 - INFO - train.py[:178] - Epoch: [1][274/4000] LR:0.010000 ForwardTime: 0.128 Loss: 2.03679 (rpn_cls: 0.07177 rpn_loc: 1.96502 img:[] rpn_acc: 0.96484)
+2021-08-22 16:52:40,000 - INFO - log_helper.py[:39] - Progress: 275 / 120000 [0%], Speed: 0.614 s/iter, ETA 0:20:26 (D:H:M)
+
+2021-08-22 16:52:40,611 - INFO - train.py[:178] - Epoch: [1][275/4000] LR:0.010000 ForwardTime: 0.178 Loss: 0.79764 (rpn_cls: 0.05873 rpn_loc: 0.73891 img:[] rpn_acc: 0.96875)
+2021-08-22 16:52:40,612 - INFO - log_helper.py[:39] - Progress: 276 / 120000 [0%], Speed: 0.588 s/iter, ETA 0:19:32 (D:H:M)
+
+2021-08-22 16:52:41,063 - INFO - train.py[:178] - Epoch: [1][276/4000] LR:0.010000 ForwardTime: 0.124 Loss: 0.95115 (rpn_cls: 0.10457 rpn_loc: 0.84657 img:[] rpn_acc: 0.93359)
+2021-08-22 16:52:41,063 - INFO - log_helper.py[:39] - Progress: 277 / 120000 [0%], Speed: 0.456 s/iter, ETA 0:15:09 (D:H:M)
+
+2021-08-22 16:52:41,594 - INFO - train.py[:178] - Epoch: [1][277/4000] LR:0.010000 ForwardTime: 0.156 Loss: 1.89667 (rpn_cls: 0.04851 rpn_loc: 1.84816 img:[] rpn_acc: 0.98828)
+2021-08-22 16:52:41,594 - INFO - log_helper.py[:39] - Progress: 278 / 120000 [0%], Speed: 0.525 s/iter, ETA 0:17:27 (D:H:M)
+
+2021-08-22 16:52:42,095 - INFO - train.py[:178] - Epoch: [1][278/4000] LR:0.010000 ForwardTime: 0.130 Loss: 1.92847 (rpn_cls: 0.05995 rpn_loc: 1.86852 img:[] rpn_acc: 0.96094)
+2021-08-22 16:52:42,096 - INFO - log_helper.py[:39] - Progress: 279 / 120000 [0%], Speed: 0.515 s/iter, ETA 0:17:06 (D:H:M)
+
+2021-08-22 16:52:42,802 - INFO - train.py[:178] - Epoch: [1][279/4000] LR:0.010000 ForwardTime: 0.121 Loss: 0.95854 (rpn_cls: 0.06286 rpn_loc: 0.89568 img:[] rpn_acc: 0.96875)
+2021-08-22 16:52:42,802 - INFO - log_helper.py[:39] - Progress: 280 / 120000 [0%], Speed: 0.700 s/iter, ETA 0:23:16 (D:H:M)
+
+2021-08-22 16:52:43,229 - INFO - train.py[:178] - Epoch: [1][280/4000] LR:0.010000 ForwardTime: 0.127 Loss: 1.15145 (rpn_cls: 0.06410 rpn_loc: 1.08735 img:[] rpn_acc: 0.96875)
+2021-08-22 16:52:43,229 - INFO - log_helper.py[:39] - Progress: 281 / 120000 [0%], Speed: 0.448 s/iter, ETA 0:14:53 (D:H:M)
+
+2021-08-22 16:52:43,650 - INFO - train.py[:178] - Epoch: [1][281/4000] LR:0.010000 ForwardTime: 0.117 Loss: 0.24684 (rpn_cls: 0.03278 rpn_loc: 0.21407 img:[] rpn_acc: 0.99609)
+2021-08-22 16:52:43,651 - INFO - log_helper.py[:39] - Progress: 282 / 120000 [0%], Speed: 0.429 s/iter, ETA 0:14:15 (D:H:M)
+
+2021-08-22 16:52:44,061 - INFO - train.py[:178] - Epoch: [1][282/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.38783 (rpn_cls: 0.08095 rpn_loc: 1.30688 img:[] rpn_acc: 0.95703)
+2021-08-22 16:52:44,061 - INFO - log_helper.py[:39] - Progress: 283 / 120000 [0%], Speed: 0.408 s/iter, ETA 0:13:34 (D:H:M)
+
+2021-08-22 16:52:44,655 - INFO - train.py[:178] - Epoch: [1][283/4000] LR:0.010000 ForwardTime: 0.124 Loss: 0.45777 (rpn_cls: 0.07906 rpn_loc: 0.37871 img:[] rpn_acc: 0.96484)
+2021-08-22 16:52:44,655 - INFO - log_helper.py[:39] - Progress: 284 / 120000 [0%], Speed: 0.588 s/iter, ETA 0:19:33 (D:H:M)
+
+2021-08-22 16:52:45,264 - INFO - train.py[:178] - Epoch: [1][284/4000] LR:0.010000 ForwardTime: 0.144 Loss: 0.38602 (rpn_cls: 0.05213 rpn_loc: 0.33389 img:[] rpn_acc: 0.99219)
+2021-08-22 16:52:45,265 - INFO - log_helper.py[:39] - Progress: 285 / 120000 [0%], Speed: 0.593 s/iter, ETA 0:19:44 (D:H:M)
+
+2021-08-22 16:52:45,680 - INFO - train.py[:178] - Epoch: [1][285/4000] LR:0.010000 ForwardTime: 0.122 Loss: 0.81733 (rpn_cls: 0.07007 rpn_loc: 0.74726 img:[] rpn_acc: 0.97656)
+2021-08-22 16:52:45,680 - INFO - log_helper.py[:39] - Progress: 286 / 120000 [0%], Speed: 0.432 s/iter, ETA 0:14:22 (D:H:M)
+
+2021-08-22 16:52:46,236 - INFO - train.py[:178] - Epoch: [1][286/4000] LR:0.010000 ForwardTime: 0.158 Loss: 0.20966 (rpn_cls: 0.04561 rpn_loc: 0.16405 img:[] rpn_acc: 0.99219)
+2021-08-22 16:52:46,236 - INFO - log_helper.py[:39] - Progress: 287 / 120000 [0%], Speed: 0.564 s/iter, ETA 0:18:44 (D:H:M)
+
+2021-08-22 16:52:46,814 - INFO - train.py[:178] - Epoch: [1][287/4000] LR:0.010000 ForwardTime: 0.146 Loss: 0.77545 (rpn_cls: 0.12199 rpn_loc: 0.65346 img:[] rpn_acc: 0.96875)
+2021-08-22 16:52:46,814 - INFO - log_helper.py[:39] - Progress: 288 / 120000 [0%], Speed: 0.574 s/iter, ETA 0:19:05 (D:H:M)
+
+2021-08-22 16:52:47,424 - INFO - train.py[:178] - Epoch: [1][288/4000] LR:0.010000 ForwardTime: 0.118 Loss: 1.10555 (rpn_cls: 0.08219 rpn_loc: 1.02336 img:[] rpn_acc: 0.96484)
+2021-08-22 16:52:47,425 - INFO - log_helper.py[:39] - Progress: 289 / 120000 [0%], Speed: 0.587 s/iter, ETA 0:19:30 (D:H:M)
+
+2021-08-22 16:52:47,876 - INFO - train.py[:178] - Epoch: [1][289/4000] LR:0.010000 ForwardTime: 0.136 Loss: 0.37426 (rpn_cls: 0.03139 rpn_loc: 0.34287 img:[] rpn_acc: 0.99219)
+2021-08-22 16:52:47,876 - INFO - log_helper.py[:39] - Progress: 290 / 120000 [0%], Speed: 0.452 s/iter, ETA 0:15:01 (D:H:M)
+
+2021-08-22 16:52:48,324 - INFO - train.py[:178] - Epoch: [1][290/4000] LR:0.010000 ForwardTime: 0.121 Loss: 0.47134 (rpn_cls: 0.07921 rpn_loc: 0.39214 img:[] rpn_acc: 0.96484)
+2021-08-22 16:52:48,324 - INFO - log_helper.py[:39] - Progress: 291 / 120000 [0%], Speed: 0.442 s/iter, ETA 0:14:42 (D:H:M)
+
+2021-08-22 16:52:48,982 - INFO - train.py[:178] - Epoch: [1][291/4000] LR:0.010000 ForwardTime: 0.118 Loss: 0.13149 (rpn_cls: 0.02031 rpn_loc: 0.11118 img:[] rpn_acc: 0.99609)
+2021-08-22 16:52:48,984 - INFO - log_helper.py[:39] - Progress: 292 / 120000 [0%], Speed: 0.661 s/iter, ETA 0:21:59 (D:H:M)
+
+2021-08-22 16:52:49,396 - INFO - train.py[:178] - Epoch: [1][292/4000] LR:0.010000 ForwardTime: 0.120 Loss: 0.55572 (rpn_cls: 0.04114 rpn_loc: 0.51458 img:[] rpn_acc: 0.99609)
+2021-08-22 16:52:49,396 - INFO - log_helper.py[:39] - Progress: 293 / 120000 [0%], Speed: 0.441 s/iter, ETA 0:14:40 (D:H:M)
+
+2021-08-22 16:52:49,819 - INFO - train.py[:178] - Epoch: [1][293/4000] LR:0.010000 ForwardTime: 0.130 Loss: 0.49574 (rpn_cls: 0.04703 rpn_loc: 0.44871 img:[] rpn_acc: 0.97656)
+2021-08-22 16:52:49,819 - INFO - log_helper.py[:39] - Progress: 294 / 120000 [0%], Speed: 0.421 s/iter, ETA 0:13:59 (D:H:M)
+
+2021-08-22 16:52:50,223 - INFO - train.py[:178] - Epoch: [1][294/4000] LR:0.010000 ForwardTime: 0.114 Loss: 0.66552 (rpn_cls: 0.04898 rpn_loc: 0.61654 img:[] rpn_acc: 0.98438)
+2021-08-22 16:52:50,223 - INFO - log_helper.py[:39] - Progress: 295 / 120000 [0%], Speed: 0.406 s/iter, ETA 0:13:29 (D:H:M)
+
+2021-08-22 16:52:50,841 - INFO - train.py[:178] - Epoch: [1][295/4000] LR:0.010000 ForwardTime: 0.138 Loss: 0.98955 (rpn_cls: 0.07058 rpn_loc: 0.91897 img:[] rpn_acc: 0.95703)
+2021-08-22 16:52:50,841 - INFO - log_helper.py[:39] - Progress: 296 / 120000 [0%], Speed: 0.611 s/iter, ETA 0:20:18 (D:H:M)
+
+2021-08-22 16:52:51,446 - INFO - train.py[:178] - Epoch: [1][296/4000] LR:0.010000 ForwardTime: 0.182 Loss: 1.05112 (rpn_cls: 0.04670 rpn_loc: 1.00442 img:[] rpn_acc: 0.98047)
+2021-08-22 16:52:51,446 - INFO - log_helper.py[:39] - Progress: 297 / 120000 [0%], Speed: 0.582 s/iter, ETA 0:19:22 (D:H:M)
+
+2021-08-22 16:52:51,859 - INFO - train.py[:178] - Epoch: [1][297/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.30230 (rpn_cls: 0.08993 rpn_loc: 1.21237 img:[] rpn_acc: 0.94141)
+2021-08-22 16:52:51,859 - INFO - log_helper.py[:39] - Progress: 298 / 120000 [0%], Speed: 0.440 s/iter, ETA 0:14:38 (D:H:M)
+
+2021-08-22 16:52:52,440 - INFO - train.py[:178] - Epoch: [1][298/4000] LR:0.010000 ForwardTime: 0.130 Loss: 0.40107 (rpn_cls: 0.03409 rpn_loc: 0.36698 img:[] rpn_acc: 0.99219)
+2021-08-22 16:52:52,441 - INFO - log_helper.py[:39] - Progress: 299 / 120000 [0%], Speed: 0.577 s/iter, ETA 0:19:10 (D:H:M)
+
+2021-08-22 16:52:53,051 - INFO - train.py[:178] - Epoch: [1][299/4000] LR:0.010000 ForwardTime: 0.128 Loss: 1.11060 (rpn_cls: 0.08540 rpn_loc: 1.02520 img:[] rpn_acc: 0.96484)
+2021-08-22 16:52:53,052 - INFO - log_helper.py[:39] - Progress: 300 / 120000 [0%], Speed: 0.598 s/iter, ETA 0:19:53 (D:H:M)
+
+2021-08-22 16:52:53,614 - INFO - train.py[:178] - Epoch: [1][300/4000] LR:0.010000 ForwardTime: 0.116 Loss: 1.10233 (rpn_cls: 0.06620 rpn_loc: 1.03613 img:[] rpn_acc: 0.96875)
+2021-08-22 16:52:53,614 - INFO - log_helper.py[:39] - Progress: 301 / 120000 [0%], Speed: 0.558 s/iter, ETA 0:18:32 (D:H:M)
+
+2021-08-22 16:52:54,262 - INFO - train.py[:178] - Epoch: [1][301/4000] LR:0.010000 ForwardTime: 0.121 Loss: 0.20274 (rpn_cls: 0.02157 rpn_loc: 0.18117 img:[] rpn_acc: 0.99219)
+2021-08-22 16:52:54,262 - INFO - log_helper.py[:39] - Progress: 302 / 120000 [0%], Speed: 0.640 s/iter, ETA 0:21:17 (D:H:M)
+
+2021-08-22 16:52:54,817 - INFO - train.py[:178] - Epoch: [1][302/4000] LR:0.010000 ForwardTime: 0.117 Loss: 0.41821 (rpn_cls: 0.02452 rpn_loc: 0.39370 img:[] rpn_acc: 1.00000)
+2021-08-22 16:52:54,817 - INFO - log_helper.py[:39] - Progress: 303 / 120000 [0%], Speed: 0.570 s/iter, ETA 0:18:57 (D:H:M)
+
+2021-08-22 16:52:55,257 - INFO - train.py[:178] - Epoch: [1][303/4000] LR:0.010000 ForwardTime: 0.119 Loss: 1.18504 (rpn_cls: 0.09569 rpn_loc: 1.08935 img:[] rpn_acc: 0.93750)
+2021-08-22 16:52:55,257 - INFO - log_helper.py[:39] - Progress: 304 / 120000 [0%], Speed: 0.431 s/iter, ETA 0:14:19 (D:H:M)
+
+2021-08-22 16:52:55,770 - INFO - train.py[:178] - Epoch: [1][304/4000] LR:0.010000 ForwardTime: 0.116 Loss: 0.27872 (rpn_cls: 0.02004 rpn_loc: 0.25868 img:[] rpn_acc: 1.00000)
+2021-08-22 16:52:55,770 - INFO - log_helper.py[:39] - Progress: 305 / 120000 [0%], Speed: 0.534 s/iter, ETA 0:17:46 (D:H:M)
+
+2021-08-22 16:52:56,266 - INFO - train.py[:178] - Epoch: [1][305/4000] LR:0.010000 ForwardTime: 0.169 Loss: 0.26392 (rpn_cls: 0.05538 rpn_loc: 0.20855 img:[] rpn_acc: 0.98828)
+2021-08-22 16:52:56,267 - INFO - log_helper.py[:39] - Progress: 306 / 120000 [0%], Speed: 0.479 s/iter, ETA 0:15:56 (D:H:M)
+
+2021-08-22 16:52:56,731 - INFO - train.py[:178] - Epoch: [1][306/4000] LR:0.010000 ForwardTime: 0.120 Loss: 0.84245 (rpn_cls: 0.03109 rpn_loc: 0.81136 img:[] rpn_acc: 0.99219)
+2021-08-22 16:52:56,731 - INFO - log_helper.py[:39] - Progress: 307 / 120000 [0%], Speed: 0.463 s/iter, ETA 0:15:23 (D:H:M)
+
+2021-08-22 16:52:57,153 - INFO - train.py[:178] - Epoch: [1][307/4000] LR:0.010000 ForwardTime: 0.124 Loss: 0.48843 (rpn_cls: 0.06760 rpn_loc: 0.42083 img:[] rpn_acc: 0.97266)
+2021-08-22 16:52:57,153 - INFO - log_helper.py[:39] - Progress: 308 / 120000 [0%], Speed: 0.441 s/iter, ETA 0:14:39 (D:H:M)
+
+2021-08-22 16:52:57,573 - INFO - train.py[:178] - Epoch: [1][308/4000] LR:0.010000 ForwardTime: 0.123 Loss: 1.81868 (rpn_cls: 0.05525 rpn_loc: 1.76343 img:[] rpn_acc: 0.96484)
+2021-08-22 16:52:57,574 - INFO - log_helper.py[:39] - Progress: 309 / 120000 [0%], Speed: 0.425 s/iter, ETA 0:14:06 (D:H:M)
+
+2021-08-22 16:52:58,172 - INFO - train.py[:178] - Epoch: [1][309/4000] LR:0.010000 ForwardTime: 0.118 Loss: 0.21917 (rpn_cls: 0.04226 rpn_loc: 0.17690 img:[] rpn_acc: 0.98438)
+2021-08-22 16:52:58,173 - INFO - log_helper.py[:39] - Progress: 310 / 120000 [0%], Speed: 0.574 s/iter, ETA 0:19:04 (D:H:M)
+
+2021-08-22 16:52:58,602 - INFO - train.py[:178] - Epoch: [1][310/4000] LR:0.010000 ForwardTime: 0.122 Loss: 0.60089 (rpn_cls: 0.04800 rpn_loc: 0.55290 img:[] rpn_acc: 0.97656)
+2021-08-22 16:52:58,603 - INFO - log_helper.py[:39] - Progress: 311 / 120000 [0%], Speed: 0.457 s/iter, ETA 0:15:12 (D:H:M)
+
+2021-08-22 16:52:59,187 - INFO - train.py[:178] - Epoch: [1][311/4000] LR:0.010000 ForwardTime: 0.132 Loss: 0.36027 (rpn_cls: 0.04487 rpn_loc: 0.31540 img:[] rpn_acc: 0.99219)
+2021-08-22 16:52:59,188 - INFO - log_helper.py[:39] - Progress: 312 / 120000 [0%], Speed: 0.552 s/iter, ETA 0:18:21 (D:H:M)
+
+2021-08-22 16:52:59,785 - INFO - train.py[:178] - Epoch: [1][312/4000] LR:0.010000 ForwardTime: 0.119 Loss: 1.04584 (rpn_cls: 0.04191 rpn_loc: 1.00393 img:[] rpn_acc: 0.97266)
+2021-08-22 16:52:59,785 - INFO - log_helper.py[:39] - Progress: 313 / 120000 [0%], Speed: 0.599 s/iter, ETA 0:19:55 (D:H:M)
+
+2021-08-22 16:53:00,224 - INFO - train.py[:178] - Epoch: [1][313/4000] LR:0.010000 ForwardTime: 0.130 Loss: 0.82605 (rpn_cls: 0.06808 rpn_loc: 0.75797 img:[] rpn_acc: 0.96875)
+2021-08-22 16:53:00,224 - INFO - log_helper.py[:39] - Progress: 314 / 120000 [0%], Speed: 0.449 s/iter, ETA 0:14:56 (D:H:M)
+
+2021-08-22 16:53:00,664 - INFO - train.py[:178] - Epoch: [1][314/4000] LR:0.010000 ForwardTime: 0.143 Loss: 0.39959 (rpn_cls: 0.04315 rpn_loc: 0.35644 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:00,665 - INFO - log_helper.py[:39] - Progress: 315 / 120000 [0%], Speed: 0.451 s/iter, ETA 0:15:00 (D:H:M)
+
+2021-08-22 16:53:01,253 - INFO - train.py[:178] - Epoch: [1][315/4000] LR:0.010000 ForwardTime: 0.117 Loss: 0.34280 (rpn_cls: 0.08273 rpn_loc: 0.26007 img:[] rpn_acc: 0.94922)
+2021-08-22 16:53:01,253 - INFO - log_helper.py[:39] - Progress: 316 / 120000 [0%], Speed: 0.573 s/iter, ETA 0:19:03 (D:H:M)
+
+2021-08-22 16:53:01,701 - INFO - train.py[:178] - Epoch: [1][316/4000] LR:0.010000 ForwardTime: 0.129 Loss: 1.21517 (rpn_cls: 0.10934 rpn_loc: 1.10583 img:[] rpn_acc: 0.92188)
+2021-08-22 16:53:01,701 - INFO - log_helper.py[:39] - Progress: 317 / 120000 [0%], Speed: 0.474 s/iter, ETA 0:15:45 (D:H:M)
+
+2021-08-22 16:53:02,174 - INFO - train.py[:178] - Epoch: [1][317/4000] LR:0.010000 ForwardTime: 0.134 Loss: 0.44219 (rpn_cls: 0.04435 rpn_loc: 0.39784 img:[] rpn_acc: 0.97656)
+2021-08-22 16:53:02,175 - INFO - log_helper.py[:39] - Progress: 318 / 120000 [0%], Speed: 0.463 s/iter, ETA 0:15:23 (D:H:M)
+
+2021-08-22 16:53:02,863 - INFO - train.py[:178] - Epoch: [1][318/4000] LR:0.010000 ForwardTime: 0.122 Loss: 1.43321 (rpn_cls: 0.08090 rpn_loc: 1.35231 img:[] rpn_acc: 0.95312)
+2021-08-22 16:53:02,864 - INFO - log_helper.py[:39] - Progress: 319 / 120000 [0%], Speed: 0.667 s/iter, ETA 0:22:11 (D:H:M)
+
+2021-08-22 16:53:03,571 - INFO - train.py[:178] - Epoch: [1][319/4000] LR:0.010000 ForwardTime: 0.124 Loss: 1.85238 (rpn_cls: 0.02375 rpn_loc: 1.82863 img:[] rpn_acc: 0.98828)
+2021-08-22 16:53:03,572 - INFO - log_helper.py[:39] - Progress: 320 / 120000 [0%], Speed: 0.704 s/iter, ETA 0:23:23 (D:H:M)
+
+2021-08-22 16:53:04,024 - INFO - train.py[:178] - Epoch: [1][320/4000] LR:0.010000 ForwardTime: 0.128 Loss: 1.29352 (rpn_cls: 0.05840 rpn_loc: 1.23512 img:[] rpn_acc: 0.97656)
+2021-08-22 16:53:04,024 - INFO - log_helper.py[:39] - Progress: 321 / 120000 [0%], Speed: 0.465 s/iter, ETA 0:15:27 (D:H:M)
+
+2021-08-22 16:53:04,467 - INFO - train.py[:178] - Epoch: [1][321/4000] LR:0.010000 ForwardTime: 0.119 Loss: 0.43779 (rpn_cls: 0.01739 rpn_loc: 0.42040 img:[] rpn_acc: 0.99609)
+2021-08-22 16:53:04,468 - INFO - log_helper.py[:39] - Progress: 322 / 120000 [0%], Speed: 0.437 s/iter, ETA 0:14:31 (D:H:M)
+
+2021-08-22 16:53:05,064 - INFO - train.py[:178] - Epoch: [1][322/4000] LR:0.010000 ForwardTime: 0.127 Loss: 0.41769 (rpn_cls: 0.03602 rpn_loc: 0.38167 img:[] rpn_acc: 1.00000)
+2021-08-22 16:53:05,064 - INFO - log_helper.py[:39] - Progress: 323 / 120000 [0%], Speed: 0.615 s/iter, ETA 0:20:27 (D:H:M)
+
+2021-08-22 16:53:05,537 - INFO - train.py[:178] - Epoch: [1][323/4000] LR:0.010000 ForwardTime: 0.155 Loss: 1.70674 (rpn_cls: 0.06189 rpn_loc: 1.64485 img:[] rpn_acc: 0.96094)
+2021-08-22 16:53:05,537 - INFO - log_helper.py[:39] - Progress: 324 / 120000 [0%], Speed: 0.458 s/iter, ETA 0:15:13 (D:H:M)
+
+2021-08-22 16:53:05,955 - INFO - train.py[:178] - Epoch: [1][324/4000] LR:0.010000 ForwardTime: 0.118 Loss: 1.50498 (rpn_cls: 0.07448 rpn_loc: 1.43050 img:[] rpn_acc: 0.95312)
+2021-08-22 16:53:05,956 - INFO - log_helper.py[:39] - Progress: 325 / 120000 [0%], Speed: 0.439 s/iter, ETA 0:14:35 (D:H:M)
+
+2021-08-22 16:53:06,372 - INFO - train.py[:178] - Epoch: [1][325/4000] LR:0.010000 ForwardTime: 0.115 Loss: 1.55470 (rpn_cls: 0.03734 rpn_loc: 1.51736 img:[] rpn_acc: 0.97656)
+2021-08-22 16:53:06,372 - INFO - log_helper.py[:39] - Progress: 326 / 120000 [0%], Speed: 0.417 s/iter, ETA 0:13:52 (D:H:M)
+
+2021-08-22 16:53:06,788 - INFO - train.py[:178] - Epoch: [1][326/4000] LR:0.010000 ForwardTime: 0.119 Loss: 0.45600 (rpn_cls: 0.03879 rpn_loc: 0.41721 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:06,788 - INFO - log_helper.py[:39] - Progress: 327 / 120000 [0%], Speed: 0.417 s/iter, ETA 0:13:51 (D:H:M)
+
+2021-08-22 16:53:07,430 - INFO - train.py[:178] - Epoch: [1][327/4000] LR:0.010000 ForwardTime: 0.116 Loss: 0.53244 (rpn_cls: 0.05960 rpn_loc: 0.47284 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:07,431 - INFO - log_helper.py[:39] - Progress: 328 / 120000 [0%], Speed: 0.627 s/iter, ETA 0:20:51 (D:H:M)
+
+2021-08-22 16:53:08,024 - INFO - train.py[:178] - Epoch: [1][328/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.32721 (rpn_cls: 0.07320 rpn_loc: 1.25401 img:[] rpn_acc: 0.94141)
+2021-08-22 16:53:08,024 - INFO - log_helper.py[:39] - Progress: 329 / 120000 [0%], Speed: 0.587 s/iter, ETA 0:19:31 (D:H:M)
+
+2021-08-22 16:53:08,582 - INFO - train.py[:178] - Epoch: [1][329/4000] LR:0.010000 ForwardTime: 0.118 Loss: 1.79337 (rpn_cls: 0.04531 rpn_loc: 1.74806 img:[] rpn_acc: 0.96875)
+2021-08-22 16:53:08,582 - INFO - log_helper.py[:39] - Progress: 330 / 120000 [0%], Speed: 0.556 s/iter, ETA 0:18:29 (D:H:M)
+
+2021-08-22 16:53:09,029 - INFO - train.py[:178] - Epoch: [1][330/4000] LR:0.010000 ForwardTime: 0.122 Loss: 1.35193 (rpn_cls: 0.06527 rpn_loc: 1.28666 img:[] rpn_acc: 0.97656)
+2021-08-22 16:53:09,030 - INFO - log_helper.py[:39] - Progress: 331 / 120000 [0%], Speed: 0.444 s/iter, ETA 0:14:44 (D:H:M)
+
+2021-08-22 16:53:09,539 - INFO - train.py[:178] - Epoch: [1][331/4000] LR:0.010000 ForwardTime: 0.115 Loss: 1.98017 (rpn_cls: 0.05711 rpn_loc: 1.92306 img:[] rpn_acc: 0.95312)
+2021-08-22 16:53:09,539 - INFO - log_helper.py[:39] - Progress: 332 / 120000 [0%], Speed: 0.530 s/iter, ETA 0:17:37 (D:H:M)
+
+2021-08-22 16:53:10,212 - INFO - train.py[:178] - Epoch: [1][332/4000] LR:0.010000 ForwardTime: 0.121 Loss: 0.53221 (rpn_cls: 0.06241 rpn_loc: 0.46979 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:10,213 - INFO - log_helper.py[:39] - Progress: 333 / 120000 [0%], Speed: 0.654 s/iter, ETA 0:21:43 (D:H:M)
+
+2021-08-22 16:53:10,668 - INFO - train.py[:178] - Epoch: [1][333/4000] LR:0.010000 ForwardTime: 0.132 Loss: 0.83633 (rpn_cls: 0.03400 rpn_loc: 0.80233 img:[] rpn_acc: 1.00000)
+2021-08-22 16:53:10,669 - INFO - log_helper.py[:39] - Progress: 334 / 120000 [0%], Speed: 0.456 s/iter, ETA 0:15:09 (D:H:M)
+
+2021-08-22 16:53:11,097 - INFO - train.py[:178] - Epoch: [1][334/4000] LR:0.010000 ForwardTime: 0.119 Loss: 1.24640 (rpn_cls: 0.08809 rpn_loc: 1.15831 img:[] rpn_acc: 0.90625)
+2021-08-22 16:53:11,097 - INFO - log_helper.py[:39] - Progress: 335 / 120000 [0%], Speed: 0.450 s/iter, ETA 0:14:57 (D:H:M)
+
+2021-08-22 16:53:11,593 - INFO - train.py[:178] - Epoch: [1][335/4000] LR:0.010000 ForwardTime: 0.141 Loss: 0.72301 (rpn_cls: 0.07059 rpn_loc: 0.65242 img:[] rpn_acc: 0.96094)
+2021-08-22 16:53:11,594 - INFO - log_helper.py[:39] - Progress: 336 / 120000 [0%], Speed: 0.489 s/iter, ETA 0:16:15 (D:H:M)
+
+2021-08-22 16:53:12,021 - INFO - train.py[:178] - Epoch: [1][336/4000] LR:0.010000 ForwardTime: 0.117 Loss: 0.45882 (rpn_cls: 0.04710 rpn_loc: 0.41172 img:[] rpn_acc: 0.96875)
+2021-08-22 16:53:12,021 - INFO - log_helper.py[:39] - Progress: 337 / 120000 [0%], Speed: 0.426 s/iter, ETA 0:14:10 (D:H:M)
+
+2021-08-22 16:53:12,618 - INFO - train.py[:178] - Epoch: [1][337/4000] LR:0.010000 ForwardTime: 0.120 Loss: 1.27352 (rpn_cls: 0.04100 rpn_loc: 1.23251 img:[] rpn_acc: 0.98047)
+2021-08-22 16:53:12,619 - INFO - log_helper.py[:39] - Progress: 338 / 120000 [0%], Speed: 0.583 s/iter, ETA 0:19:23 (D:H:M)
+
+2021-08-22 16:53:13,089 - INFO - train.py[:178] - Epoch: [1][338/4000] LR:0.010000 ForwardTime: 0.144 Loss: 0.41214 (rpn_cls: 0.05008 rpn_loc: 0.36206 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:13,089 - INFO - log_helper.py[:39] - Progress: 339 / 120000 [0%], Speed: 0.477 s/iter, ETA 0:15:51 (D:H:M)
+
+2021-08-22 16:53:13,520 - INFO - train.py[:178] - Epoch: [1][339/4000] LR:0.010000 ForwardTime: 0.118 Loss: 1.21611 (rpn_cls: 0.04885 rpn_loc: 1.16726 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:13,521 - INFO - log_helper.py[:39] - Progress: 340 / 120000 [0%], Speed: 0.435 s/iter, ETA 0:14:27 (D:H:M)
+
+2021-08-22 16:53:14,217 - INFO - train.py[:178] - Epoch: [1][340/4000] LR:0.010000 ForwardTime: 0.121 Loss: 0.71305 (rpn_cls: 0.05023 rpn_loc: 0.66283 img:[] rpn_acc: 0.98047)
+2021-08-22 16:53:14,218 - INFO - log_helper.py[:39] - Progress: 341 / 120000 [0%], Speed: 0.697 s/iter, ETA 0:23:10 (D:H:M)
+
+2021-08-22 16:53:14,680 - INFO - train.py[:178] - Epoch: [1][341/4000] LR:0.010000 ForwardTime: 0.124 Loss: 1.86492 (rpn_cls: 0.02837 rpn_loc: 1.83655 img:[] rpn_acc: 0.98047)
+2021-08-22 16:53:14,681 - INFO - log_helper.py[:39] - Progress: 342 / 120000 [0%], Speed: 0.462 s/iter, ETA 0:15:21 (D:H:M)
+
+2021-08-22 16:53:15,119 - INFO - train.py[:178] - Epoch: [1][342/4000] LR:0.010000 ForwardTime: 0.117 Loss: 0.85068 (rpn_cls: 0.03957 rpn_loc: 0.81111 img:[] rpn_acc: 0.98438)
+2021-08-22 16:53:15,120 - INFO - log_helper.py[:39] - Progress: 343 / 120000 [0%], Speed: 0.431 s/iter, ETA 0:14:19 (D:H:M)
+
+2021-08-22 16:53:15,708 - INFO - train.py[:178] - Epoch: [1][343/4000] LR:0.010000 ForwardTime: 0.118 Loss: 0.79449 (rpn_cls: 0.05233 rpn_loc: 0.74216 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:15,708 - INFO - log_helper.py[:39] - Progress: 344 / 120000 [0%], Speed: 0.606 s/iter, ETA 0:20:07 (D:H:M)
+
+2021-08-22 16:53:16,182 - INFO - train.py[:178] - Epoch: [1][344/4000] LR:0.010000 ForwardTime: 0.131 Loss: 0.41560 (rpn_cls: 0.04887 rpn_loc: 0.36673 img:[] rpn_acc: 0.97656)
+2021-08-22 16:53:16,182 - INFO - log_helper.py[:39] - Progress: 345 / 120000 [0%], Speed: 0.469 s/iter, ETA 0:15:35 (D:H:M)
+
+2021-08-22 16:53:16,770 - INFO - train.py[:178] - Epoch: [1][345/4000] LR:0.010000 ForwardTime: 0.120 Loss: 0.64670 (rpn_cls: 0.07467 rpn_loc: 0.57203 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:16,770 - INFO - log_helper.py[:39] - Progress: 346 / 120000 [0%], Speed: 0.578 s/iter, ETA 0:19:12 (D:H:M)
+
+2021-08-22 16:53:17,383 - INFO - train.py[:178] - Epoch: [1][346/4000] LR:0.010000 ForwardTime: 0.125 Loss: 1.18264 (rpn_cls: 0.03633 rpn_loc: 1.14631 img:[] rpn_acc: 0.98047)
+2021-08-22 16:53:17,384 - INFO - log_helper.py[:39] - Progress: 347 / 120000 [0%], Speed: 0.610 s/iter, ETA 0:20:16 (D:H:M)
+
+2021-08-22 16:53:17,914 - INFO - train.py[:178] - Epoch: [1][347/4000] LR:0.010000 ForwardTime: 0.152 Loss: 1.08905 (rpn_cls: 0.03746 rpn_loc: 1.05158 img:[] rpn_acc: 0.98438)
+2021-08-22 16:53:17,915 - INFO - log_helper.py[:39] - Progress: 348 / 120000 [0%], Speed: 0.541 s/iter, ETA 0:17:59 (D:H:M)
+
+2021-08-22 16:53:18,349 - INFO - train.py[:178] - Epoch: [1][348/4000] LR:0.010000 ForwardTime: 0.120 Loss: 0.73386 (rpn_cls: 0.06290 rpn_loc: 0.67096 img:[] rpn_acc: 0.98047)
+2021-08-22 16:53:18,349 - INFO - log_helper.py[:39] - Progress: 349 / 120000 [0%], Speed: 0.433 s/iter, ETA 0:14:23 (D:H:M)
+
+2021-08-22 16:53:18,891 - INFO - train.py[:178] - Epoch: [1][349/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.68889 (rpn_cls: 0.05750 rpn_loc: 1.63139 img:[] rpn_acc: 0.98047)
+2021-08-22 16:53:18,891 - INFO - log_helper.py[:39] - Progress: 350 / 120000 [0%], Speed: 0.532 s/iter, ETA 0:17:41 (D:H:M)
+
+2021-08-22 16:53:19,377 - INFO - train.py[:178] - Epoch: [1][350/4000] LR:0.010000 ForwardTime: 0.118 Loss: 1.35845 (rpn_cls: 0.04476 rpn_loc: 1.31369 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:19,377 - INFO - log_helper.py[:39] - Progress: 351 / 120000 [0%], Speed: 0.511 s/iter, ETA 0:16:59 (D:H:M)
+
+2021-08-22 16:53:19,791 - INFO - train.py[:178] - Epoch: [1][351/4000] LR:0.010000 ForwardTime: 0.114 Loss: 0.68780 (rpn_cls: 0.05006 rpn_loc: 0.63774 img:[] rpn_acc: 0.97656)
+2021-08-22 16:53:19,791 - INFO - log_helper.py[:39] - Progress: 352 / 120000 [0%], Speed: 0.416 s/iter, ETA 0:13:49 (D:H:M)
+
+2021-08-22 16:53:20,244 - INFO - train.py[:178] - Epoch: [1][352/4000] LR:0.010000 ForwardTime: 0.117 Loss: 0.38508 (rpn_cls: 0.07615 rpn_loc: 0.30894 img:[] rpn_acc: 0.95703)
+2021-08-22 16:53:20,245 - INFO - log_helper.py[:39] - Progress: 353 / 120000 [0%], Speed: 0.428 s/iter, ETA 0:14:12 (D:H:M)
+
+2021-08-22 16:53:20,729 - INFO - train.py[:178] - Epoch: [1][353/4000] LR:0.010000 ForwardTime: 0.123 Loss: 0.29189 (rpn_cls: 0.08731 rpn_loc: 0.20458 img:[] rpn_acc: 0.94922)
+2021-08-22 16:53:20,729 - INFO - log_helper.py[:39] - Progress: 354 / 120000 [0%], Speed: 0.505 s/iter, ETA 0:16:46 (D:H:M)
+
+2021-08-22 16:53:21,163 - INFO - train.py[:178] - Epoch: [1][354/4000] LR:0.010000 ForwardTime: 0.119 Loss: 0.79488 (rpn_cls: 0.01194 rpn_loc: 0.78294 img:[] rpn_acc: 1.00000)
+2021-08-22 16:53:21,164 - INFO - log_helper.py[:39] - Progress: 355 / 120000 [0%], Speed: 0.446 s/iter, ETA 0:14:49 (D:H:M)
+
+2021-08-22 16:53:21,606 - INFO - train.py[:178] - Epoch: [1][355/4000] LR:0.010000 ForwardTime: 0.153 Loss: 0.26038 (rpn_cls: 0.04358 rpn_loc: 0.21680 img:[] rpn_acc: 0.98438)
+2021-08-22 16:53:21,606 - INFO - log_helper.py[:39] - Progress: 356 / 120000 [0%], Speed: 0.445 s/iter, ETA 0:14:46 (D:H:M)
+
+2021-08-22 16:53:22,070 - INFO - train.py[:178] - Epoch: [1][356/4000] LR:0.010000 ForwardTime: 0.146 Loss: 1.02374 (rpn_cls: 0.04942 rpn_loc: 0.97432 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:22,070 - INFO - log_helper.py[:39] - Progress: 357 / 120000 [0%], Speed: 0.449 s/iter, ETA 0:14:56 (D:H:M)
+
+2021-08-22 16:53:22,508 - INFO - train.py[:178] - Epoch: [1][357/4000] LR:0.010000 ForwardTime: 0.122 Loss: 0.78285 (rpn_cls: 0.04645 rpn_loc: 0.73640 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:22,509 - INFO - log_helper.py[:39] - Progress: 358 / 120000 [0%], Speed: 0.423 s/iter, ETA 0:14:04 (D:H:M)
+
+2021-08-22 16:53:23,232 - INFO - train.py[:178] - Epoch: [1][358/4000] LR:0.010000 ForwardTime: 0.130 Loss: 0.52417 (rpn_cls: 0.02864 rpn_loc: 0.49553 img:[] rpn_acc: 1.00000)
+2021-08-22 16:53:23,232 - INFO - log_helper.py[:39] - Progress: 359 / 120000 [0%], Speed: 0.729 s/iter, ETA 1:00:13 (D:H:M)
+
+2021-08-22 16:53:23,671 - INFO - train.py[:178] - Epoch: [1][359/4000] LR:0.010000 ForwardTime: 0.128 Loss: 0.71249 (rpn_cls: 0.04383 rpn_loc: 0.66865 img:[] rpn_acc: 0.98438)
+2021-08-22 16:53:23,671 - INFO - log_helper.py[:39] - Progress: 360 / 120000 [0%], Speed: 0.440 s/iter, ETA 0:14:36 (D:H:M)
+
+2021-08-22 16:53:24,292 - INFO - train.py[:178] - Epoch: [1][360/4000] LR:0.010000 ForwardTime: 0.121 Loss: 0.91190 (rpn_cls: 0.04604 rpn_loc: 0.86587 img:[] rpn_acc: 0.98047)
+2021-08-22 16:53:24,292 - INFO - log_helper.py[:39] - Progress: 361 / 120000 [0%], Speed: 0.612 s/iter, ETA 0:20:20 (D:H:M)
+
+2021-08-22 16:53:24,809 - INFO - train.py[:178] - Epoch: [1][361/4000] LR:0.010000 ForwardTime: 0.134 Loss: 1.03217 (rpn_cls: 0.04671 rpn_loc: 0.98546 img:[] rpn_acc: 0.97656)
+2021-08-22 16:53:24,809 - INFO - log_helper.py[:39] - Progress: 362 / 120000 [0%], Speed: 0.517 s/iter, ETA 0:17:11 (D:H:M)
+
+2021-08-22 16:53:25,235 - INFO - train.py[:178] - Epoch: [1][362/4000] LR:0.010000 ForwardTime: 0.126 Loss: 1.20769 (rpn_cls: 0.03273 rpn_loc: 1.17496 img:[] rpn_acc: 1.00000)
+2021-08-22 16:53:25,235 - INFO - log_helper.py[:39] - Progress: 363 / 120000 [0%], Speed: 0.452 s/iter, ETA 0:15:00 (D:H:M)
+
+2021-08-22 16:53:25,799 - INFO - train.py[:178] - Epoch: [1][363/4000] LR:0.010000 ForwardTime: 0.114 Loss: 0.93716 (rpn_cls: 0.05093 rpn_loc: 0.88623 img:[] rpn_acc: 0.98828)
+2021-08-22 16:53:25,799 - INFO - log_helper.py[:39] - Progress: 364 / 120000 [0%], Speed: 0.553 s/iter, ETA 0:18:23 (D:H:M)
+
+2021-08-22 16:53:26,270 - INFO - train.py[:178] - Epoch: [1][364/4000] LR:0.010000 ForwardTime: 0.135 Loss: 0.59224 (rpn_cls: 0.05738 rpn_loc: 0.53486 img:[] rpn_acc: 0.98438)
+2021-08-22 16:53:26,271 - INFO - log_helper.py[:39] - Progress: 365 / 120000 [0%], Speed: 0.488 s/iter, ETA 0:16:12 (D:H:M)
+
+2021-08-22 16:53:26,691 - INFO - train.py[:178] - Epoch: [1][365/4000] LR:0.010000 ForwardTime: 0.134 Loss: 0.45850 (rpn_cls: 0.05709 rpn_loc: 0.40141 img:[] rpn_acc: 0.97656)
+2021-08-22 16:53:26,691 - INFO - log_helper.py[:39] - Progress: 366 / 120000 [0%], Speed: 0.425 s/iter, ETA 0:14:07 (D:H:M)
+
+2021-08-22 16:53:27,108 - INFO - train.py[:178] - Epoch: [1][366/4000] LR:0.010000 ForwardTime: 0.114 Loss: 1.17375 (rpn_cls: 0.05612 rpn_loc: 1.11763 img:[] rpn_acc: 0.97656)
+2021-08-22 16:53:27,109 - INFO - log_helper.py[:39] - Progress: 367 / 120000 [0%], Speed: 0.404 s/iter, ETA 0:13:25 (D:H:M)
+
+2021-08-22 16:53:27,897 - INFO - train.py[:178] - Epoch: [1][367/4000] LR:0.010000 ForwardTime: 0.147 Loss: 2.45366 (rpn_cls: 0.05820 rpn_loc: 2.39546 img:[] rpn_acc: 0.98047)
+2021-08-22 16:53:27,897 - INFO - log_helper.py[:39] - Progress: 368 / 120000 [0%], Speed: 0.792 s/iter, ETA 1:02:19 (D:H:M)
+
+2021-08-22 16:53:28,331 - INFO - train.py[:178] - Epoch: [1][368/4000] LR:0.010000 ForwardTime: 0.127 Loss: 2.11824 (rpn_cls: 0.05680 rpn_loc: 2.06145 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:28,331 - INFO - log_helper.py[:39] - Progress: 369 / 120000 [0%], Speed: 0.430 s/iter, ETA 0:14:17 (D:H:M)
+
+2021-08-22 16:53:28,983 - INFO - train.py[:178] - Epoch: [1][369/4000] LR:0.010000 ForwardTime: 0.117 Loss: 1.02156 (rpn_cls: 0.02320 rpn_loc: 0.99836 img:[] rpn_acc: 1.00000)
+2021-08-22 16:53:28,983 - INFO - log_helper.py[:39] - Progress: 370 / 120000 [0%], Speed: 0.629 s/iter, ETA 0:20:54 (D:H:M)
+
+2021-08-22 16:53:29,462 - INFO - train.py[:178] - Epoch: [1][370/4000] LR:0.010000 ForwardTime: 0.145 Loss: 1.70786 (rpn_cls: 0.03193 rpn_loc: 1.67593 img:[] rpn_acc: 0.99609)
+2021-08-22 16:53:29,462 - INFO - log_helper.py[:39] - Progress: 371 / 120000 [0%], Speed: 0.494 s/iter, ETA 0:16:24 (D:H:M)
+
+2021-08-22 16:53:29,896 - INFO - train.py[:178] - Epoch: [1][371/4000] LR:0.010000 ForwardTime: 0.134 Loss: 1.28960 (rpn_cls: 0.02865 rpn_loc: 1.26094 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:29,896 - INFO - log_helper.py[:39] - Progress: 372 / 120000 [0%], Speed: 0.441 s/iter, ETA 0:14:40 (D:H:M)
+
+2021-08-22 16:53:30,566 - INFO - train.py[:178] - Epoch: [1][372/4000] LR:0.010000 ForwardTime: 0.120 Loss: 0.81266 (rpn_cls: 0.04815 rpn_loc: 0.76451 img:[] rpn_acc: 0.98438)
+2021-08-22 16:53:30,566 - INFO - log_helper.py[:39] - Progress: 373 / 120000 [0%], Speed: 0.657 s/iter, ETA 0:21:50 (D:H:M)
+
+2021-08-22 16:53:30,984 - INFO - train.py[:178] - Epoch: [1][373/4000] LR:0.010000 ForwardTime: 0.123 Loss: 1.52628 (rpn_cls: 0.05049 rpn_loc: 1.47579 img:[] rpn_acc: 0.98438)
+2021-08-22 16:53:30,984 - INFO - log_helper.py[:39] - Progress: 374 / 120000 [0%], Speed: 0.433 s/iter, ETA 0:14:23 (D:H:M)
+
+2021-08-22 16:53:31,444 - INFO - train.py[:178] - Epoch: [1][374/4000] LR:0.010000 ForwardTime: 0.154 Loss: 0.38143 (rpn_cls: 0.03663 rpn_loc: 0.34479 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:31,445 - INFO - log_helper.py[:39] - Progress: 375 / 120000 [0%], Speed: 0.456 s/iter, ETA 0:15:09 (D:H:M)
+
+2021-08-22 16:53:31,957 - INFO - train.py[:178] - Epoch: [1][375/4000] LR:0.010000 ForwardTime: 0.125 Loss: 0.78825 (rpn_cls: 0.03153 rpn_loc: 0.75672 img:[] rpn_acc: 0.98438)
+2021-08-22 16:53:31,957 - INFO - log_helper.py[:39] - Progress: 376 / 120000 [0%], Speed: 0.493 s/iter, ETA 0:16:22 (D:H:M)
+
+2021-08-22 16:53:32,530 - INFO - train.py[:178] - Epoch: [1][376/4000] LR:0.010000 ForwardTime: 0.157 Loss: 1.27280 (rpn_cls: 0.05059 rpn_loc: 1.22221 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:32,530 - INFO - log_helper.py[:39] - Progress: 377 / 120000 [0%], Speed: 0.586 s/iter, ETA 0:19:28 (D:H:M)
+
+2021-08-22 16:53:32,962 - INFO - train.py[:178] - Epoch: [1][377/4000] LR:0.010000 ForwardTime: 0.133 Loss: 0.50567 (rpn_cls: 0.03628 rpn_loc: 0.46938 img:[] rpn_acc: 1.00000)
+2021-08-22 16:53:32,962 - INFO - log_helper.py[:39] - Progress: 378 / 120000 [0%], Speed: 0.444 s/iter, ETA 0:14:45 (D:H:M)
+
+2021-08-22 16:53:33,446 - INFO - train.py[:178] - Epoch: [1][378/4000] LR:0.010000 ForwardTime: 0.115 Loss: 1.61041 (rpn_cls: 0.03915 rpn_loc: 1.57126 img:[] rpn_acc: 0.98438)
+2021-08-22 16:53:33,446 - INFO - log_helper.py[:39] - Progress: 379 / 120000 [0%], Speed: 0.486 s/iter, ETA 0:16:09 (D:H:M)
+
+2021-08-22 16:53:33,998 - INFO - train.py[:178] - Epoch: [1][379/4000] LR:0.010000 ForwardTime: 0.125 Loss: 0.42117 (rpn_cls: 0.02647 rpn_loc: 0.39470 img:[] rpn_acc: 0.98438)
+2021-08-22 16:53:33,998 - INFO - log_helper.py[:39] - Progress: 380 / 120000 [0%], Speed: 0.527 s/iter, ETA 0:17:31 (D:H:M)
+
+2021-08-22 16:53:34,523 - INFO - train.py[:178] - Epoch: [1][380/4000] LR:0.010000 ForwardTime: 0.121 Loss: 0.98435 (rpn_cls: 0.02546 rpn_loc: 0.95889 img:[] rpn_acc: 1.00000)
+2021-08-22 16:53:34,523 - INFO - log_helper.py[:39] - Progress: 381 / 120000 [0%], Speed: 0.523 s/iter, ETA 0:17:23 (D:H:M)
+
+2021-08-22 16:53:34,979 - INFO - train.py[:178] - Epoch: [1][381/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.77754 (rpn_cls: 0.04050 rpn_loc: 1.73704 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:34,979 - INFO - log_helper.py[:39] - Progress: 382 / 120000 [0%], Speed: 0.455 s/iter, ETA 0:15:07 (D:H:M)
+
+2021-08-22 16:53:35,499 - INFO - train.py[:178] - Epoch: [1][382/4000] LR:0.010000 ForwardTime: 0.138 Loss: 0.18640 (rpn_cls: 0.02740 rpn_loc: 0.15901 img:[] rpn_acc: 0.99609)
+2021-08-22 16:53:35,499 - INFO - log_helper.py[:39] - Progress: 383 / 120000 [0%], Speed: 0.546 s/iter, ETA 0:18:09 (D:H:M)
+
+2021-08-22 16:53:35,970 - INFO - train.py[:178] - Epoch: [1][383/4000] LR:0.010000 ForwardTime: 0.124 Loss: 0.39900 (rpn_cls: 0.02780 rpn_loc: 0.37120 img:[] rpn_acc: 0.99609)
+2021-08-22 16:53:35,970 - INFO - log_helper.py[:39] - Progress: 384 / 120000 [0%], Speed: 0.473 s/iter, ETA 0:15:43 (D:H:M)
+
+2021-08-22 16:53:36,585 - INFO - train.py[:178] - Epoch: [1][384/4000] LR:0.010000 ForwardTime: 0.119 Loss: 1.38586 (rpn_cls: 0.05059 rpn_loc: 1.33526 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:36,586 - INFO - log_helper.py[:39] - Progress: 385 / 120000 [0%], Speed: 0.605 s/iter, ETA 0:20:06 (D:H:M)
+
+2021-08-22 16:53:37,014 - INFO - train.py[:178] - Epoch: [1][385/4000] LR:0.010000 ForwardTime: 0.122 Loss: 1.55421 (rpn_cls: 0.02157 rpn_loc: 1.53265 img:[] rpn_acc: 1.00000)
+2021-08-22 16:53:37,014 - INFO - log_helper.py[:39] - Progress: 386 / 120000 [0%], Speed: 0.421 s/iter, ETA 0:13:58 (D:H:M)
+
+2021-08-22 16:53:37,488 - INFO - train.py[:178] - Epoch: [1][386/4000] LR:0.010000 ForwardTime: 0.130 Loss: 1.58265 (rpn_cls: 0.02612 rpn_loc: 1.55653 img:[] rpn_acc: 0.99609)
+2021-08-22 16:53:37,488 - INFO - log_helper.py[:39] - Progress: 387 / 120000 [0%], Speed: 0.480 s/iter, ETA 0:15:55 (D:H:M)
+
+2021-08-22 16:53:38,085 - INFO - train.py[:178] - Epoch: [1][387/4000] LR:0.010000 ForwardTime: 0.115 Loss: 0.30680 (rpn_cls: 0.02938 rpn_loc: 0.27742 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:38,086 - INFO - log_helper.py[:39] - Progress: 388 / 120000 [0%], Speed: 0.584 s/iter, ETA 0:19:25 (D:H:M)
+
+2021-08-22 16:53:38,536 - INFO - train.py[:178] - Epoch: [1][388/4000] LR:0.010000 ForwardTime: 0.123 Loss: 0.97056 (rpn_cls: 0.02685 rpn_loc: 0.94371 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:38,536 - INFO - log_helper.py[:39] - Progress: 389 / 120000 [0%], Speed: 0.449 s/iter, ETA 0:14:55 (D:H:M)
+
+2021-08-22 16:53:39,040 - INFO - train.py[:178] - Epoch: [1][389/4000] LR:0.010000 ForwardTime: 0.128 Loss: 1.57390 (rpn_cls: 0.06759 rpn_loc: 1.50630 img:[] rpn_acc: 0.98828)
+2021-08-22 16:53:39,040 - INFO - log_helper.py[:39] - Progress: 390 / 120000 [0%], Speed: 0.515 s/iter, ETA 0:17:06 (D:H:M)
+
+2021-08-22 16:53:39,560 - INFO - train.py[:178] - Epoch: [1][390/4000] LR:0.010000 ForwardTime: 0.120 Loss: 1.08289 (rpn_cls: 0.02790 rpn_loc: 1.05499 img:[] rpn_acc: 0.99609)
+2021-08-22 16:53:39,560 - INFO - log_helper.py[:39] - Progress: 391 / 120000 [0%], Speed: 0.516 s/iter, ETA 0:17:08 (D:H:M)
+
+2021-08-22 16:53:39,971 - INFO - train.py[:178] - Epoch: [1][391/4000] LR:0.010000 ForwardTime: 0.119 Loss: 0.39653 (rpn_cls: 0.03423 rpn_loc: 0.36230 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:39,971 - INFO - log_helper.py[:39] - Progress: 392 / 120000 [0%], Speed: 0.430 s/iter, ETA 0:14:17 (D:H:M)
+
+2021-08-22 16:53:40,602 - INFO - train.py[:178] - Epoch: [1][392/4000] LR:0.010000 ForwardTime: 0.131 Loss: 1.12782 (rpn_cls: 0.03112 rpn_loc: 1.09671 img:[] rpn_acc: 0.99609)
+2021-08-22 16:53:40,603 - INFO - log_helper.py[:39] - Progress: 393 / 120000 [0%], Speed: 0.626 s/iter, ETA 0:20:48 (D:H:M)
+
+2021-08-22 16:53:41,160 - INFO - train.py[:178] - Epoch: [1][393/4000] LR:0.010000 ForwardTime: 0.122 Loss: 0.66911 (rpn_cls: 0.01865 rpn_loc: 0.65046 img:[] rpn_acc: 0.98438)
+2021-08-22 16:53:41,160 - INFO - log_helper.py[:39] - Progress: 394 / 120000 [0%], Speed: 0.533 s/iter, ETA 0:17:42 (D:H:M)
+
+2021-08-22 16:53:41,842 - INFO - train.py[:178] - Epoch: [1][394/4000] LR:0.010000 ForwardTime: 0.116 Loss: 1.26345 (rpn_cls: 0.06073 rpn_loc: 1.20272 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:41,842 - INFO - log_helper.py[:39] - Progress: 395 / 120000 [0%], Speed: 0.695 s/iter, ETA 0:23:04 (D:H:M)
+
+2021-08-22 16:53:42,299 - INFO - train.py[:178] - Epoch: [1][395/4000] LR:0.010000 ForwardTime: 0.141 Loss: 2.36128 (rpn_cls: 0.01129 rpn_loc: 2.34998 img:[] rpn_acc: 1.00000)
+2021-08-22 16:53:42,299 - INFO - log_helper.py[:39] - Progress: 396 / 120000 [0%], Speed: 0.459 s/iter, ETA 0:15:15 (D:H:M)
+
+2021-08-22 16:53:42,737 - INFO - train.py[:178] - Epoch: [1][396/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.17632 (rpn_cls: 0.03156 rpn_loc: 1.14477 img:[] rpn_acc: 1.00000)
+2021-08-22 16:53:42,738 - INFO - log_helper.py[:39] - Progress: 397 / 120000 [0%], Speed: 0.430 s/iter, ETA 0:14:17 (D:H:M)
+
+2021-08-22 16:53:43,369 - INFO - train.py[:178] - Epoch: [1][397/4000] LR:0.010000 ForwardTime: 0.119 Loss: 0.47431 (rpn_cls: 0.10900 rpn_loc: 0.36532 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:43,373 - INFO - log_helper.py[:39] - Progress: 398 / 120000 [0%], Speed: 0.633 s/iter, ETA 0:21:01 (D:H:M)
+
+2021-08-22 16:53:43,836 - INFO - train.py[:178] - Epoch: [1][398/4000] LR:0.010000 ForwardTime: 0.136 Loss: 0.70253 (rpn_cls: 0.04296 rpn_loc: 0.65957 img:[] rpn_acc: 0.99609)
+2021-08-22 16:53:43,836 - INFO - log_helper.py[:39] - Progress: 399 / 120000 [0%], Speed: 0.461 s/iter, ETA 0:15:18 (D:H:M)
+
+2021-08-22 16:53:44,257 - INFO - train.py[:178] - Epoch: [1][399/4000] LR:0.010000 ForwardTime: 0.120 Loss: 0.29616 (rpn_cls: 0.03814 rpn_loc: 0.25802 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:44,258 - INFO - log_helper.py[:39] - Progress: 400 / 120000 [0%], Speed: 0.441 s/iter, ETA 0:14:39 (D:H:M)
+
+2021-08-22 16:53:44,671 - INFO - train.py[:178] - Epoch: [1][400/4000] LR:0.010000 ForwardTime: 0.115 Loss: 0.61680 (rpn_cls: 0.02699 rpn_loc: 0.58982 img:[] rpn_acc: 0.99609)
+2021-08-22 16:53:44,671 - INFO - log_helper.py[:39] - Progress: 401 / 120000 [0%], Speed: 0.417 s/iter, ETA 0:13:51 (D:H:M)
+
+2021-08-22 16:53:45,187 - INFO - train.py[:178] - Epoch: [1][401/4000] LR:0.010000 ForwardTime: 0.132 Loss: 0.74812 (rpn_cls: 0.04778 rpn_loc: 0.70034 img:[] rpn_acc: 0.97656)
+2021-08-22 16:53:45,187 - INFO - log_helper.py[:39] - Progress: 402 / 120000 [0%], Speed: 0.517 s/iter, ETA 0:17:11 (D:H:M)
+
+2021-08-22 16:53:45,779 - INFO - train.py[:178] - Epoch: [1][402/4000] LR:0.010000 ForwardTime: 0.116 Loss: 0.71905 (rpn_cls: 0.03588 rpn_loc: 0.68317 img:[] rpn_acc: 0.99609)
+2021-08-22 16:53:45,780 - INFO - log_helper.py[:39] - Progress: 403 / 120000 [0%], Speed: 0.573 s/iter, ETA 0:19:02 (D:H:M)
+
+2021-08-22 16:53:46,223 - INFO - train.py[:178] - Epoch: [1][403/4000] LR:0.010000 ForwardTime: 0.120 Loss: 1.91726 (rpn_cls: 0.06294 rpn_loc: 1.85432 img:[] rpn_acc: 0.96484)
+2021-08-22 16:53:46,223 - INFO - log_helper.py[:39] - Progress: 404 / 120000 [0%], Speed: 0.441 s/iter, ETA 0:14:38 (D:H:M)
+
+2021-08-22 16:53:46,754 - INFO - train.py[:178] - Epoch: [1][404/4000] LR:0.010000 ForwardTime: 0.158 Loss: 0.37704 (rpn_cls: 0.07065 rpn_loc: 0.30639 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:46,754 - INFO - log_helper.py[:39] - Progress: 405 / 120000 [0%], Speed: 0.533 s/iter, ETA 0:17:43 (D:H:M)
+
+2021-08-22 16:53:47,390 - INFO - train.py[:178] - Epoch: [1][405/4000] LR:0.010000 ForwardTime: 0.125 Loss: 1.40250 (rpn_cls: 0.07616 rpn_loc: 1.32634 img:[] rpn_acc: 0.96484)
+2021-08-22 16:53:47,390 - INFO - log_helper.py[:39] - Progress: 406 / 120000 [0%], Speed: 0.632 s/iter, ETA 0:20:59 (D:H:M)
+
+2021-08-22 16:53:48,045 - INFO - train.py[:178] - Epoch: [1][406/4000] LR:0.010000 ForwardTime: 0.118 Loss: 2.36941 (rpn_cls: 0.05030 rpn_loc: 2.31911 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:48,046 - INFO - log_helper.py[:39] - Progress: 407 / 120000 [0%], Speed: 0.654 s/iter, ETA 0:21:43 (D:H:M)
+
+2021-08-22 16:53:48,511 - INFO - train.py[:178] - Epoch: [1][407/4000] LR:0.010000 ForwardTime: 0.126 Loss: 1.62158 (rpn_cls: 0.04663 rpn_loc: 1.57495 img:[] rpn_acc: 0.98047)
+2021-08-22 16:53:48,512 - INFO - log_helper.py[:39] - Progress: 408 / 120000 [0%], Speed: 0.462 s/iter, ETA 0:15:20 (D:H:M)
+
+2021-08-22 16:53:48,943 - INFO - train.py[:178] - Epoch: [1][408/4000] LR:0.010000 ForwardTime: 0.118 Loss: 0.59720 (rpn_cls: 0.02748 rpn_loc: 0.56973 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:48,943 - INFO - log_helper.py[:39] - Progress: 409 / 120000 [0%], Speed: 0.448 s/iter, ETA 0:14:52 (D:H:M)
+
+2021-08-22 16:53:49,614 - INFO - train.py[:178] - Epoch: [1][409/4000] LR:0.010000 ForwardTime: 0.122 Loss: 0.81389 (rpn_cls: 0.03498 rpn_loc: 0.77891 img:[] rpn_acc: 0.98828)
+2021-08-22 16:53:49,615 - INFO - log_helper.py[:39] - Progress: 410 / 120000 [0%], Speed: 0.665 s/iter, ETA 0:22:04 (D:H:M)
+
+2021-08-22 16:53:50,043 - INFO - train.py[:178] - Epoch: [1][410/4000] LR:0.010000 ForwardTime: 0.119 Loss: 1.19847 (rpn_cls: 0.09020 rpn_loc: 1.10827 img:[] rpn_acc: 0.97656)
+2021-08-22 16:53:50,043 - INFO - log_helper.py[:39] - Progress: 411 / 120000 [0%], Speed: 0.443 s/iter, ETA 0:14:43 (D:H:M)
+
+2021-08-22 16:53:50,452 - INFO - train.py[:178] - Epoch: [1][411/4000] LR:0.010000 ForwardTime: 0.113 Loss: 0.28364 (rpn_cls: 0.03849 rpn_loc: 0.24515 img:[] rpn_acc: 0.98438)
+2021-08-22 16:53:50,453 - INFO - log_helper.py[:39] - Progress: 412 / 120000 [0%], Speed: 0.418 s/iter, ETA 0:13:52 (D:H:M)
+
+2021-08-22 16:53:50,875 - INFO - train.py[:178] - Epoch: [1][412/4000] LR:0.010000 ForwardTime: 0.116 Loss: 1.27204 (rpn_cls: 0.04972 rpn_loc: 1.22232 img:[] rpn_acc: 0.98828)
+2021-08-22 16:53:50,876 - INFO - log_helper.py[:39] - Progress: 413 / 120000 [0%], Speed: 0.410 s/iter, ETA 0:13:36 (D:H:M)
+
+2021-08-22 16:53:51,336 - INFO - train.py[:178] - Epoch: [1][413/4000] LR:0.010000 ForwardTime: 0.146 Loss: 1.62911 (rpn_cls: 0.03866 rpn_loc: 1.59045 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:51,336 - INFO - log_helper.py[:39] - Progress: 414 / 120000 [0%], Speed: 0.455 s/iter, ETA 0:15:06 (D:H:M)
+
+2021-08-22 16:53:51,911 - INFO - train.py[:178] - Epoch: [1][414/4000] LR:0.010000 ForwardTime: 0.121 Loss: 0.79289 (rpn_cls: 0.07920 rpn_loc: 0.71369 img:[] rpn_acc: 0.97656)
+2021-08-22 16:53:51,912 - INFO - log_helper.py[:39] - Progress: 415 / 120000 [0%], Speed: 0.564 s/iter, ETA 0:18:43 (D:H:M)
+
+2021-08-22 16:53:52,358 - INFO - train.py[:178] - Epoch: [1][415/4000] LR:0.010000 ForwardTime: 0.130 Loss: 0.18435 (rpn_cls: 0.02739 rpn_loc: 0.15697 img:[] rpn_acc: 0.99609)
+2021-08-22 16:53:52,358 - INFO - log_helper.py[:39] - Progress: 416 / 120000 [0%], Speed: 0.450 s/iter, ETA 0:14:55 (D:H:M)
+
+2021-08-22 16:53:53,008 - INFO - train.py[:178] - Epoch: [1][416/4000] LR:0.010000 ForwardTime: 0.157 Loss: 0.48846 (rpn_cls: 0.03094 rpn_loc: 0.45752 img:[] rpn_acc: 0.98828)
+2021-08-22 16:53:53,008 - INFO - log_helper.py[:39] - Progress: 417 / 120000 [0%], Speed: 0.646 s/iter, ETA 0:21:28 (D:H:M)
+
+2021-08-22 16:53:53,454 - INFO - train.py[:178] - Epoch: [1][417/4000] LR:0.010000 ForwardTime: 0.118 Loss: 0.57739 (rpn_cls: 0.06408 rpn_loc: 0.51331 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:53,454 - INFO - log_helper.py[:39] - Progress: 418 / 120000 [0%], Speed: 0.477 s/iter, ETA 0:15:49 (D:H:M)
+
+2021-08-22 16:53:53,868 - INFO - train.py[:178] - Epoch: [1][418/4000] LR:0.010000 ForwardTime: 0.117 Loss: 1.38858 (rpn_cls: 0.08854 rpn_loc: 1.30004 img:[] rpn_acc: 0.95703)
+2021-08-22 16:53:53,869 - INFO - log_helper.py[:39] - Progress: 419 / 120000 [0%], Speed: 0.411 s/iter, ETA 0:13:38 (D:H:M)
+
+2021-08-22 16:53:54,550 - INFO - train.py[:178] - Epoch: [1][419/4000] LR:0.010000 ForwardTime: 0.153 Loss: 0.93707 (rpn_cls: 0.05851 rpn_loc: 0.87857 img:[] rpn_acc: 0.97656)
+2021-08-22 16:53:54,550 - INFO - log_helper.py[:39] - Progress: 420 / 120000 [0%], Speed: 0.673 s/iter, ETA 0:22:20 (D:H:M)
+
+2021-08-22 16:53:54,995 - INFO - train.py[:178] - Epoch: [1][420/4000] LR:0.010000 ForwardTime: 0.117 Loss: 1.03938 (rpn_cls: 0.03867 rpn_loc: 1.00071 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:54,995 - INFO - log_helper.py[:39] - Progress: 421 / 120000 [0%], Speed: 0.443 s/iter, ETA 0:14:42 (D:H:M)
+
+2021-08-22 16:53:55,447 - INFO - train.py[:178] - Epoch: [1][421/4000] LR:0.010000 ForwardTime: 0.137 Loss: 0.35862 (rpn_cls: 0.02825 rpn_loc: 0.33037 img:[] rpn_acc: 0.98828)
+2021-08-22 16:53:55,447 - INFO - log_helper.py[:39] - Progress: 422 / 120000 [0%], Speed: 0.447 s/iter, ETA 0:14:50 (D:H:M)
+
+2021-08-22 16:53:56,063 - INFO - train.py[:178] - Epoch: [1][422/4000] LR:0.010000 ForwardTime: 0.188 Loss: 0.56213 (rpn_cls: 0.05019 rpn_loc: 0.51194 img:[] rpn_acc: 0.98047)
+2021-08-22 16:53:56,063 - INFO - log_helper.py[:39] - Progress: 423 / 120000 [0%], Speed: 0.607 s/iter, ETA 0:20:08 (D:H:M)
+
+2021-08-22 16:53:56,680 - INFO - train.py[:178] - Epoch: [1][423/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.78059 (rpn_cls: 0.03241 rpn_loc: 1.74818 img:[] rpn_acc: 0.98828)
+2021-08-22 16:53:56,680 - INFO - log_helper.py[:39] - Progress: 424 / 120000 [0%], Speed: 0.633 s/iter, ETA 0:21:00 (D:H:M)
+
+2021-08-22 16:53:57,256 - INFO - train.py[:178] - Epoch: [1][424/4000] LR:0.010000 ForwardTime: 0.113 Loss: 0.52361 (rpn_cls: 0.04450 rpn_loc: 0.47911 img:[] rpn_acc: 0.98828)
+2021-08-22 16:53:57,256 - INFO - log_helper.py[:39] - Progress: 425 / 120000 [0%], Speed: 0.583 s/iter, ETA 0:19:22 (D:H:M)
+
+2021-08-22 16:53:57,684 - INFO - train.py[:178] - Epoch: [1][425/4000] LR:0.010000 ForwardTime: 0.132 Loss: 0.30928 (rpn_cls: 0.05310 rpn_loc: 0.25618 img:[] rpn_acc: 0.97266)
+2021-08-22 16:53:57,684 - INFO - log_helper.py[:39] - Progress: 426 / 120000 [0%], Speed: 0.433 s/iter, ETA 0:14:23 (D:H:M)
+
+2021-08-22 16:53:58,128 - INFO - train.py[:178] - Epoch: [1][426/4000] LR:0.010000 ForwardTime: 0.115 Loss: 1.16027 (rpn_cls: 0.03885 rpn_loc: 1.12142 img:[] rpn_acc: 0.98047)
+2021-08-22 16:53:58,129 - INFO - log_helper.py[:39] - Progress: 427 / 120000 [0%], Speed: 0.419 s/iter, ETA 0:13:55 (D:H:M)
+
+2021-08-22 16:53:58,815 - INFO - train.py[:178] - Epoch: [1][427/4000] LR:0.010000 ForwardTime: 0.123 Loss: 0.42194 (rpn_cls: 0.02946 rpn_loc: 0.39249 img:[] rpn_acc: 0.99219)
+2021-08-22 16:53:58,815 - INFO - log_helper.py[:39] - Progress: 428 / 120000 [0%], Speed: 0.684 s/iter, ETA 0:22:42 (D:H:M)
+
+2021-08-22 16:53:59,389 - INFO - train.py[:178] - Epoch: [1][428/4000] LR:0.010000 ForwardTime: 0.123 Loss: 0.66864 (rpn_cls: 0.04442 rpn_loc: 0.62422 img:[] rpn_acc: 0.98438)
+2021-08-22 16:53:59,389 - INFO - log_helper.py[:39] - Progress: 429 / 120000 [0%], Speed: 0.573 s/iter, ETA 0:19:01 (D:H:M)
+
+2021-08-22 16:53:59,937 - INFO - train.py[:178] - Epoch: [1][429/4000] LR:0.010000 ForwardTime: 0.118 Loss: 1.14747 (rpn_cls: 0.04017 rpn_loc: 1.10730 img:[] rpn_acc: 0.99609)
+2021-08-22 16:53:59,938 - INFO - log_helper.py[:39] - Progress: 430 / 120000 [0%], Speed: 0.799 s/iter, ETA 1:02:32 (D:H:M)
+
+2021-08-22 16:54:00,421 - INFO - train.py[:178] - Epoch: [1][430/4000] LR:0.010000 ForwardTime: 0.124 Loss: 0.92244 (rpn_cls: 0.03325 rpn_loc: 0.88920 img:[] rpn_acc: 0.98047)
+2021-08-22 16:54:00,422 - INFO - log_helper.py[:39] - Progress: 431 / 120000 [0%], Speed: 0.242 s/iter, ETA 0:08:02 (D:H:M)
+
+2021-08-22 16:54:00,862 - INFO - train.py[:178] - Epoch: [1][431/4000] LR:0.010000 ForwardTime: 0.132 Loss: 0.61247 (rpn_cls: 0.02333 rpn_loc: 0.58914 img:[] rpn_acc: 0.99609)
+2021-08-22 16:54:00,862 - INFO - log_helper.py[:39] - Progress: 432 / 120000 [0%], Speed: 0.464 s/iter, ETA 0:15:23 (D:H:M)
+
+2021-08-22 16:54:01,292 - INFO - train.py[:178] - Epoch: [1][432/4000] LR:0.010000 ForwardTime: 0.133 Loss: 1.64537 (rpn_cls: 0.02910 rpn_loc: 1.61626 img:[] rpn_acc: 1.00000)
+2021-08-22 16:54:01,292 - INFO - log_helper.py[:39] - Progress: 433 / 120000 [0%], Speed: 0.432 s/iter, ETA 0:14:21 (D:H:M)
+
+2021-08-22 16:54:02,018 - INFO - train.py[:178] - Epoch: [1][433/4000] LR:0.010000 ForwardTime: 0.121 Loss: 0.33397 (rpn_cls: 0.03184 rpn_loc: 0.30213 img:[] rpn_acc: 0.98828)
+2021-08-22 16:54:02,018 - INFO - log_helper.py[:39] - Progress: 434 / 120000 [0%], Speed: 0.695 s/iter, ETA 0:23:04 (D:H:M)
+
+2021-08-22 16:54:02,459 - INFO - train.py[:178] - Epoch: [1][434/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.52290 (rpn_cls: 0.03019 rpn_loc: 1.49270 img:[] rpn_acc: 0.99609)
+2021-08-22 16:54:02,459 - INFO - log_helper.py[:39] - Progress: 435 / 120000 [0%], Speed: 0.440 s/iter, ETA 0:14:36 (D:H:M)
+
+2021-08-22 16:54:02,897 - INFO - train.py[:178] - Epoch: [1][435/4000] LR:0.010000 ForwardTime: 0.120 Loss: 1.48817 (rpn_cls: 0.06412 rpn_loc: 1.42405 img:[] rpn_acc: 0.96875)
+2021-08-22 16:54:02,897 - INFO - log_helper.py[:39] - Progress: 436 / 120000 [0%], Speed: 0.446 s/iter, ETA 0:14:48 (D:H:M)
+
+2021-08-22 16:54:03,525 - INFO - train.py[:178] - Epoch: [1][436/4000] LR:0.010000 ForwardTime: 0.123 Loss: 0.96875 (rpn_cls: 0.06454 rpn_loc: 0.90421 img:[] rpn_acc: 0.97266)
+2021-08-22 16:54:03,525 - INFO - log_helper.py[:39] - Progress: 437 / 120000 [0%], Speed: 0.618 s/iter, ETA 0:20:31 (D:H:M)
+
+2021-08-22 16:54:03,948 - INFO - train.py[:178] - Epoch: [1][437/4000] LR:0.010000 ForwardTime: 0.126 Loss: 1.01138 (rpn_cls: 0.04609 rpn_loc: 0.96529 img:[] rpn_acc: 0.97266)
+2021-08-22 16:54:03,948 - INFO - log_helper.py[:39] - Progress: 438 / 120000 [0%], Speed: 0.450 s/iter, ETA 0:14:57 (D:H:M)
+
+2021-08-22 16:54:04,357 - INFO - train.py[:178] - Epoch: [1][438/4000] LR:0.010000 ForwardTime: 0.117 Loss: 0.36511 (rpn_cls: 0.02403 rpn_loc: 0.34108 img:[] rpn_acc: 0.99609)
+2021-08-22 16:54:04,357 - INFO - log_helper.py[:39] - Progress: 439 / 120000 [0%], Speed: 0.416 s/iter, ETA 0:13:48 (D:H:M)
+
+2021-08-22 19:21:15,117 - INFO - train.py[:90] - Set random seed to 10
+2021-08-22 19:21:15,118 - INFO - train.py[:93] - Save loss curve to assets/saved_models/tensorboard
+2021-08-22 19:21:15,124 - INFO - train.py[:72] - build dataloader done
+2021-08-22 19:21:15,189 - INFO - train.py[:98] - Voxelnet(
+  (feature_learnig): feature_learning_network(
+    (vfe1): VFE(
+      (fcn1): FCN(
+        (conv1): Conv2d(6, 16, kernel_size=(1, 1), stride=(1, 1))
+        (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+      )
+    )
+    (fcn1): FCN(
+      (conv1): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (conv3d): Conv_Middle_layers(
+    (conv1): Conv3d(
+      (conv1): Conv3d(128, 64, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2): Conv3d(
+      (conv1): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3): Conv3d(
+      (conv1): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (_rpn): RPN(
+    (conv1_1): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_2): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_3): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_4): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_1): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_2): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_3): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_4): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_5): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_1): Conv2d(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_2): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_3): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_4): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_5): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (deconv1): ConvTranspose2d(256, 256, kernel_size=(4, 4), stride=(4, 4))
+    (deconv2): ConvTranspose2d(128, 256, kernel_size=(2, 2), stride=(2, 2))
+    (deconv3): ConvTranspose2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (rpn_head): NaiveRpnHead(
+      (conv3x3): Conv2d(768, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (relu3x3): ReLU(inplace)
+      (conv_cls): Conv2d(512, 4, kernel_size=(1, 1), stride=(1, 1))
+      (conv_loc): Conv2d(512, 14, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+)
+2021-08-22 19:21:19,438 - INFO - train.py[:180] - Epoch: [1][0/4000] LR:0.010000 ForwardTime: 0.756 Loss: 1.98624 (rpn_cls: 0.68786 rpn_loc: 1.29838 img:[] rpn_acc: 0.62891)
+2021-08-22 19:21:19,438 - INFO - log_helper.py[:39] - Progress: 1 / 120000 [0%], Speed: 3.127 s/iter, ETA 4:08:14 (D:H:M)
+
+2021-08-22 19:21:19,830 - INFO - train.py[:180] - Epoch: [1][1/4000] LR:0.010000 ForwardTime: 0.111 Loss: 2.12628 (rpn_cls: 0.67921 rpn_loc: 1.44707 img:[] rpn_acc: 0.78516)
+2021-08-22 19:21:19,830 - INFO - log_helper.py[:39] - Progress: 2 / 120000 [0%], Speed: 0.397 s/iter, ETA 0:13:14 (D:H:M)
+
+2021-08-22 19:21:20,220 - INFO - train.py[:180] - Epoch: [1][2/4000] LR:0.010000 ForwardTime: 0.115 Loss: 2.05743 (rpn_cls: 0.66432 rpn_loc: 1.39311 img:[] rpn_acc: 0.90625)
+2021-08-22 19:21:20,220 - INFO - log_helper.py[:39] - Progress: 3 / 120000 [0%], Speed: 0.390 s/iter, ETA 0:12:59 (D:H:M)
+
+2021-08-22 19:21:20,763 - INFO - train.py[:180] - Epoch: [1][3/4000] LR:0.010000 ForwardTime: 0.124 Loss: 2.21526 (rpn_cls: 0.64865 rpn_loc: 1.56660 img:[] rpn_acc: 0.91406)
+2021-08-22 19:21:20,763 - INFO - log_helper.py[:39] - Progress: 4 / 120000 [0%], Speed: 0.749 s/iter, ETA 1:00:58 (D:H:M)
+
+2021-08-22 19:21:21,199 - INFO - train.py[:180] - Epoch: [1][4/4000] LR:0.010000 ForwardTime: 0.113 Loss: 1.37572 (rpn_cls: 0.62479 rpn_loc: 0.75093 img:[] rpn_acc: 0.96094)
+2021-08-22 19:21:21,199 - INFO - log_helper.py[:39] - Progress: 5 / 120000 [0%], Speed: 0.230 s/iter, ETA 0:07:38 (D:H:M)
+
+2021-08-22 19:21:21,600 - INFO - train.py[:180] - Epoch: [1][5/4000] LR:0.010000 ForwardTime: 0.114 Loss: 1.89295 (rpn_cls: 0.61482 rpn_loc: 1.27813 img:[] rpn_acc: 0.90234)
+2021-08-22 19:21:21,600 - INFO - log_helper.py[:39] - Progress: 6 / 120000 [0%], Speed: 0.394 s/iter, ETA 0:13:08 (D:H:M)
+
+2021-08-22 19:21:22,158 - INFO - train.py[:180] - Epoch: [1][6/4000] LR:0.010000 ForwardTime: 0.120 Loss: 1.21950 (rpn_cls: 0.58482 rpn_loc: 0.63469 img:[] rpn_acc: 0.94531)
+2021-08-22 19:21:22,158 - INFO - log_helper.py[:39] - Progress: 7 / 120000 [0%], Speed: 0.562 s/iter, ETA 0:18:42 (D:H:M)
+
+2021-08-22 19:21:22,577 - INFO - train.py[:180] - Epoch: [1][7/4000] LR:0.010000 ForwardTime: 0.136 Loss: 0.97367 (rpn_cls: 0.55017 rpn_loc: 0.42351 img:[] rpn_acc: 0.95703)
+2021-08-22 19:21:22,577 - INFO - log_helper.py[:39] - Progress: 8 / 120000 [0%], Speed: 0.419 s/iter, ETA 0:13:57 (D:H:M)
+
+2021-08-22 19:21:23,007 - INFO - train.py[:180] - Epoch: [1][8/4000] LR:0.010000 ForwardTime: 0.120 Loss: 2.31150 (rpn_cls: 0.53834 rpn_loc: 1.77316 img:[] rpn_acc: 0.91406)
+2021-08-22 19:21:23,007 - INFO - log_helper.py[:39] - Progress: 9 / 120000 [0%], Speed: 0.425 s/iter, ETA 0:14:10 (D:H:M)
+
+2021-08-22 19:21:23,419 - INFO - train.py[:180] - Epoch: [1][9/4000] LR:0.010000 ForwardTime: 0.126 Loss: 1.69833 (rpn_cls: 0.50125 rpn_loc: 1.19708 img:[] rpn_acc: 0.92578)
+2021-08-22 19:21:23,419 - INFO - log_helper.py[:39] - Progress: 10 / 120000 [0%], Speed: 0.409 s/iter, ETA 0:13:37 (D:H:M)
+
+2021-08-22 19:21:24,012 - INFO - train.py[:180] - Epoch: [1][10/4000] LR:0.010000 ForwardTime: 0.113 Loss: 2.13073 (rpn_cls: 0.47035 rpn_loc: 1.66039 img:[] rpn_acc: 0.91797)
+2021-08-22 19:21:24,012 - INFO - log_helper.py[:39] - Progress: 11 / 120000 [0%], Speed: 0.603 s/iter, ETA 0:20:05 (D:H:M)
+
+2021-08-22 19:21:24,539 - INFO - train.py[:180] - Epoch: [1][11/4000] LR:0.010000 ForwardTime: 0.112 Loss: 1.09221 (rpn_cls: 0.42913 rpn_loc: 0.66308 img:[] rpn_acc: 0.92578)
+2021-08-22 19:21:24,540 - INFO - log_helper.py[:39] - Progress: 12 / 120000 [0%], Speed: 0.521 s/iter, ETA 0:17:22 (D:H:M)
+
+2021-08-22 19:21:24,934 - INFO - train.py[:180] - Epoch: [1][12/4000] LR:0.010000 ForwardTime: 0.113 Loss: 2.94101 (rpn_cls: 0.35649 rpn_loc: 2.58452 img:[] rpn_acc: 0.95312)
+2021-08-22 19:21:24,934 - INFO - log_helper.py[:39] - Progress: 13 / 120000 [0%], Speed: 0.394 s/iter, ETA 0:13:07 (D:H:M)
+
+2021-08-22 19:21:25,333 - INFO - train.py[:180] - Epoch: [1][13/4000] LR:0.010000 ForwardTime: 0.115 Loss: 1.71428 (rpn_cls: 0.33816 rpn_loc: 1.37612 img:[] rpn_acc: 0.93359)
+2021-08-22 19:21:25,333 - INFO - log_helper.py[:39] - Progress: 14 / 120000 [0%], Speed: 0.402 s/iter, ETA 0:13:24 (D:H:M)
+
+2021-08-22 19:21:25,731 - INFO - train.py[:180] - Epoch: [1][14/4000] LR:0.010000 ForwardTime: 0.113 Loss: 2.71286 (rpn_cls: 0.31049 rpn_loc: 2.40237 img:[] rpn_acc: 0.91797)
+2021-08-22 19:21:25,731 - INFO - log_helper.py[:39] - Progress: 15 / 120000 [0%], Speed: 0.395 s/iter, ETA 0:13:10 (D:H:M)
+
+2021-08-22 19:21:26,272 - INFO - train.py[:180] - Epoch: [1][15/4000] LR:0.010000 ForwardTime: 0.124 Loss: 1.15560 (rpn_cls: 0.27710 rpn_loc: 0.87850 img:[] rpn_acc: 0.92578)
+2021-08-22 19:21:26,272 - INFO - log_helper.py[:39] - Progress: 16 / 120000 [0%], Speed: 0.539 s/iter, ETA 0:17:57 (D:H:M)
+
+2021-08-22 19:21:26,687 - INFO - train.py[:180] - Epoch: [1][16/4000] LR:0.010000 ForwardTime: 0.121 Loss: 0.70673 (rpn_cls: 0.20141 rpn_loc: 0.50532 img:[] rpn_acc: 0.96875)
+2021-08-22 19:21:26,688 - INFO - log_helper.py[:39] - Progress: 17 / 120000 [0%], Speed: 0.423 s/iter, ETA 0:14:04 (D:H:M)
+
+2021-08-22 19:21:27,143 - INFO - train.py[:180] - Epoch: [1][17/4000] LR:0.010000 ForwardTime: 0.152 Loss: 1.76205 (rpn_cls: 0.19016 rpn_loc: 1.57190 img:[] rpn_acc: 0.95312)
+2021-08-22 19:21:27,144 - INFO - log_helper.py[:39] - Progress: 18 / 120000 [0%], Speed: 0.450 s/iter, ETA 0:15:00 (D:H:M)
+
+2021-08-22 19:21:27,787 - INFO - train.py[:180] - Epoch: [1][18/4000] LR:0.010000 ForwardTime: 0.173 Loss: 1.70360 (rpn_cls: 0.16181 rpn_loc: 1.54179 img:[] rpn_acc: 0.96094)
+2021-08-22 19:21:27,788 - INFO - log_helper.py[:39] - Progress: 19 / 120000 [0%], Speed: 0.644 s/iter, ETA 0:21:26 (D:H:M)
+
+2021-08-22 19:21:28,199 - INFO - train.py[:180] - Epoch: [1][19/4000] LR:0.010000 ForwardTime: 0.125 Loss: 1.59798 (rpn_cls: 0.18362 rpn_loc: 1.41436 img:[] rpn_acc: 0.92969)
+2021-08-22 19:21:28,200 - INFO - log_helper.py[:39] - Progress: 20 / 120000 [0%], Speed: 0.409 s/iter, ETA 0:13:38 (D:H:M)
+
+2021-08-22 19:21:28,636 - INFO - train.py[:180] - Epoch: [1][20/4000] LR:0.010000 ForwardTime: 0.127 Loss: 1.31142 (rpn_cls: 0.17343 rpn_loc: 1.13799 img:[] rpn_acc: 0.93359)
+2021-08-22 19:21:28,637 - INFO - log_helper.py[:39] - Progress: 21 / 120000 [0%], Speed: 0.438 s/iter, ETA 0:14:35 (D:H:M)
+
+2021-08-22 19:21:29,288 - INFO - train.py[:180] - Epoch: [1][21/4000] LR:0.010000 ForwardTime: 0.161 Loss: 1.97893 (rpn_cls: 0.17571 rpn_loc: 1.80322 img:[] rpn_acc: 0.92188)
+2021-08-22 19:21:29,288 - INFO - log_helper.py[:39] - Progress: 22 / 120000 [0%], Speed: 0.657 s/iter, ETA 0:21:53 (D:H:M)
+
+2021-08-22 19:21:29,687 - INFO - train.py[:180] - Epoch: [1][22/4000] LR:0.010000 ForwardTime: 0.115 Loss: 1.04556 (rpn_cls: 0.17906 rpn_loc: 0.86650 img:[] rpn_acc: 0.91406)
+2021-08-22 19:21:29,687 - INFO - log_helper.py[:39] - Progress: 23 / 120000 [0%], Speed: 0.394 s/iter, ETA 0:13:08 (D:H:M)
+
+2021-08-22 19:21:30,113 - INFO - train.py[:180] - Epoch: [1][23/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.09114 (rpn_cls: 0.18325 rpn_loc: 0.90789 img:[] rpn_acc: 0.89844)
+2021-08-22 19:21:30,113 - INFO - log_helper.py[:39] - Progress: 24 / 120000 [0%], Speed: 0.430 s/iter, ETA 0:14:20 (D:H:M)
+
+2021-08-22 19:21:30,795 - INFO - train.py[:180] - Epoch: [1][24/4000] LR:0.010000 ForwardTime: 0.132 Loss: 0.92233 (rpn_cls: 0.13174 rpn_loc: 0.79059 img:[] rpn_acc: 0.93359)
+2021-08-22 19:21:30,796 - INFO - log_helper.py[:39] - Progress: 25 / 120000 [0%], Speed: 0.677 s/iter, ETA 0:22:34 (D:H:M)
+
+2021-09-11 13:54:20,857 - INFO - train.py[:90] - Set random seed to 10
+2021-09-11 13:54:20,858 - INFO - train.py[:93] - Save loss curve to assets/saved_models/tensorboard
+2021-09-11 13:54:21,096 - INFO - train.py[:72] - build dataloader done
+2021-09-11 13:54:21,167 - INFO - train.py[:98] - Voxelnet(
+  (feature_learnig): feature_learning_network(
+    (vfe1): VFE(
+      (fcn1): FCN(
+        (conv1): Conv2d(6, 16, kernel_size=(1, 1), stride=(1, 1))
+        (bn1): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace)
+      )
+    )
+    (fcn1): FCN(
+      (conv1): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (conv3d): Conv_Middle_layers(
+    (conv1): Conv3d(
+      (conv1): Conv3d(128, 64, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2): Conv3d(
+      (conv1): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3): Conv3d(
+      (conv1): Conv3d(64, 64, kernel_size=(3, 3, 3), stride=(2, 1, 1), padding=(1, 1, 1))
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+  )
+  (_rpn): RPN(
+    (conv1_1): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_2): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_3): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv1_4): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_1): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_2): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_3): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_4): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv2_5): Conv2d(
+      (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_1): Conv2d(
+      (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_2): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_3): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_4): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (conv3_5): Conv2d(
+      (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace)
+    )
+    (deconv1): ConvTranspose2d(256, 256, kernel_size=(4, 4), stride=(4, 4))
+    (deconv2): ConvTranspose2d(128, 256, kernel_size=(2, 2), stride=(2, 2))
+    (deconv3): ConvTranspose2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (rpn_head): NaiveRpnHead(
+      (conv3x3): Conv2d(768, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (relu3x3): ReLU(inplace)
+      (conv_cls): Conv2d(512, 4, kernel_size=(1, 1), stride=(1, 1))
+      (conv_loc): Conv2d(512, 14, kernel_size=(1, 1), stride=(1, 1))
+    )
+  )
+)
+2021-09-11 13:54:30,298 - INFO - train.py[:180] - Epoch: [1][0/4000] LR:0.010000 ForwardTime: 0.893 Loss: 1.98624 (rpn_cls: 0.68786 rpn_loc: 1.29838 img:[] rpn_acc: 0.62891)
+2021-09-11 13:54:30,298 - INFO - log_helper.py[:39] - Progress: 1 / 120000 [0%], Speed: 7.764 s/iter, ETA 10:18:48 (D:H:M)
+
+2021-09-11 13:54:30,690 - INFO - train.py[:180] - Epoch: [1][1/4000] LR:0.010000 ForwardTime: 0.114 Loss: 2.12628 (rpn_cls: 0.67921 rpn_loc: 1.44707 img:[] rpn_acc: 0.78516)
+2021-09-11 13:54:30,690 - INFO - log_helper.py[:39] - Progress: 2 / 120000 [0%], Speed: 0.394 s/iter, ETA 0:13:08 (D:H:M)
+
+2021-09-11 13:54:31,076 - INFO - train.py[:180] - Epoch: [1][2/4000] LR:0.010000 ForwardTime: 0.114 Loss: 2.05704 (rpn_cls: 0.66436 rpn_loc: 1.39268 img:[] rpn_acc: 0.90625)
+2021-09-11 13:54:31,076 - INFO - log_helper.py[:39] - Progress: 3 / 120000 [0%], Speed: 0.392 s/iter, ETA 0:13:04 (D:H:M)
+
+2021-09-11 13:54:33,451 - INFO - train.py[:180] - Epoch: [1][3/4000] LR:0.010000 ForwardTime: 0.145 Loss: 2.27591 (rpn_cls: 0.64898 rpn_loc: 1.62694 img:[] rpn_acc: 0.91406)
+2021-09-11 13:54:33,452 - INFO - log_helper.py[:39] - Progress: 4 / 120000 [0%], Speed: 2.577 s/iter, ETA 3:13:52 (D:H:M)
+
+2021-09-11 13:54:33,872 - INFO - train.py[:180] - Epoch: [1][4/4000] LR:0.010000 ForwardTime: 0.112 Loss: 1.31438 (rpn_cls: 0.62786 rpn_loc: 0.68653 img:[] rpn_acc: 0.96094)
+2021-09-11 13:54:33,872 - INFO - log_helper.py[:39] - Progress: 5 / 120000 [0%], Speed: 0.214 s/iter, ETA 0:07:08 (D:H:M)
+
+2021-09-11 13:54:34,274 - INFO - train.py[:180] - Epoch: [1][5/4000] LR:0.010000 ForwardTime: 0.119 Loss: 1.93390 (rpn_cls: 0.62082 rpn_loc: 1.31308 img:[] rpn_acc: 0.90234)
+2021-09-11 13:54:34,274 - INFO - log_helper.py[:39] - Progress: 6 / 120000 [0%], Speed: 0.393 s/iter, ETA 0:13:06 (D:H:M)
+
+2021-09-11 13:54:35,388 - INFO - train.py[:180] - Epoch: [1][6/4000] LR:0.010000 ForwardTime: 0.125 Loss: 1.21152 (rpn_cls: 0.59237 rpn_loc: 0.61915 img:[] rpn_acc: 0.94531)
+2021-09-11 13:54:35,388 - INFO - log_helper.py[:39] - Progress: 7 / 120000 [0%], Speed: 1.121 s/iter, ETA 1:13:21 (D:H:M)
+
+2021-09-11 13:54:35,781 - INFO - train.py[:180] - Epoch: [1][7/4000] LR:0.010000 ForwardTime: 0.113 Loss: 1.03171 (rpn_cls: 0.55606 rpn_loc: 0.47565 img:[] rpn_acc: 0.95703)
+2021-09-11 13:54:35,781 - INFO - log_helper.py[:39] - Progress: 8 / 120000 [0%], Speed: 0.387 s/iter, ETA 0:12:54 (D:H:M)
+
+2021-09-11 13:54:36,168 - INFO - train.py[:180] - Epoch: [1][8/4000] LR:0.010000 ForwardTime: 0.112 Loss: 2.33161 (rpn_cls: 0.54176 rpn_loc: 1.78986 img:[] rpn_acc: 0.91406)
+2021-09-11 13:54:36,168 - INFO - log_helper.py[:39] - Progress: 9 / 120000 [0%], Speed: 0.391 s/iter, ETA 0:13:02 (D:H:M)
+
+2021-09-11 13:54:38,675 - INFO - train.py[:180] - Epoch: [1][9/4000] LR:0.010000 ForwardTime: 0.148 Loss: 1.68867 (rpn_cls: 0.50374 rpn_loc: 1.18494 img:[] rpn_acc: 0.92578)
+2021-09-11 13:54:38,676 - INFO - log_helper.py[:39] - Progress: 10 / 120000 [0%], Speed: 2.511 s/iter, ETA 3:11:41 (D:H:M)
+
+2021-09-11 13:54:39,068 - INFO - train.py[:180] - Epoch: [1][10/4000] LR:0.010000 ForwardTime: 0.118 Loss: 2.11057 (rpn_cls: 0.45839 rpn_loc: 1.65218 img:[] rpn_acc: 0.91797)
+2021-09-11 13:54:39,069 - INFO - log_helper.py[:39] - Progress: 11 / 120000 [0%], Speed: 0.391 s/iter, ETA 0:13:02 (D:H:M)
+
+2021-09-11 13:54:39,459 - INFO - train.py[:180] - Epoch: [1][11/4000] LR:0.010000 ForwardTime: 0.114 Loss: 1.18705 (rpn_cls: 0.40962 rpn_loc: 0.77743 img:[] rpn_acc: 0.92578)
+2021-09-11 13:54:39,459 - INFO - log_helper.py[:39] - Progress: 12 / 120000 [0%], Speed: 0.388 s/iter, ETA 0:12:55 (D:H:M)
+
+2021-09-11 13:54:41,003 - INFO - train.py[:180] - Epoch: [1][12/4000] LR:0.010000 ForwardTime: 0.143 Loss: 2.91988 (rpn_cls: 0.32777 rpn_loc: 2.59211 img:[] rpn_acc: 0.95312)
+2021-09-11 13:54:41,003 - INFO - log_helper.py[:39] - Progress: 13 / 120000 [0%], Speed: 1.545 s/iter, ETA 2:03:29 (D:H:M)
+
+2021-09-11 13:54:41,394 - INFO - train.py[:180] - Epoch: [1][13/4000] LR:0.010000 ForwardTime: 0.116 Loss: 1.68566 (rpn_cls: 0.30798 rpn_loc: 1.37768 img:[] rpn_acc: 0.93359)
+2021-09-11 13:54:41,394 - INFO - log_helper.py[:39] - Progress: 14 / 120000 [0%], Speed: 0.391 s/iter, ETA 0:13:01 (D:H:M)
+
+2021-09-11 13:54:41,782 - INFO - train.py[:180] - Epoch: [1][14/4000] LR:0.010000 ForwardTime: 0.112 Loss: 2.70951 (rpn_cls: 0.27663 rpn_loc: 2.43289 img:[] rpn_acc: 0.91797)
+2021-09-11 13:54:41,782 - INFO - log_helper.py[:39] - Progress: 15 / 120000 [0%], Speed: 0.386 s/iter, ETA 0:12:52 (D:H:M)
+
+2021-09-11 13:54:43,739 - INFO - train.py[:180] - Epoch: [1][15/4000] LR:0.010000 ForwardTime: 0.134 Loss: 0.93798 (rpn_cls: 0.24000 rpn_loc: 0.69798 img:[] rpn_acc: 0.92578)
+2021-09-11 13:54:43,739 - INFO - log_helper.py[:39] - Progress: 16 / 120000 [0%], Speed: 1.959 s/iter, ETA 2:17:18 (D:H:M)
+
+2021-09-11 13:54:44,132 - INFO - train.py[:180] - Epoch: [1][16/4000] LR:0.010000 ForwardTime: 0.114 Loss: 0.63147 (rpn_cls: 0.16617 rpn_loc: 0.46530 img:[] rpn_acc: 0.96875)
+2021-09-11 13:54:44,132 - INFO - log_helper.py[:39] - Progress: 17 / 120000 [0%], Speed: 0.388 s/iter, ETA 0:12:55 (D:H:M)
+
+2021-09-11 13:54:44,526 - INFO - train.py[:180] - Epoch: [1][17/4000] LR:0.010000 ForwardTime: 0.114 Loss: 1.76187 (rpn_cls: 0.16320 rpn_loc: 1.59867 img:[] rpn_acc: 0.95312)
+2021-09-11 13:54:44,526 - INFO - log_helper.py[:39] - Progress: 18 / 120000 [0%], Speed: 0.395 s/iter, ETA 0:13:09 (D:H:M)
+
+2021-09-11 13:54:46,233 - INFO - train.py[:180] - Epoch: [1][18/4000] LR:0.010000 ForwardTime: 0.143 Loss: 1.73990 (rpn_cls: 0.15274 rpn_loc: 1.58716 img:[] rpn_acc: 0.96094)
+2021-09-11 13:54:46,233 - INFO - log_helper.py[:39] - Progress: 19 / 120000 [0%], Speed: 1.712 s/iter, ETA 2:09:04 (D:H:M)
+
+2021-09-11 13:54:46,622 - INFO - train.py[:180] - Epoch: [1][19/4000] LR:0.010000 ForwardTime: 0.115 Loss: 1.56851 (rpn_cls: 0.16621 rpn_loc: 1.40231 img:[] rpn_acc: 0.92969)
+2021-09-11 13:54:46,622 - INFO - log_helper.py[:39] - Progress: 20 / 120000 [0%], Speed: 0.388 s/iter, ETA 0:12:56 (D:H:M)
+
+2021-09-11 13:54:47,022 - INFO - train.py[:180] - Epoch: [1][20/4000] LR:0.010000 ForwardTime: 0.122 Loss: 1.26759 (rpn_cls: 0.14850 rpn_loc: 1.11909 img:[] rpn_acc: 0.93359)
+2021-09-11 13:54:47,022 - INFO - log_helper.py[:39] - Progress: 21 / 120000 [0%], Speed: 0.396 s/iter, ETA 0:13:12 (D:H:M)
+
+2021-09-11 13:54:47,817 - INFO - train.py[:180] - Epoch: [1][21/4000] LR:0.010000 ForwardTime: 0.121 Loss: 1.96119 (rpn_cls: 0.15894 rpn_loc: 1.80225 img:[] rpn_acc: 0.92188)
+2021-09-11 13:54:47,817 - INFO - log_helper.py[:39] - Progress: 22 / 120000 [0%], Speed: 0.797 s/iter, ETA 1:02:34 (D:H:M)
+
+2021-09-11 13:54:48,209 - INFO - train.py[:180] - Epoch: [1][22/4000] LR:0.010000 ForwardTime: 0.112 Loss: 1.13735 (rpn_cls: 0.20662 rpn_loc: 0.93073 img:[] rpn_acc: 0.91406)
+2021-09-11 13:54:48,210 - INFO - log_helper.py[:39] - Progress: 23 / 120000 [0%], Speed: 0.387 s/iter, ETA 0:12:54 (D:H:M)
+
+2021-09-11 13:54:48,620 - INFO - train.py[:180] - Epoch: [1][23/4000] LR:0.010000 ForwardTime: 0.119 Loss: 1.24525 (rpn_cls: 0.18413 rpn_loc: 1.06112 img:[] rpn_acc: 0.89844)
+2021-09-11 13:54:48,620 - INFO - log_helper.py[:39] - Progress: 24 / 120000 [0%], Speed: 0.410 s/iter, ETA 0:13:39 (D:H:M)
+
+2021-09-11 13:54:49,019 - INFO - train.py[:180] - Epoch: [1][24/4000] LR:0.010000 ForwardTime: 0.111 Loss: 0.92703 (rpn_cls: 0.12097 rpn_loc: 0.80606 img:[] rpn_acc: 0.93359)
+2021-09-11 13:54:49,020 - INFO - log_helper.py[:39] - Progress: 25 / 120000 [0%], Speed: 0.405 s/iter, ETA 0:13:28 (D:H:M)
+
+2021-09-11 13:54:49,534 - INFO - train.py[:180] - Epoch: [1][25/4000] LR:0.010000 ForwardTime: 0.137 Loss: 2.05494 (rpn_cls: 0.19633 rpn_loc: 1.85861 img:[] rpn_acc: 0.89844)
+2021-09-11 13:54:49,534 - INFO - log_helper.py[:39] - Progress: 26 / 120000 [0%], Speed: 0.511 s/iter, ETA 0:17:02 (D:H:M)
+
+2021-09-11 13:54:49,926 - INFO - train.py[:180] - Epoch: [1][26/4000] LR:0.010000 ForwardTime: 0.112 Loss: 0.88540 (rpn_cls: 0.09041 rpn_loc: 0.79499 img:[] rpn_acc: 0.94922)
+2021-09-11 13:54:49,926 - INFO - log_helper.py[:39] - Progress: 27 / 120000 [0%], Speed: 0.392 s/iter, ETA 0:13:03 (D:H:M)
+
+2021-09-11 13:54:50,419 - INFO - train.py[:180] - Epoch: [1][27/4000] LR:0.010000 ForwardTime: 0.116 Loss: 1.62285 (rpn_cls: 0.15155 rpn_loc: 1.47130 img:[] rpn_acc: 0.90625)
+2021-09-11 13:54:50,419 - INFO - log_helper.py[:39] - Progress: 28 / 120000 [0%], Speed: 0.496 s/iter, ETA 0:16:30 (D:H:M)
+
+2021-09-11 13:54:51,570 - INFO - train.py[:180] - Epoch: [1][28/4000] LR:0.010000 ForwardTime: 0.144 Loss: 0.45128 (rpn_cls: 0.10233 rpn_loc: 0.34894 img:[] rpn_acc: 0.93750)
+2021-09-11 13:54:51,570 - INFO - log_helper.py[:39] - Progress: 29 / 120000 [0%], Speed: 1.151 s/iter, ETA 1:14:21 (D:H:M)
+
+2021-09-11 13:54:51,957 - INFO - train.py[:180] - Epoch: [1][29/4000] LR:0.010000 ForwardTime: 0.113 Loss: 1.53281 (rpn_cls: 0.10861 rpn_loc: 1.42420 img:[] rpn_acc: 0.92969)
+2021-09-11 13:54:51,958 - INFO - log_helper.py[:39] - Progress: 30 / 120000 [0%], Speed: 0.390 s/iter, ETA 0:13:00 (D:H:M)
+
+2021-09-11 13:54:53,422 - INFO - train.py[:180] - Epoch: [1][30/4000] LR:0.010000 ForwardTime: 0.132 Loss: 3.62103 (rpn_cls: 0.05504 rpn_loc: 3.56599 img:[] rpn_acc: 0.97266)
+2021-09-11 13:54:53,422 - INFO - log_helper.py[:39] - Progress: 31 / 120000 [0%], Speed: 1.466 s/iter, ETA 2:00:51 (D:H:M)
+
+2021-09-11 13:54:53,818 - INFO - train.py[:180] - Epoch: [1][31/4000] LR:0.010000 ForwardTime: 0.111 Loss: 2.05965 (rpn_cls: 0.09560 rpn_loc: 1.96405 img:[] rpn_acc: 0.94531)
+2021-09-11 13:54:53,818 - INFO - log_helper.py[:39] - Progress: 32 / 120000 [0%], Speed: 0.388 s/iter, ETA 0:12:55 (D:H:M)
+
+2021-09-11 13:54:54,210 - INFO - train.py[:180] - Epoch: [1][32/4000] LR:0.010000 ForwardTime: 0.113 Loss: 2.48414 (rpn_cls: 0.07104 rpn_loc: 2.41311 img:[] rpn_acc: 0.95703)
+2021-09-11 13:54:54,211 - INFO - log_helper.py[:39] - Progress: 33 / 120000 [0%], Speed: 0.400 s/iter, ETA 0:13:20 (D:H:M)
+
+2021-09-11 13:54:55,096 - INFO - train.py[:180] - Epoch: [1][33/4000] LR:0.010000 ForwardTime: 0.152 Loss: 1.46332 (rpn_cls: 0.15644 rpn_loc: 1.30687 img:[] rpn_acc: 0.89453)
+2021-09-11 13:54:55,096 - INFO - log_helper.py[:39] - Progress: 34 / 120000 [0%], Speed: 0.881 s/iter, ETA 1:05:20 (D:H:M)
+
+2021-09-11 13:54:55,488 - INFO - train.py[:180] - Epoch: [1][34/4000] LR:0.010000 ForwardTime: 0.113 Loss: 1.43988 (rpn_cls: 0.12623 rpn_loc: 1.31365 img:[] rpn_acc: 0.91797)
+2021-09-11 13:54:55,489 - INFO - log_helper.py[:39] - Progress: 35 / 120000 [0%], Speed: 0.389 s/iter, ETA 0:12:58 (D:H:M)
+
+2021-09-11 13:54:55,879 - INFO - train.py[:180] - Epoch: [1][35/4000] LR:0.010000 ForwardTime: 0.114 Loss: 2.31965 (rpn_cls: 0.13774 rpn_loc: 2.18191 img:[] rpn_acc: 0.91016)
+2021-09-11 13:54:55,879 - INFO - log_helper.py[:39] - Progress: 36 / 120000 [0%], Speed: 0.396 s/iter, ETA 0:13:10 (D:H:M)
+
+2021-09-11 13:54:56,430 - INFO - train.py[:180] - Epoch: [1][36/4000] LR:0.010000 ForwardTime: 0.123 Loss: 0.40068 (rpn_cls: 0.13052 rpn_loc: 0.27017 img:[] rpn_acc: 0.91797)
+2021-09-11 13:54:56,430 - INFO - log_helper.py[:39] - Progress: 37 / 120000 [0%], Speed: 0.552 s/iter, ETA 0:18:22 (D:H:M)
+
+2021-09-11 13:54:56,822 - INFO - train.py[:180] - Epoch: [1][37/4000] LR:0.010000 ForwardTime: 0.114 Loss: 1.01645 (rpn_cls: 0.10929 rpn_loc: 0.90716 img:[] rpn_acc: 0.94141)
+2021-09-11 13:54:56,823 - INFO - log_helper.py[:39] - Progress: 38 / 120000 [0%], Speed: 0.388 s/iter, ETA 0:12:56 (D:H:M)
+

@@ -4,10 +4,11 @@ import os
 import json
 import argparse
 import random
-
+import sys
 import numpy as np
 import torch
 import torch.nn as nn
+import math
 from tensorboardX import SummaryWriter
 import logging
 import datetime
@@ -28,11 +29,17 @@ from lib.mayavi.viz_util import draw_scene
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--config', dest='config', required=True,
+parser.add_argument('--config', default='config/tjunc.json', required=False,
                     help='hyperparameter of voxelnet in json format')
-parser.add_argument('--resume', default='', type=str, metavar='PATH',
+parser.add_argument('--resume', default='/mnt/tank/shaocheng/3Dfusion/saved_models_kl_limits/checkpoint_e30.pth', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
+# parser.add_argument('--resume', default='', type=str, metavar='PATH',
+#                     help='path to latest checkpoint (default: none)')
 args = parser.parse_args()
+
+cuda = True if torch.cuda.is_available() else False
+if cuda == True:
+    torch.cuda.set_device(2)
 
 def load_config(config_path):
     assert(os.path.exists(config_path))
@@ -80,7 +87,7 @@ def main():
     args.step_epochs = [cfg['train']['step_epochs']]
     args.start_epoch = 0
     
-
+    # save intermediate information: e.g. loss
     log_helper.init_log('global', args.save_dir, logging.INFO)
     logger = logging.getLogger('global')
     if args.seed is not None:
@@ -89,10 +96,13 @@ def main():
 
     logger.info('Save loss curve to {}'.format(args.save_dir+'/tensorboard'))
 
-    device = torch.device("cuda:0")
+    #load data
     train_dataset, train_loader = build_data_loader(cfg)
+
+    #initialize model
     model = Voxelnet(cfg=cfg)
-    logger.info(model)
+    #logger.info(model)
+    # initialize optimizer
     trainable_params = [p for p in model.parameters() if p.requires_grad]
     optimizer = torch.optim.SGD(trainable_params, args.lr,
                                 momentum=args.momentum,
@@ -101,41 +111,36 @@ def main():
     # optionally resume from a checkpoint
     if args.resume:
         assert os.path.isfile(args.resume), '{} is not a valid file'.format(args.resume)
-        model, optimizer, args.start_epoch, best_recall = load_helper.restore_from(model, optimizer, args.resume)
+        model, optimizer, args.start_epoch = load_helper.restore_from(model, optimizer, args.resume)
 
     model.cuda()
 
     runname = datetime.datetime.now().strftime('%b%d_%H-%M')
     writer = SummaryWriter(log_dir=args.save_dir+'/tensorboard'+runname)
-
+    #begin training
     for epoch in range(args.start_epoch, args.epochs):
+        # adjust learning rate
         if epoch+1 in args.step_epochs:
             lr = adjust_learning_rate(optimizer, 0.1, gradual= True)
-
+        # main function
         train(train_loader, model, optimizer, epoch+1, cfg, writer)
-
         save_checkpoint({
         'epoch': epoch + 1,
         'state_dict': model.state_dict(),
-        'best_recall': best_recall,
         'optimizer': optimizer.state_dict(),
-        }, is_best,
+        }, True,
         os.path.join(args.save_dir, 'checkpoint_e%d.pth' % (epoch + 1)))
     writer.close()
 
 
 def train(dataloader, model, optimizer, epoch, cfg, writer, warmup=False):
     logger = logging.getLogger('global')
-    if torch.cuda.device_count()>1:
-       print("Let's use", torch.cuda.device_count(), "GPUs!")
-       #model = nn.parallel.DistributedDataParallel(model)
-       model = nn.DataParallel(model, device_ids=range(torch.cuda.device_count()))
-    #model.to(device)
 
     model.cuda()
-    
     model.train()
+
     t0 = time.time()
+    # collect data
     for iter, _input in enumerate(dataloader):
         lr = adjust_learning_rate(optimizer, 1, gradual=True)
         img_ids = _input[10]
@@ -158,13 +163,13 @@ def train(dataloader, model, optimizer, epoch, cfg, writer, warmup=False):
         t1 = time.time()
         outputs = model(x)
         rpn_cls_loss = outputs['losses'][0]
-        rpn_loc_loss = outputs['losses'][1]
+        kl_loss = outputs['losses'][1]
         rpn_accuracy = outputs['accuracy'][0][0] / 100.
-
-        loss = rpn_cls_loss + rpn_loc_loss
+        #TODO: weights of losses need be adjusted
+        loss = rpn_cls_loss + kl_loss
 
         t2 = time.time()
-
+        # update optimizer
         optimizer.zero_grad()
         loss.backward(torch.ones_like(loss))
         #loss.reduce().backward()
@@ -173,18 +178,29 @@ def train(dataloader, model, optimizer, epoch, cfg, writer, warmup=False):
         t3 = time.time()
         # print('loss shape:', loss.size(), loss[0].size())
         # print('rpn_accuracy:', rpn_accuracy.size())
-        logger.info('Epoch: [%d][%d/%d] LR:%f ForwardTime: %.3f Loss: %0.5f (rpn_cls: %.5f rpn_loc: %.5f img:%s rpn_acc: %.5f)'%
-                    (epoch, iter, len(dataloader), lr, t2-t1, loss.cpu().item(), rpn_cls_loss.cpu().item(), rpn_loc_loss.cpu().item(),img_ids,rpn_accuracy.cpu().data.numpy()))
-        log_helper.print_speed((epoch - 1) * len(dataloader) + iter + 1, t3 - t0, args.epochs * len(dataloader))
+        #logger.info('Epoch: [%d][%d/%d]  Loss: %0.5f (cls: %.5f loc: %.5f img:%s acc: %.5f)'%
+                    #(epoch, iter, len(dataloader), loss.cpu().item(), rpn_cls_loss.cpu().item(), rpn_loc_loss.cpu().item(),img_ids,rpn_accuracy.cpu().data.numpy()))
+        i = (epoch - 1) * len(dataloader) + iter + 1
+        i_time = t3 - t0
+        n = args.epochs * len(dataloader)
+        average_time = i_time
+        remaining_time = (n - i) * average_time
+        remaining_day = math.floor(remaining_time / 86400)
+        remaining_hour = math.floor(remaining_time / 3600 - remaining_day * 24)
+        remaining_min = math.floor(remaining_time / 60 - remaining_day * 1440 - remaining_hour * 60)
+        sys.stdout.write("\r" + "Epoch: [%d][%d/%d]  Loss: %0.5f (cls: %.5f loc_kl: %.5f img:%s acc: %.5f) Progress: [%d%%], ETA %d:%02d:%02d" %
+                    (epoch, iter, len(dataloader), loss.cpu().item(), rpn_cls_loss.cpu().item(),
+                     kl_loss.cpu().item(), img_ids, rpn_accuracy.cpu().data.numpy(),i / n * 100, remaining_day, remaining_hour, remaining_min))
+
+        #log_helper.print_speed((epoch - 1) * len(dataloader) + iter + 1, t3 - t0, args.epochs * len(dataloader))
         writer.add_scalar('total_loss', loss.cpu().item(), (epoch - 1) * len(dataloader) + iter + 1)
         writer.add_scalar('rpn_cls_loss', rpn_cls_loss.cpu().item(), (epoch - 1) * len(dataloader) + iter + 1)
-        writer.add_scalar('rpn_loc_loss', rpn_loc_loss.cpu().item(), (epoch - 1) * len(dataloader) + iter + 1)
+        writer.add_scalar('kl_loss', kl_loss.cpu().item(), (epoch - 1) * len(dataloader) + iter + 1)
         t0 = t3
 
 def validate(dataset, dataloader, model, cfg, epoch=-1):
     # switch to evaluate mode
     logger = logging.getLogger('global')
-    torch.cuda.set_device(0)
     model.cuda()
     model.eval()
 

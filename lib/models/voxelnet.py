@@ -167,5 +167,5 @@ class Voxelnet(model):
         return out
 
     def rpn(self, x):
-        rpn_pred_cls, rpn_pred_loc = self._rpn(x)
-        return rpn_pred_cls, rpn_pred_loc
+        rpn_pred_cls, rpn_pred_loc, rpn_pred_loc_variation = self._rpn(x)
+        return rpn_pred_cls, rpn_pred_loc, rpn_pred_loc_variation
