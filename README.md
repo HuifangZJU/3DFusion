@@ -1,3 +1,3 @@
 # data-association
 
-Inter-vehicl dataassociation with coopdataset
+Inter-vehicle dataassociation with coopdataset
