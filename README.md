@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Cooperative 3D Object Detection using Infrastructure Sensors
 
 This is the official implementation of the paper [Cooperative Perception for 3D Object Detection in Driving Scenarios Using Infrastructure Sensors](https://ieeexplore.ieee.org/abstract/document/9228884).
@@ -99,3 +100,8 @@ The cameras IDs can be identified in the Figure on the dataset details section.
 
 ## :octocat: Acknowledgements
 This implementation is heavily based on the [Voxelnet](https://arxiv.org/abs/1711.06396) implemenation of [Yc174](https://github.com/Yc174/voxelnet).
+=======
+# data-association
+
+Inter-vehicle dataassociation with coopdataset
+>>>>>>> 55dbd5293df3fef0a36e068642f2ee47951f411a

@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/coop-3dod-infra.iml" filepath="$PROJECT_DIR$/.idea/coop-3dod-infra.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/pix2pix.iml" filepath="$PROJECT_DIR$/.idea/pix2pix.iml" />
+>>>>>>> 55dbd5293df3fef0a36e068642f2ee47951f411a
     </modules>
   </component>
 </project>
